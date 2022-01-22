@@ -1,0 +1,62 @@
+
+/* 
+    Created on : 30 nov. 2021, 17:11:32
+    Author     : Manon Michaux
+*/
+
+body {
+    margin: 2px;
+    background-color: #DEB887;
+    position: relative;
+    float: left;
+    font-size: 24px;
+}
+.options{
+    position: relative;
+    float: left;
+    font-size: 24px;
+    
+}
+
+.options button{
+    padding: 20px 30px;
+    font-size: 20px;
+}
+#explanationrandom{
+    font-size: 20px;
+    background-color: #9f40bf;
+}    
+    
+.random{
+    
+    background-color: #f2690d;
+    border: none;
+    color: white;
+    
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.history{
+    
+    background-color: #5F9EA0; /* Green */
+    border: none;
+    color: white;
+    
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+#okoption{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;   
+}

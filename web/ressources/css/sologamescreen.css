@@ -1,0 +1,62 @@
+
+/* 
+    Created on : 1 déc. 2021, 15:09:57
+    Author     : Manon Michaux
+*/
+
+body{
+    
+    background-color: #993366;
+    
+}
+
+#timerblock{
+    position: relative;
+    float:left;
+    font-size: 20px;
+    color: #ffccff;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.scoreblock{
+    position: relative;
+    float:right;
+    font-size: 20px;
+    color: #ffccff;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.question{
+    float:left;
+    position: absolute;
+    font-size: 26px;
+    color:#e0e0d1;
+}
+
+.answers{
+    position: relative;
+    background-color: #ff6699;
+    padding: 100px 120px;
+}
+.answerA{
+    float: left;
+   left:60px;
+}
+    
+.answerC{
+   float: left;
+   left:60px;
+   bottom: 40px;
+}
+
+.answerB{
+    float:right;
+    right: 40px;
+    
+}
+
+.answerD{
+    bottom: 40px;
+    float:right;
+    right: 40px;
+}
