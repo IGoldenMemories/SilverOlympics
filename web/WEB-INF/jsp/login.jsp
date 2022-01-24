@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
         <title>Login</title>
-        <link rel="stylesheet" href="/Login_Register.css" >
+        <link href=" ${pageContext.request.contextPath}/css/Login_Register.css" rel="stylesheet" type="text/css">
 
     </head>
     <body>
@@ -34,7 +34,7 @@
                 <!-- form footer with redirection link to register page if no account has been created for the institution -->
                 <div class="form-footer">
                     <button type="submit" class="btn">Se connecter</button>
-                    <br> ${message}
+                    <br> 
                     <div class="noaccount"> Pas encore de compte? <a href="{{url_for('register')}}" > Créez en un ! </a> </div>
                 </div>
             </form>
