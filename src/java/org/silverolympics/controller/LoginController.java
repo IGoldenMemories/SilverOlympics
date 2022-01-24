@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  */
 
 
-@WebServlet("/connection")
+
 public class LoginController extends HttpServlet {
 
     /**

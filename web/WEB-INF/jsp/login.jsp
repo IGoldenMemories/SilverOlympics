@@ -4,13 +4,13 @@
     Author     : Manon Michaux
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html;charset=utf-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html;" charset="ISO-8859-1">
+        <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
         <title>Login</title>
-        <link rel="stylesheet" href="ressources/css/Login_Register.css" >
+        <link rel="stylesheet" href="/Login_Register.css" >
 
     </head>
     <body>
@@ -19,24 +19,24 @@
             <form class="login-form" action="LoginController" accept-charset="ISO-8859-1" method="post" name ="LoginForm" onsubmit="return validate()">        
                 <!-- form header -->
                 <div class="form-header">
-                    <h1> Veuillez vous connecter </h1>
+                    <h1> Bienvenue sur Silver Olympics, veuillez vous connecter </h1>
                 </div>
                 
                 <!-- form body -->
                 <div class =" form-body">
                     <!-- Username of the institution's account -->
                     <label for="username" class="label-title"> Nom d'utilisateur: </label>
-                    {{ form.username(placeholder="entrez le nom d'utilisateur du compte de votre établissement", class="form-input") }}
+                    <input class="form-input" name ="username" size="40"/>
                     <!-- Password of the institution's account -->
                     <label for="password" class="label-title"> Mot de passe:</label>
-                    {{ form.password(placeholder="entrez le mot de passe du compte de votre établissement", class="form-input")
+                    <input class="form-input" name ="password" size="40"/>
                 </div>
                 <!-- form footer with redirection link to register page if no account has been created for the institution -->
                 <div class="form-footer">
-                <!-- Redirects to the register page  -->
-                <button type="submit" class="btn">Se connecter</button>
-      <div class="noconnected"> Pas encore de compte? <a href="{{url_for('register')}}" > Créez en un ! </a> </div>
-                <h3> Pas encore de compte? <a href="register.jsp"> Créer un compte </a> </h3>
+                    <button type="submit" class="btn">Se connecter</button>
+                    <br> ${message}
+                    <div class="noaccount"> Pas encore de compte? <a href="{{url_for('register')}}" > Créez en un ! </a> </div>
+                </div>
             </form>
         </div>
     </body>
