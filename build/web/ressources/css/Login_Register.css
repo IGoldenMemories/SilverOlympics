@@ -5,9 +5,55 @@
 */
 
 body {
-    margin: 3px;
-    width: 550px;
-    height: 260px;
-    background-color: #e6ccff;
+    
+    display: grid;
+    align-items: center;
+    background: linear-gradient(227deg, #ca9b26, #6c78dd, #a8601a);
+    background-size: 600% 600%;
+
+    animation: Backgroundanimation 32s ease infinite;
 }
 
+@keyframes Backgroundanimation {
+    0%{background-position:0% 35%}
+    50%{background-position:100% 66%}
+    100%{background-position:0% 35%}
+}
+
+.formwrapper{
+    display: block;
+    text-align: center;
+}
+
+.login-form{
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 650px;
+    margin: 30px auto;
+    background: rgba(179, 179, 204, 0.5);
+    border-radius: 10px;
+    
+}
+
+.form-header {
+    background-color: #eff0f1;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.form-header h1 {
+    font-size: 30px;
+    text-align: center;
+    color: #666;
+    padding: 20px 0;
+    border-bottom: 1px solid #cccccc;
+    margin: 0;
+}
+
+/*---------------------------------------*/
+/* Form Body */
+/*---------------------------------------*/
