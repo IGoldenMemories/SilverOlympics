@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>SilverOlympics-Acceuil</title>
-        <link rel="stylesheet" href="ressources/css/Homepage.css" >
+        <link rel="stylesheet" href="../css/Homepage.css" >
 
 
     </head>
@@ -20,7 +20,7 @@
         <!-- Display of the header/navigation tab -->
         <div class = "header">
             <!-- Redirects to the "same" homepage  -->
-            <a href="Acceuil_connecté.jsp">Acceuil</a>
+            <a href="homepage.jsp">Acceuil</a>
             <!-- Opens a pop-up to   allow the user to connect themselves to their establishment's account -->
             <a href='#' onclick= 'javascript:window.open("login.jsp", "_blank", "scrollbars=1,resizable=1,height=300,width=450")'>Connection</a>
             <a href="${pageContext.request.contextPath}/classement">Classement</a>

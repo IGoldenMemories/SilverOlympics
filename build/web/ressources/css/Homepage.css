@@ -8,8 +8,16 @@ body {
     margin: 0;
     width: 1366px;
     height: 784px;
-    background-color: #e6ccff;
-    
+    background: linear-gradient(270deg, #98185d, #cbad1f, #a162ba);
+    background-size: 600% 600%;
+
+    animation: AnimationName 30s ease infinite;
+}
+
+@keyframes AnimationName {
+    0%{background-position:84% 0%}
+    50%{background-position:17% 100%}
+    100%{background-position:84% 0%}
 }
 .header {
     background-color: #333;
