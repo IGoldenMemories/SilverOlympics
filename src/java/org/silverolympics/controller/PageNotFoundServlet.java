@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
  * @author Manon
  */
 
-@WebServlet(urlPatterns = { "/" })
+
 public class PageNotFoundServlet extends HttpServlet {
 
        private static final long serialVersionUID = 1L;
