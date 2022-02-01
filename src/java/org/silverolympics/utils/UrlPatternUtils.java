@@ -15,7 +15,9 @@ import jakarta.servlet.http.HttpServletRequest;
  * @see org.silverolympics.filter.UrlFilter
  */
 public class UrlPatternUtils {
-
+    /*
+    * verifies whether an entered url corresponds to a created servlet
+    */
    private static boolean hasUrlPattern(ServletContext servletContext, String urlPattern) {
 
       Map<String, ? extends ServletRegistration> map = servletContext.getServletRegistrations();
@@ -32,11 +34,13 @@ public class UrlPatternUtils {
       return false;
    }
 
-   // servletPath:
-   // ==> /spath
-   // ==> /spath/*
-   // ==> *.ext
-   // ==> /
+   /*
+   * Handles servlet path such as:
+   * ==> /somepath
+   * ==> /somepath/*
+   * ==> *.extension
+   * ==> /
+   */
    public static String getUrlPattern(HttpServletRequest request) {
       ServletContext servletContext = request.getServletContext();
       String servletPath = request.getServletPath();
@@ -48,7 +52,7 @@ public class UrlPatternUtils {
          return urlPattern;
       }
       urlPattern = servletPath;
-
+      //checks whether the entered url corresponds to a servlet
       boolean has = hasUrlPattern(servletContext, urlPattern);
       if (has) {
          return urlPattern;
