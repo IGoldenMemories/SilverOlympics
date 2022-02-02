@@ -3,7 +3,6 @@ package org.silverolympics.controller;
 
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
  * 
  * @author Manon
  */
-@WebServlet({ "/", "/index" })
+
 public class HomeControllerServlet extends HttpServlet {
     
     private static final long serialVersionUID = 1L;
@@ -38,7 +37,7 @@ public class HomeControllerServlet extends HttpServlet {
             throws ServletException, IOException {
 
         RequestDispatcher dispatcher //
-                = this.getServletContext().getRequestDispatcher("/WEB-INF/homepage.jsp");
+                = this.getServletContext().getRequestDispatcher("/index.jsp");
 
         dispatcher.forward(request, response);
     }

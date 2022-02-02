@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
     <servlet>
-        <servlet-name>HomePageController</servlet-name>
-        <servlet-class>org.silverolympics.controller.HomePageController</servlet-class>
+        <servlet-name>HomeControllerServlet</servlet-name>
+        <servlet-class>org.silverolympics.controller.HomeControllerServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegisterController</servlet-name>
-        <servlet-class>org.silverolympics.controller.RegisterController</servlet-class>
+        <servlet-name>RegisterControllerServlet</servlet-name>
+        <servlet-class>org.silverolympics.controller.RegisterControllerServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LoginController</servlet-name>
-        <servlet-class>org.silverolympics.controller.LoginController</servlet-class>
+        <servlet-name>LoginControllerServlet</servlet-name>
+        <servlet-class>org.silverolympics.controller.LoginControllerServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>optionspanelsolocontroller</servlet-name>
@@ -21,11 +21,15 @@
         <servlet-class>org.silverolympics.controller.PageNotFoundServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>RegisterController</servlet-name>
-        <url-pattern>/RegisterController</url-pattern>
+        <servlet-name>HomeControllerServlet</servlet-name>
+        <url-pattern>/acceuil</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
+        <servlet-name>RegisterControllerServlet</servlet-name>
+        <url-pattern>/creercompte</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginControllerServlet</servlet-name>
         <url-pattern>/connection</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

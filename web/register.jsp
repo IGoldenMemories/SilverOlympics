@@ -9,20 +9,36 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nouveaucompte</title>
+        <title>Nouveau compte</title>
         <link rel="stylesheet" href="ressources/css/Login_Register.css" >
     </head>
     <body>
-        <h2>Créer un compte:</h2>
+        <div class="formwrapper">
+            <form method="post" accept-charset="ISO-8859-1" action="controller/RegisterController" onsubmit="return validate()" >
+                
+                <!-- form header -->
+                <div class="form-header">
+                    <h2>Créer un compte:</h2>
+                </div>
         
-        <form method="post" accept-charset="ISO-8859-1" action="controller/RegisterController" onsubmit="return validate()" >
-            Nom d'utilisateur: <input type="text" name="username" ></br></br>
-            Mot de passe: <input type="text" name="password" > </br></br>
-            
-            <input type="submit" name="button_register" value="Créer le compte">
-            
-            <h3> Existe-t-il déjà un compte pour votre établissement? </br> Si oui, <a href="login.jsp"> connectez vous</a> </h3>
-        
-        </form>
+                <!-- form body -->
+                <div class =" form-body">
+                    <!-- Username of the institution's account -->
+                    <label for="username" class="label-title"> Nom d'utilisateur: </label>
+                    <input class="form-input" name ="username" size="40"/>
+                    <!-- Password of the institution's account -->
+                    <label for="password" class="label-title"> Mot de passe:</label>
+                    <input class="form-input" name ="password" size="40"/>
+                    
+                </div>
+                
+                <!-- form footer with redirection link to register page if no account has been created for the institution -->
+                <div class="form-footer">
+                    <input type="submit" class="btn" name="button_register" value="Créer le compte">
+                    <br>
+                    <h3> Existe-t-il déjà un compte pour votre établissement? </br> Si oui, <a href="${pageContext.request.contextPath}/connection"> connectez vous</a> </h3>
+                </div>
+            </form>
+        </div>
     </body>
 </html>

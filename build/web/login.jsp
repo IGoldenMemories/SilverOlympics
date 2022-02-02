@@ -9,17 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
-        <title>Login</title>
-        <link href=" ${pageContext.request.contextPath}/css/Login_Register.css" rel="stylesheet" type="text/css">
+        <title>Connection</title>
+        <link href=" ressources/css/Login_Register.css" rel="stylesheet" type="text/css">
 
     </head>
     <body>
         <div class="formwrapper">
             
-            <form class="login-form" action="LoginController" accept-charset="ISO-8859-1" method="post" name ="LoginForm" onsubmit="return validate()">        
+            <form class="login-form" accept-charset="ISO-8859-1" method="post" name ="LoginForm" ">        
                 <!-- form header -->
                 <div class="form-header">
-                    <h1> Bienvenue sur Silver Olympics, veuillez vous connecter </h1>
+                    <h2> Bienvenue sur Silver Olympics, veuillez vous connecter </h2>
                 </div>
                 
                 <!-- form body -->
@@ -35,7 +35,7 @@
                 <div class="form-footer">
                     <button type="submit" class="btn">Se connecter</button>
                     <br> 
-                    <div class="noaccount"> Pas encore de compte? <a href="{{url_for('register')}}" > Créez en un ! </a> </div>
+                    <div class="noaccount"> Pas encore de compte? <a href="${pageContext.request.contextPath}/creercompte" > Créez en un ! </a> </div>
                 </div>
             </form>
         </div>

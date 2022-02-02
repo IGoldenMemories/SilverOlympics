@@ -25,7 +25,6 @@ import org.silverolympics.utils.AppUtils;
  */
 
 
-@WebServlet("/login")
 public class LoginControllerServlet extends HttpServlet {
     
     private static final long serialVersionUID = 1L;
@@ -48,7 +47,7 @@ public class LoginControllerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
         RequestDispatcher dispatcher //
-				= this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
+				= this.getServletContext().getRequestDispatcher("/login.jsp");
 
 		dispatcher.forward(request, response);
 	}
@@ -68,7 +67,7 @@ public class LoginControllerServlet extends HttpServlet {
 			request.setAttribute("errorMessage", errorMessage);
 
 			RequestDispatcher dispatcher //
-					= this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
+					= this.getServletContext().getRequestDispatcher("/login.jsp");
 
 			dispatcher.forward(request, response);
 			return;
@@ -76,20 +75,8 @@ public class LoginControllerServlet extends HttpServlet {
 
 		AppUtils.storeLoggedinUser(request.getSession(), userAccount);
 
-		// 
-		int redirectId = -1;
-		try {
-			redirectId = Integer.parseInt(request.getParameter("redirectId"));
-		} catch (Exception e) {
-		}
-		String requestUri = AppUtils.getRedirectAfterLoginUrl(request.getSession(), redirectId);
-		if (requestUri != null) {
-			response.sendRedirect(requestUri);
-		} else {
-			// Default after successful login
-			// redirect to /acceuil page
-			response.sendRedirect(request.getContextPath() + "/acceuil");
-		}
+		response.sendRedirect("/homepage.jsp");
+		
 
 	}
     
