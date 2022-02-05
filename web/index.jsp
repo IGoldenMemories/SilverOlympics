@@ -19,12 +19,11 @@
     <body>
         <!-- Display of the header/navigation tab -->
         <div class = "header">
-            
             <a href="${pageContext.request.contextPath}/creercompte" >Créer un compte </a>  
             <a href="${pageContext.request.contextPath}/connection" >Se connecter</a>
             <a href="${pageContext.request.contextPath}/classement">Classement</a>
             <a href="${pageContext.request.contextPath}/aide">Aide</a>
-     
+           
         </div>
 
         <div class="title">

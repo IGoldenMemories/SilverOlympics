@@ -37,7 +37,7 @@ public class HomeControllerServlet extends HttpServlet {
             throws ServletException, IOException {
 
         RequestDispatcher dispatcher //
-                = this.getServletContext().getRequestDispatcher("/index.jsp");
+                = this.getServletContext().getRequestDispatcher("WEB-INF/index.jsp");
 
         dispatcher.forward(request, response);
     }

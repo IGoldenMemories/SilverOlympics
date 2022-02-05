@@ -26,10 +26,10 @@ public class DataBaseMock {
     private static void initUsers() {
 
       // First mock user account 
-      UserAccount usr_1 = new UserAccount("Tournesols", "1992", 5);
+      UserAccount usr_1 = new UserAccount(1,"Tournesols", "1992", 5);
 
       // Second mock user account
-      UserAccount usr_2 = new UserAccount("Tulipes", "1987", 2);
+      UserAccount usr_2 = new UserAccount(2,"Tulipes", "1987", 2);
 
       mapUsers.put(usr_1.getUserName(), usr_1);
       mapUsers.put(usr_2.getUserName(), usr_2);

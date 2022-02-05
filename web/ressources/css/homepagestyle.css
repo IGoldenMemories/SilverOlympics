@@ -23,13 +23,13 @@ body {
     background-color: #333;
     overflow: hidden;
 }
-.header a{
-    color: #ffffcc;
+
+.header a {
+  color: #ffffcc;
     text-align: center;
     text-decoration: none;
     padding: 21px 24px;
     font-size: 30px;
-    
 }
 .header a:hover {
   background-color: #ddd;

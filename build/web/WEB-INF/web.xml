@@ -20,6 +20,9 @@
         <servlet-name>PageNotFoundServlet</servlet-name>
         <servlet-class>org.silverolympics.controller.PageNotFoundServlet</servlet-class>
     </servlet>
+    
+    
+    
     <servlet-mapping>
         <servlet-name>HomeControllerServlet</servlet-name>
         <url-pattern>/acceuil</url-pattern>

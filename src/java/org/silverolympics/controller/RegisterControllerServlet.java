@@ -15,9 +15,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
+import org.silverolympics.bean.ConnectionDB;
+import org.silverolympics.bean.UserAccount;
+import org.silverolympics.dao.DataBaseDao;
 /**
  *
  * @author Manon Michaux
+ * @see org.silverolympics.bean.ConnectionDB
+ * @see org.silverolympics.dao.DataBaseDao
  */
 
 public class RegisterControllerServlet extends HttpServlet {
@@ -61,33 +66,22 @@ public class RegisterControllerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
         
-        response.setContentType("text/html");  
-        PrintWriter out = response.getWriter();  
         
-        Connection con = null;
-        PreparedStatement stmt = null;
+        DataBaseDao regUser = new DataBaseDao(ConnectionDB.getConnection());
         String newusername="",newpassword="";
         newusername= request.getParameter("username");
         newpassword= request.getParameter("password");
-        
-        try{
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
-            
-            con = DriverManager.getConnection("jdbc:derby://localhost:1527/SilverDB", "root", "SilverOlympics2021");
-            stmt= con.prepareStatement("insert into loginuser values(?,?,?,?)");  
-            stmt.setString(1,newusername);  
-            stmt.setString(2,newpassword);  
-            
-            stmt.executeUpdate();
-            out.print("You are successfully registered...");  
-            
-        } catch (SQLException ex) {
-            out.println("Sorry didn't work");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(RegisterControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //How to get number of entries in database
+        UserAccount user = new UserAccount(0,newusername, newpassword,0);
         
         
-        
+        if (regUser.saveUser(user)) {
+            response.sendRedirect("/connection");
+}       else {
+            String errorMessage = "User Available";
+            HttpSession regSession = request.getSession();
+            regSession.setAttribute("RegError", errorMessage);
+            response.sendRedirect("/creercompte");
+            }
     }
 }
