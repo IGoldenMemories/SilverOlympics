@@ -19,7 +19,7 @@ import java.sql.SQLException;
  */
 public class LoginDao {
     
-    public String authorizeLogin(LoginBean loginBean){
+    public static String authorizeLogin(LoginBean loginBean){
         
         String username = loginBean.getUsername();
         String password = loginBean.getPassword();
@@ -50,7 +50,7 @@ public class LoginDao {
                
                if(username.equals(dbusername)&& password.equals(dbpassword)){
                    
-                   return "SUCCESS LOGIN";
+                   return "SUCCESSFUL LOGIN";
                }
            }
            //closing the statement

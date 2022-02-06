@@ -8,12 +8,18 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.silverolympics.bean.UserAccount;
+import org.silverolympics.dao.DataBaseDao;
 
 /**
  * 
  * @author Manon
  */
-
+@WebServlet("/")
 public class HomeControllerServlet extends HttpServlet {
     
     private static final long serialVersionUID = 1L;
@@ -35,11 +41,16 @@ public class HomeControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int value = 0;
+        try {
+            value = DataBaseDao.number_users();
+        } catch (SQLException ex) {
+            Logger.getLogger(HomeControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        request.setAttribute("resultdb",value);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
 
-        RequestDispatcher dispatcher //
-                = this.getServletContext().getRequestDispatcher("WEB-INF/index.jsp");
-
-        dispatcher.forward(request, response);
+       
     }
     
     /**

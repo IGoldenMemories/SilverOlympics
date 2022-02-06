@@ -42,38 +42,5 @@ public class AppUtils {
 		return loggedinUser;
 	}
 
-    /**
-     * Stores the url that was requested and that couldn't be reached because the user wasn't logged in 
-     * @param session the current user's session instance
-     * @param requestUri the requested uri by the user 
-     * @return id the numeric id of the user's session (which is unique amongs all currently connected users' account)
-     */
-    public static int storeRedirectAfterLoginUrl(HttpSession session, String requestUri) {
-		Integer id = uri_id_map.get(requestUri);
-
-		if (id == null) {
-			id = REDIRECT_ID++;
-
-			uri_id_map.put(requestUri, id);
-			id_uri_map.put(id, requestUri);
-			return id;
-		}
-
-		return id;
-	}
-
-    /**
-     *
-     * @param session the current user's session instance
-     * @param redirectId 
-     * @return url the url towards which the user will be redirected once logged in 
-     */
-    public static String getRedirectAfterLoginUrl(HttpSession session, int redirectId) {
-		String url = id_uri_map.get(redirectId);
-		if (url != null) {
-			return url;
-		}
-		return null;
-	}
 
 }

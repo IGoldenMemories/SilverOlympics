@@ -13,16 +13,18 @@
         <servlet-class>org.silverolympics.controller.LoginControllerServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ScoreBoardControllerServlet</servlet-name>
+        <servlet-class>org.silverolympics.controller.ScoreBoardControllerServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
         <servlet-name>optionspanelsolocontroller</servlet-name>
         <servlet-class>org.silverolympics.controller.optionspanelsolocontroller</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PageNotFoundServlet</servlet-name>
         <servlet-class>org.silverolympics.controller.PageNotFoundServlet</servlet-class>
-    </servlet>
-    
-    
-    
+    </servlet>    
     <servlet-mapping>
         <servlet-name>HomeControllerServlet</servlet-name>
         <url-pattern>/acceuil</url-pattern>
@@ -34,6 +36,10 @@
     <servlet-mapping>
         <servlet-name>LoginControllerServlet</servlet-name>
         <url-pattern>/connection</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ScoreBoardControllerServlet</servlet-name>
+        <url-pattern>/classement</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>optionspanelsolocontroller</servlet-name>

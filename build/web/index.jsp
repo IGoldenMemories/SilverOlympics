@@ -4,6 +4,8 @@
     Author     : Manon Michaux 
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="org.silverolympics.bean.UserAccount"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -32,10 +34,9 @@
             
         </div>   
           
-        
-            </br>
+            <div class="resultdisplay"> number of users: ${resultdb} </div> 
         <div class="imagebackground">
-            <img src="ressources/img/bugsbodovsstock.png" alt="imageback" width="800" height="600">
+            <img src="WEB-INF/ressources/img/bugsbodovsstock.png" alt="imageback" width="800" height="600">
         </div>
 
         
