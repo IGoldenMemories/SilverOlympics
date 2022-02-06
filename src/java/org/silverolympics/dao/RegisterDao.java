@@ -18,9 +18,9 @@ public class RegisterDao {
         String username= registerBean.getUsername();
         String password= registerBean.getPassword();
         
-        String url="jdbc:derby://localhost:1527/SilverOlympicsDB";
+        String url="jdbc:mysql://localhost:3306/silver_schema?zeroDateTimeBehavior=CONVERT_TO_NULL [root on Default schema]";
         String uname="root";
-        String pass="";
+        String pass="Silv3rQuestions42";
         
         try{
            Connection con=DriverManager.getConnection(url, uname, pass);

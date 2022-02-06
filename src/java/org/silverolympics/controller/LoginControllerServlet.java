@@ -56,26 +56,49 @@ public class LoginControllerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String userName = request.getParameter("userName");
-		String password = request.getParameter("password");
-		UserAccount userAccount = DataBaseMock.findUser(userName, password);
+		String input_userName = request.getParameter("userName");
+		String input_password = request.getParameter("password");
+                LoginBean testlogin = new LoginBean(input_userName,input_password);
                 
-                //TO RAFFINE (see decision tree)
-		if (userAccount == null) {
-			String errorMessage = "Invalid userName or Password";
-
+                //Replace with database check in logindao
+		String resulttest = LoginDao.authorizeLogin(testlogin);
+                
+                //TO RAFFINE (see decision tree --> HANDLED BY LOGINDAO SEE SUCCESS )
+		if (resulttest.equals("SUCCESSFUL LOGIN")) {
+                    
+                    
+                    
+                    RequestDispatcher dispatcher= this.getServletContext().getRequestDispatcher("/homepage.jsp");
+                    
+                    dispatcher.forward(request, response);
+	
+		}
+                else{
+                    if(resulttest.equals("NoAccountWithUsername")){
+                        String errorMessage = "Nom d'utilisateur n'appartient à aucun compte existant";
+                        //DISPLAY ERROR MESSAGE IN HTML VIA ATTRIBUTE
 			request.setAttribute("errorMessage", errorMessage);
-
-			RequestDispatcher dispatcher //
+                        RequestDispatcher dispatcher //
 					= this.getServletContext().getRequestDispatcher("/login.jsp");
 
 			dispatcher.forward(request, response);
-			return;
-		}
+                       
+                    }
+                    else{
+                        
+                        String errorMessage = "Mot de passe ne correspondant pas au nom d'utilisateur";
+                        //DISPLAY ERROR MESSAGE IN HTML VIA ATTRIBUTE
+			request.setAttribute("errorMessage", errorMessage);
+                        RequestDispatcher dispatcher //
+					= this.getServletContext().getRequestDispatcher("/login.jsp");
 
-		AppUtils.storeLoggedinUser(request.getSession(), userAccount);
-
-		response.sendRedirect("/homepage.jsp");
+			dispatcher.forward(request, response);
+                        
+                    }
+                        
+                }
+                    
+                           
 		
 
 	}

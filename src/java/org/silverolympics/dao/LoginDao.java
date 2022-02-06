@@ -11,6 +11,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.silverolympics.bean.UserAccount;
+import org.silverolympics.utils.AppUtils;
 /**
  * Takes care of all the logic surrounding databases' accesses to validate the user's inputed credentials
  * 
@@ -29,42 +31,75 @@ public class LoginDao {
         String dbusername="";
         String dbpassword="";
         
-        String url="jdbc:derby://localhost:1527/SilverOlympicsDB";
-        String uname="anuser";
-        String pass="SilverOlympics2021";
+        String url="jdbc:mysql://localhost:3306/silver_schema?zeroDateTimeBehavior=CONVERT_TO_NULL [root on Default schema]";
+        String uname="root";
+        String pass="Silv3rQuestions42";
         
         try{
            Connection con=DriverManager.getConnection(url, uname, pass);
            
-           //create a statement to check the existence/validity of the inputs
+           //creates a statement to, first, check the existence of an account with the input username
            PreparedStatement checkstatement=null;
-           checkstatement= con.prepareStatement("select * from LOGIN where USERNAME=? and PASSWORD=?");
-           checkstatement.setString(1,username);
-           checkstatement.setString(2,password);
-           ResultSet rs=checkstatement.executeQuery();
            
-           while(rs.next()){
-               dbusername=rs.getString("USERNAME");
-               dbpassword=rs.getString("PASSWORD");
+           checkstatement= con.prepareStatement("select * from user where username=?");
+           checkstatement.setString(1,username);
+           boolean user_exist=checkstatement.execute();
+           
+           
+           if(user_exist){
+               //closing the statement
+               checkstatement.close();
+               PreparedStatement checkstatement_pswrd=null;
+               //Checks whether the input password corresponds to the saved one of the account in the database
+               checkstatement_pswrd= con.prepareStatement("select * from user where username=? and password=?");
+               checkstatement_pswrd.setString(1,username);
+               checkstatement_pswrd.setString(2,password);
+               boolean correct_passwrd = checkstatement_pswrd.execute();
                
-               
-               if(username.equals(dbusername)&& password.equals(dbpassword)){
-                   
+               if(correct_passwrd){
+                   //Then the login is successful
+                   //closing the connection
+                   con.close();
+                   checkstatement_pswrd.close();
+                   PreparedStatement add_logged_user=null;
+                   add_logged_user= con.prepareStatement("select id, score from user where username=? and password=?");
+                   checkstatement_pswrd.setString(1,username);
+                   checkstatement_pswrd.setString(2,password);
+                   ResultSet logged_user = add_logged_user.executeQuery();
+                   // HOW TO USE RETURNED INFO (AN INTEGER)
+                   //ADD A NEW USERACCOUNT TO APPUTILS WITH ID = FOUND ONE, USERNAME FROM BEAN AND PASSWORD ALSO AND SCORE FROM QUERY
+                   //UserAccount user = new UserAccount(0,input_userName, input_password,0);
+                    //AppUtils.storeLoggedinUser(request.getSession(), user);
                    return "SUCCESSFUL LOGIN";
                }
+               
+               else{
+                   //The password was invalid
+                   //closing the connection
+                   con.close();
+                   checkstatement_pswrd.close();
+                   return "Mot de passe ne correspondant pas au nom d'utilisateur";
+               }
+               
            }
-           //closing the statement
-           checkstatement.close();
-           //closing the connection
-           con.close();
            
-           
+           else{
+               //user does not exist( input username doesn't correspond to any existing account in database)
+               //closing the connection
+               con.close();
+               return "Nom d'utilisateur n'appartient à aucun compte existant";
+               
+           }
+  
         }
+        
         
         catch(SQLException e){
             e.printStackTrace();
         }
-        return "Wrong Username AND/OR PASSWORD";
+        
+        return null;
+        
     }
     
 }

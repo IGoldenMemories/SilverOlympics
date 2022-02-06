@@ -65,23 +65,23 @@ public class RegisterControllerServlet extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+        String url="jdbc:mysql://localhost:3306/silver_schema?zeroDateTimeBehavior=CONVERT_TO_NULL [root on Default schema]";
+        String uname="root";
+        String pass="Silv3rQuestions42";
         
-        
-        DataBaseDao regUser = new DataBaseDao(ConnectionDB.getConnection());
-        String newusername="",newpassword="";
-        newusername= request.getParameter("username");
-        newpassword= request.getParameter("password");
-        //How to get number of entries in database
-        UserAccount user = new UserAccount(0,newusername, newpassword,0);
-        
-        
-        if (regUser.saveUser(user)) {
-            response.sendRedirect("/connection");
-}       else {
-            String errorMessage = "User Available";
-            HttpSession regSession = request.getSession();
-            regSession.setAttribute("RegError", errorMessage);
-            response.sendRedirect("/creercompte");
-            }
+        Connection con;
+        try {
+            con = DriverManager.getConnection(url, uname, pass);
+            String input_userName = request.getParameter("username");
+            String input_password = request.getParameter("password");
+            DataBaseDao reguser = new DataBaseDao(con);
+            int nbr_user = DataBaseDao.number_users();
+            //create a registerbean 
+            //call authorizeRegister(registerbean)
+            //Following result(msg) --> redirect (login if successful, register if chosen username already used)
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
