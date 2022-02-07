@@ -36,7 +36,7 @@
         <div > number of users: ${resultdb} </div>
         <button> <a href="${pageContext.request.contextPath}/jeusolooptions"> Entraînement </a></button> 
         <div class="imagebackground">
-            <img src="WEB-INF/ressources/img/bugsbodovsstock.png" alt="imageback" width="800" height="600">
+            <img src="ressources/img/bugsbodovsstock.png" alt="imageback" width="800" height="600">
         </div>
         
         
