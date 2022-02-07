@@ -14,6 +14,11 @@ import jakarta.servlet.http.HttpServletResponse;
  * @author Manon
  */
 public class ScoreBoardControllerServlet extends HttpServlet {
+    
+    public ScoreBoardControllerServlet() {
+        super();
+        
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -26,12 +31,13 @@ public class ScoreBoardControllerServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //https://codedec.com/tutorials/how-to-retrieve-data-and-display-in-table-format-in-jsp-and-servlet-using-mysql/
         RequestDispatcher dispatcher //
 				= this.getServletContext().getRequestDispatcher("/scoreboard.jsp");
         dispatcher.forward(request, response);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    
     /**
      * Handles the HTTP <code>GET</code> method.
      *

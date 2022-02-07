@@ -14,7 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>SilverOlympics-Acceuil</title>
-        <link rel="stylesheet" href="/ressources/css/homepagestyle.css" >
+        <link rel="stylesheet" href="ressources/css/homepagestyle.css" >
 
 
     </head>
@@ -33,11 +33,13 @@
             <h1>Bienvenue sur Silver Olympics </h1>
             
         </div>   
-          
-            <div class="resultdisplay"> number of users: ${resultdb} </div> 
+        <div > number of users: ${resultdb} </div>
+        <button> <a href="${pageContext.request.contextPath}/jeusolooptions"> Entraînement </a></button> 
         <div class="imagebackground">
             <img src="WEB-INF/ressources/img/bugsbodovsstock.png" alt="imageback" width="800" height="600">
         </div>
+        
+        
 
         
 

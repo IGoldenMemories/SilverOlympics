@@ -9,9 +9,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Classement/title>
+        <title>Classement </title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Tableau de score</h1>
+        
+        <table class="scoretable" border="1">
+            <thead>
+                <tr>
+                    <!-- Table headers -->
+                    <td></td>
+                    <td>Nom</td>
+                    <td>Total de points</td>
+                </tr>
+            </thead>
+            <tbody>
+                
+                
+            </tbody>
+            
     </body>
 </html>

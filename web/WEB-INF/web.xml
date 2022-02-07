@@ -18,8 +18,8 @@
     </servlet>
     
     <servlet>
-        <servlet-name>optionspanelsolocontroller</servlet-name>
-        <servlet-class>org.silverolympics.controller.optionspanelsolocontroller</servlet-class>
+        <servlet-name>GameOptionsPanelControllerServlet</servlet-name>
+        <servlet-class>org.silverolympics.controller.GameOptionsPanelControllerServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PageNotFoundServlet</servlet-name>
@@ -42,8 +42,8 @@
         <url-pattern>/classement</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>optionspanelsolocontroller</servlet-name>
-        <url-pattern>/optionspanelsolocontroller</url-pattern>
+        <servlet-name>GameOptionsPanelControllerServlet</servlet-name>
+        <url-pattern>/jeusolooptions</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PageNotFoundServlet</servlet-name>

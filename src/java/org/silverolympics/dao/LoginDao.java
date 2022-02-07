@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package org.silverolympics.dao;
+import jakarta.servlet.http.HttpSession;
 import org.silverolympics.bean.LoginBean;
 
 import java.sql.Connection;
@@ -21,15 +22,14 @@ import org.silverolympics.utils.AppUtils;
  */
 public class LoginDao {
     
-    public static String authorizeLogin(LoginBean loginBean){
+    public static String authorizeLogin(LoginBean loginBean, HttpSession session){
         
         String username = loginBean.getUsername();
         String password = loginBean.getPassword();
         //Creates two variables to compare:
         //whether the entered username belongs to a created account
         //if so, whether the entered password matches that username
-        String dbusername="";
-        String dbpassword="";
+        
         
         String url="jdbc:mysql://localhost:3306/silver_schema?zeroDateTimeBehavior=CONVERT_TO_NULL [root on Default schema]";
         String uname="root";
@@ -52,24 +52,31 @@ public class LoginDao {
                PreparedStatement checkstatement_pswrd=null;
                //Checks whether the input password corresponds to the saved one of the account in the database
                checkstatement_pswrd= con.prepareStatement("select * from user where username=? and password=?");
+               //https://wisdomoverflow.com/2021/02/20/login-web-application-using-java-mysql-servlet-part-2/
                checkstatement_pswrd.setString(1,username);
                checkstatement_pswrd.setString(2,password);
                boolean correct_passwrd = checkstatement_pswrd.execute();
                
                if(correct_passwrd){
                    //Then the login is successful
-                   //closing the connection
+                   //closes the connection and statements
                    con.close();
                    checkstatement_pswrd.close();
                    PreparedStatement add_logged_user=null;
+                   //And stores the logged in user in a list for multi player game/ accessing the user's info
                    add_logged_user= con.prepareStatement("select id, score from user where username=? and password=?");
                    checkstatement_pswrd.setString(1,username);
                    checkstatement_pswrd.setString(2,password);
-                   ResultSet logged_user = add_logged_user.executeQuery();
-                   // HOW TO USE RETURNED INFO (AN INTEGER)
-                   //ADD A NEW USERACCOUNT TO APPUTILS WITH ID = FOUND ONE, USERNAME FROM BEAN AND PASSWORD ALSO AND SCORE FROM QUERY
-                   //UserAccount user = new UserAccount(0,input_userName, input_password,0);
-                    //AppUtils.storeLoggedinUser(request.getSession(), user);
+                   ResultSet logged_user_id = add_logged_user.executeQuery();
+                   int user_id;
+                   int user_score;
+                   user_id = logged_user_id.getInt("id");
+                   user_score = logged_user_id.getInt("score");
+                   UserAccount current_user = new UserAccount();
+                   current_user.setId(user_id);
+                   current_user.setUserName(username);
+                   AppUtils.storeLoggedinUser(session, current_user);
+                   session.setAttribute("user_name", current_user.getUserName());
                    return "SUCCESSFUL LOGIN";
                }
                

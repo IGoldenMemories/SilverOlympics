@@ -14,7 +14,6 @@ import jakarta.servlet.http.HttpSession;
 import java.io.PrintWriter;
 
 import org.silverolympics.bean.UserAccount;
-import org.silverolympics.dao.DataBaseMock;
 import org.silverolympics.utils.AppUtils;
 /**
  *
@@ -59,9 +58,9 @@ public class LoginControllerServlet extends HttpServlet {
 		String input_userName = request.getParameter("userName");
 		String input_password = request.getParameter("password");
                 LoginBean testlogin = new LoginBean(input_userName,input_password);
-                
+                HttpSession session = request.getSession();
                 //Replace with database check in logindao
-		String resulttest = LoginDao.authorizeLogin(testlogin);
+		String resulttest = LoginDao.authorizeLogin(testlogin,session);
                 
                 //TO RAFFINE (see decision tree --> HANDLED BY LOGINDAO SEE SUCCESS )
 		if (resulttest.equals("SUCCESSFUL LOGIN")) {
