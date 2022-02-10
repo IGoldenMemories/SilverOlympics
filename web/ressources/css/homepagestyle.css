@@ -8,16 +8,17 @@ body {
     margin: 0;
     width: 1366px;
     height: 784px;
-    background: linear-gradient(270deg, #98185d, #cbad1f, #a162ba);
-    background-size: 600% 600%;
+    background: linear-gradient(350deg, #4e3b0b, #8e8119, #38457a, #7d2e1c);
+    background-size: 800% 800%;
 
-    animation: AnimationName 30s ease infinite;
+    animation: AnimationName 31s ease infinite;
 }
 
 @keyframes AnimationName {
-    0%{background-position:84% 0%}
-    50%{background-position:17% 100%}
-    100%{background-position:84% 0%}
+    0%{background-position:77% 0%}
+    50%{background-position:24% 100%}
+    100%{background-position:77% 0%}
+
 }
 .header {
     background-color: #333;
@@ -25,11 +26,12 @@ body {
 }
 
 .header a {
-  color: #ffffcc;
+    color: #ffffcc;
     text-align: center;
     text-decoration: none;
-    padding: 21px 24px;
+    padding: 26px 24px;
     font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .header a:hover {
   background-color: #ddd;
@@ -37,8 +39,11 @@ body {
 }
 
 h1{
+    color: #ccccff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     text-align: center;
     font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
     padding-top: 0;
 }
 
@@ -49,47 +54,22 @@ h1{
 }
 
 .center{
-    margin: 0;
-    position: absolute;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    
+}
+.solobutton{
+    text-align:center;
+}
+.solobutton button {
     top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-.gamebuttons button {
-  border: none;
-  color: white;
-  font-size: 25px;
-  padding: 100px 62px;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.buttonsolo{
-    
-    background-color: #996633;
-    
-}
-
-.buttonsolo:hover{
-    background-color: #cc9900;
-}
-
-.buttonmulti{
-     
-    background-color: grey;
-}
-
-.buttonmulti:hover{
-    background-color: #cc9900;
-}
-
-
-.imagebackground{
+    border: none;
+    color: white;
+    font-size: 12px;
+    padding: 25px 15px;
     text-align: center;
+    text-decoration: none;
+    cursor: pointer;
 }
-
-
-

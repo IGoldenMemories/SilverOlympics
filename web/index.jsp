@@ -15,6 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>SilverOlympics-Acceuil</title>
         <link rel="stylesheet" href="ressources/css/homepagestyle.css" >
+        
 
 
     </head>
@@ -29,16 +30,19 @@
         </div>
 
         <div class="title">
-            <br>
+           
             <h1>Bienvenue sur Silver Olympics </h1>
             
         </div>   
-        <div > number of users: ${resultdb} </div>
-        <button> <a href="${pageContext.request.contextPath}/jeusolooptions"> Entraînement </a></button> 
-        <div class="imagebackground">
-            <img src="ressources/img/bugsbodovsstock.png" alt="imageback" width="800" height="600">
-        </div>
         
+        <div class="solobutton"><button> 
+                <a href="${pageContext.request.contextPath}/jeusolooptions"> Entraînement </a></button> 
+        </div>
+        <br>
+        <div class="center imagebackground" id="backimage">
+           
+        </div>
+        <script type="text/javascript" src="ressources/js/homepagehandler.js"></script>  
         
 
         

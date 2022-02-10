@@ -13,9 +13,7 @@
         <title>Partie Solo</title>
         <link rel="stylesheet" href="ressources/css/popupsolo.css" >
         <script type="text/javascript">
-            function randombuttonaction() {
-                 document.getElementById('explanationrandom').style.display = "block";
-            }
+            
             
             
             var count = 1;
@@ -36,35 +34,31 @@
     <body>
         <h1>Options de la partie:</h1>
         <form action="optionspanelsolocontroller" method="post">
-            <div class="options">
-                Limite de temps? 
-                <input type="checkbox" 
+            Limite de temps? 
+            <input type="checkbox"
                    id="countdownbool"
                    name="timer"
                    onClick={this.handleClick;}
                    checked={this.state.active} 
                     /> 
-                </br>
+            </br>
      
-                </br>
-                Sélection des thèmes des questions de la partie: </br>
-                <div id="explanationrandom"  style="display:none;"  > 
-                    <p>En cliquant sur Aléatoire vous recevrez des questions de n'importe quel thème </p>
-                </div>
-                </br>
-                <button class="button random" onClick="randombuttonaction()"> Aléatoire </button>
-                <button class="button history" id="hist" onClick="setcolor('hist')"> Histoire </button>
-                <button class="button sport"> Sport </button>
-                <button class="button sciences"> Nature </button>
-                <button class="button geo"> Géographie </button>
-                <button class="button langue"> Langue Française </button>
+            </br>
+            Sélection des thèmes des questions de la partie: </br>
+            </br>
+            <input type="button" class="random" type=”submit” name="random_button" onClick="randombuttonaction()"> Aléatoire </input>
+            <input type="button" class="history" type=”submit” name="history_button" onClick="setcolor('hist')"> Histoire </input>
+            <input type="button" class="sport" type=”submit” name="sport_button"> Sport </input>
+            <input type="button" class="sciences" type=”submit” name="sciences_button"> Nature </input>
+            <input type="button" class="geo" type=”submit” name="geo_button"> Géographie </input>
+            <input type="button" class="langue" type=”submit” name="langue_button"> Langue Française </input>
             
-            
-            
-                </br>
-                </br>
-                <input id="okoption" type="submit" value="Cliquer pour confirmer les options choisies"  />
+            <div id="explanationrandom"  style="display:none;"  >
+                <p>En cliquant sur Aléatoire vous recevrez des questions de n'importe quel thème </p>
             </div>
+            </br>
+            <input id="okoption" type="submit" value="Cliquer pour confirmer les options choisies"  />
+            
             
         </form>
         <a href="sologame.jsp"> Cliquer ici (pour le moment )pour tester partie solo </a>

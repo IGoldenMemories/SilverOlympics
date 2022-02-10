@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="imagebackground">
-            <img src="ressources/img/bugsbodovsstock.png" alt="imageback" width="800" height="600">
+            <img src="ressources/img/bugs.png" alt="imageback" width="800" height="600">
         </div>
 
         

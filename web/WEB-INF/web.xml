@@ -27,7 +27,7 @@
     </servlet>    
     <servlet-mapping>
         <servlet-name>HomeControllerServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/acceuil</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegisterControllerServlet</servlet-name>
