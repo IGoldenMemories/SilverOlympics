@@ -10,11 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Nouveau compte</title>
-        <link rel="stylesheet" href="ressources/css/Login_Register.css" >
+        <link rel="stylesheet" href="ressources/css/register_look.css" >
     </head>
     <body>
         <div class="formwrapper">
-            <form method="post" accept-charset="ISO-8859-1" action="RegisterControllerServlet"  >
+            <form class="registerform" method="post" accept-charset="ISO-8859-1" action="RegisterControllerServlet"  >
                 
                 <!-- form header -->
                 <div class="form-header">

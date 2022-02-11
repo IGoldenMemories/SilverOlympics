@@ -1,0 +1,127 @@
+
+/* 
+    Created on : 27-nov.-2021, 17:08:37
+    Author     : Manon Michaux
+*/
+
+body {
+    
+    display: grid;
+    align-items: center;
+    background: linear-gradient(227deg, #ca9b26, #6c78dd, #a8601a);
+    background-size: 600% 600%;
+
+    animation: Backgroundanimation 32s ease infinite;
+}
+
+@keyframes Backgroundanimation {
+    0%{background-position:0% 35%}
+    50%{background-position:100% 66%}
+    100%{background-position:0% 35%}
+}
+
+.formwrapper{
+    top:50%;
+    display: block;
+    text-align: center;
+}
+
+.login-form{
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 650px;
+    margin: 30px auto;
+    background: rgba(179, 179, 204, 0.5);
+    border-radius: 10px;
+    
+}
+
+.form-header {
+    background-color:rgb(204, 204, 255);
+    
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.form-header h1 {
+    font-size:30px;
+    text-align: center;
+    color: #333300;
+    text-shadow: 2px 2px 4px #666633;
+    padding: 20px 0;
+    border-bottom: 1px solid #cccccc;
+}
+
+/*---------------------------------------*/
+/* Form Body */
+/*---------------------------------------*/
+
+.form-body {
+    padding: 20px 50px;
+    color: #666;
+}
+
+.form-body .label-title {
+    color: rgb(57, 39, 19);
+    text-shadow: 2px 2px 4px #666633;
+    font-size: 19px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.form-body .form-input {
+    font-size: 17px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #333333;
+    text-align: left;
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    background: rgb(133, 173, 173);
+    outline: none;
+}
+
+/*---------------------------------------*/
+/* Form Footer */
+/*---------------------------------------*/
+
+.form-footer{
+    background-color: rgb(204, 204, 255);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px 40px;
+    text-align: right;
+    border-top: 1px solid #cccccc;
+    
+}
+
+.btn {
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1bba93;
+    text-shadow: 2px 2px 2px #cc99ff;
+    font-size: 19px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    color: #333399;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.btn:hover {
+    background-color: #169c7b;
+    color: white;
+}
+
+.noaccount {
+    line-height: 1.8;
+}

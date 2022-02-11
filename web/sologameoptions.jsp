@@ -12,24 +12,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Partie Solo</title>
         <link rel="stylesheet" href="ressources/css/popupsolo.css" >
-        <script type="text/javascript">
-            
-            
-            
-            var count = 1;
-            function setColor(btn) {
-                var property = document.getElementById(btn);
-                if (count === 0) {
-                    property.style.backgroundColor = "#FFFFFF";
-                    count = 1;        
-                }
-                else {
-                    property.style.backgroundColor = "#7FFF00";
-                    count = 0;
-                }
-            }
-        </script>
-
     </head>
     <body>
         <h1>Options de la partie:</h1>
@@ -57,7 +39,7 @@
                 <p>En cliquant sur Aléatoire vous recevrez des questions de n'importe quel thème </p>
             </div>
             </br>
-            <input id="okoption" type="submit" value="Cliquer pour confirmer les options choisies"  />
+            <input id="okoption" type="submit" value="Lancer la partie"  />
             
             
         </form>

@@ -1,13 +1,11 @@
 
 /* 
-    Created on : 27-nov.-2021, 17:08:37
-    Author     : Manon Michaux
+    Created on : 10 févr. 2022, 17:31:44
+    Author     : Manon
 */
 
+
 body {
-    
-    display: grid;
-    align-items: center;
     background: linear-gradient(227deg, #ca9b26, #6c78dd, #a8601a);
     background-size: 600% 600%;
 
@@ -21,18 +19,15 @@ body {
 }
 
 .formwrapper{
+    
     top:50%;
-    display: block;
-    text-align: center;
+    
 }
 
-.login-form{
-    position: relative;
+.registerform{
+    
     font-family: 'Roboto', sans-serif;
     display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
     width: 650px;
     margin: 30px auto;
     background: rgba(179, 179, 204, 0.5);
@@ -53,6 +48,8 @@ body {
     padding: 20px 0;
     border-bottom: 1px solid #cccccc;
     margin: 0;
+    margin-left: auto;
+    margin-right:auto;
 }
 
 /*---------------------------------------*/
@@ -68,15 +65,16 @@ body {
     color: rgb(57, 39, 19);
     font-size: 17px;
     font-weight: bold;
+    margin-left: auto;
+    margin-right:auto;
 }
 
 .form-body .form-input {
     font-size: 17px;
     box-sizing: border-box;
-    width: 100%;
+    margin-left: auto;
+    margin-right:auto;
     height: 34px;
-    padding-left: 10px;
-    padding-right: 10px;
     color: #333333;
     text-align: left;
     border: 1px solid #d6d6d6;
@@ -94,8 +92,9 @@ body {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 10px 40px;
-    text-align: right;
     border-top: 1px solid #cccccc;
+    margin-left: auto;
+    margin-right:auto;
     
 }
 
@@ -109,6 +108,8 @@ body {
     color: #bcf5e7;
     cursor: pointer;
     margin-bottom: 15px;
+    margin-left: auto;
+    margin-right:auto;
 }
 
 .btn:hover {
@@ -118,4 +119,6 @@ body {
 
 .noaccount {
     line-height: 1.8;
+    margin-left: auto;
+    margin-right:auto;
 }
