@@ -14,9 +14,9 @@ import jakarta.servlet.http.HttpSession;
  *
  * @author informatique
  */
-public class GameOptionsPanelControllerServlet extends HttpServlet {
+public class SoloGameControllerServlet extends HttpServlet {
     
-    public GameOptionsPanelControllerServlet(){
+    public SoloGameControllerServlet(){
         super();
     }
     
@@ -32,7 +32,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher //
-				= this.getServletContext().getRequestDispatcher("/sologameoptions.jsp");
+				= this.getServletContext().getRequestDispatcher("/sologame.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -47,15 +47,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ServletContext sc = this.getServletContext();
-        
-        String[] t=request.getParameterValues("timer");
-        HttpSession session=request.getSession(); 
-        session.setAttribute("timer",t);  
-        
-        
-        RequestDispatcher rd = sc.getRequestDispatcher("/sologameoptions.jsp");
-        rd.forward(request, response);
+        doGet(request,response);
     }
    
 }
