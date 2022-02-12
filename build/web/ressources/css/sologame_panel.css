@@ -1,0 +1,153 @@
+
+/* 
+    Created on : 28-nov.-2021, 17:36:18
+    Author     : Manon Michaux
+*/
+
+body {
+    text-align: center;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+
+}
+.options{
+    
+    display: inline-block;
+    background: linear-gradient(270deg, #a2d7ca, #d2b0df, #8567a7);
+    animation: optionbackground 30s ease infinite;
+    border-radius: 25px;
+    padding: 80px 200px;
+}
+
+
+@keyframes optionbackground {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+.titreoption{
+    font-weight: bold;
+    font-size: 46px;
+    color: #0f0f57;
+    top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.options form{
+    text-align: center;
+    position: relative;
+    background: rgb(238,228,233);
+    background: radial-gradient(circle, rgba(238,228,233,1) 0%, rgba(209,220,232,1) 100%);
+    margin: auto;
+    padding: 60px 100px;
+    
+    border-radius: 25px;
+    
+}
+.history{
+    background: url('https://previews.123rf.com/images/miro3d/miro3d1508/miro3d150800042/44168800-trojan-horse-at-troy.jpg') no-repeat;
+    background-size: cover;
+    opacity: 0.75;
+    padding: 40px 20px;
+    font-size: 24px;
+    color:#ffc266;
+    text-shadow: 4px 4px 4px 4px #111a00;
+    font-weight: bold;
+    cursor: pointer;
+}
+.history:hover{
+    opacity: 1;
+}
+.sport{
+    background: url('https://media.socastsrm.com/wordpress/wp-content/blogs.dir/1479/files/2019/02/20170626151914_sports-equipment.jpg') no-repeat;
+    background-size: cover;
+    opacity: 0.75;
+    padding: 40px 20px;
+    font-size: 24px;
+    color:#ffc266;
+    text-shadow: 4px 4px 4px 4px #111a00;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+.sport:hover{
+    opacity: 1;
+}
+.sciences{
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT63MjzvyOHbg8dg8_s7SKYuSx_4_FSzCi12A&usqp=CAU') no-repeat;
+    background-size: cover;
+    opacity: 0.75;
+    padding: 40px 20px;
+    font-size: 24px;
+    color:#ffc266;
+    text-shadow: 4px 4px 4px 4px #111a00;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+.sciences:hover{
+    opacity: 1;
+}
+.geo{
+    background: url('https://www.superprof.co.uk/blog/wp-content/uploads/2018/11/globe-3383088_1280.jpg') no-repeat;
+    background-size: cover;
+    opacity: 0.75;
+    padding: 40px 20px;
+    font-size: 24px;
+    color: #001a1a;
+    text-shadow: 4px 4px 4px #ccffff;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+.geo:hover{
+    opacity: 1;
+}
+.langue{
+    background: url('https://wallpaper.dog/large/5573808.jpg') no-repeat;
+    background-size: cover;
+    opacity: 0.75;
+    color: #fff3e6;
+    text-shadow: 4px 4px 4px black;
+    padding: 40px 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+.langue:hover{
+    opacity: 1;
+}
+
+.titrechoix{
+    color: #660066;
+    font-weight: bold;
+    font-size: 27px;
+}
+
+.random{
+    background: url('https://cdn.shopify.com/s/files/1/0890/1750/collections/8cf9685cadc93764fcdb4def394ee54e_870x_99b69cee-2a40-46ff-83ee-fc464c41fc06_450x.png?v=1634157176') no-repeat;
+    background-size: cover;
+    opacity: 0.75;
+    padding: 40px 20px;
+    font-size: 24px;
+    color:#ffc266;
+    text-shadow: 4px 4px 4px 4px #111a00;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+.random:hover{
+    opacity: 1;
+}
+ 
+.gamelaunchbutton{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer; 
+    bottom: 0px;
+}
