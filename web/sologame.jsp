@@ -56,7 +56,9 @@
             var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
             scanner.addListener('scan',function(content){
 		alert(content);
+                //HAD A DIV AND FILL IT WITH THE content (WHAT'S READ BY THE SCANNER 
 		//window.location.href=content;
+                document.getElementById('chosenanswer').innerHTML =content;
             });
             Instascan.Camera.getCameras().then(function (cameras){
 		if(cameras.length>0){
@@ -89,13 +91,19 @@
 		alert(e);
                 });
         </script> 
-        </br>
-        <div class="question"> Question <div id="numquestion"> </div> :
-        </div> </br>
-        <div class="answers answerA">  A  </div> 
-        <div class="answers answerB">  B  </div></br>
-        <div class="answers answerC">  C  </div> 
-        <div class="answers answerD">  D  </div> 
+        <br>
+        <hr>
+        <div id ="chosenanswer" ></div>
+        <hr>
+        <div class="question"> Question <div id="numquestion"> </div> :</div> 
+        <br>
+        <hr>
+        <div class="answers">
+            <div class="answerA">  A  </div> 
+            <div class="answerB">  B  </div></br>
+            <div class="answerC">  C  </div> 
+            <div class="answerD">  D  </div> 
+        </div>
            
        
     </body>
