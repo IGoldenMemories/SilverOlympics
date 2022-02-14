@@ -8,6 +8,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
+import org.silverolympics.dao.DataBaseDao;
 
 /**
  *
@@ -20,22 +22,7 @@ public class ScoreBoardControllerServlet extends HttpServlet {
         
     }
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //https://codedec.com/tutorials/how-to-retrieve-data-and-display-in-table-format-in-jsp-and-servlet-using-mysql/
-        RequestDispatcher dispatcher //
-				= this.getServletContext().getRequestDispatcher("/scoreboard.jsp");
-        dispatcher.forward(request, response);
-    }
+    
 
     
     /**
@@ -49,7 +36,15 @@ public class ScoreBoardControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        DataBaseDao model=new DataBaseDao();
+        List list=null;
+        list=model.listusers();
+        System.out.println(list.size());
+    
+        assert (!list.isEmpty());
+     
+        request.setAttribute("listuser", list);
+        //https://www.geeksforgeeks.org/getattribute-passing-data-from-server-to-jsp/
     }
 
     /**
@@ -63,7 +58,7 @@ public class ScoreBoardControllerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        doGet(request, response);
     }
 
     /**

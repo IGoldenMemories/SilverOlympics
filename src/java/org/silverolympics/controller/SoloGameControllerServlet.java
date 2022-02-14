@@ -31,6 +31,9 @@ public class SoloGameControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if(request.getAttribute("timer")!=null){
+            //ALLOW TIMER IN JSP/JAVASCRIPT
+        }
         RequestDispatcher dispatcher //
 				= this.getServletContext().getRequestDispatcher("/sologame.jsp");
         dispatcher.forward(request, response);

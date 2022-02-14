@@ -74,7 +74,7 @@ public class RegisterControllerServlet extends HttpServlet {
             con = DriverManager.getConnection(url, uname, pass);
             String input_userName = request.getParameter("username");
             String input_password = request.getParameter("password");
-            DataBaseDao reguser = new DataBaseDao(con);
+            DataBaseDao reguser = new DataBaseDao();
             int nbr_user = DataBaseDao.number_users();
             //create a registerbean 
             //call authorizeRegister(registerbean)

@@ -1,6 +1,7 @@
 
 package org.silverolympics.controller;
 
+import static com.google.gwt.user.client.Window.alert;
 import java.io.IOException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletContext;
@@ -9,6 +10,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -33,6 +36,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
             throws ServletException, IOException {
         RequestDispatcher dispatcher //
 				= this.getServletContext().getRequestDispatcher("/sologameoptions.jsp");
+        
         dispatcher.forward(request, response);
     }
 
@@ -49,11 +53,22 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
             throws ServletException, IOException {
         ServletContext sc = this.getServletContext();
         
-        String[] t=request.getParameterValues("timer");
-        HttpSession session=request.getSession(); 
-        session.setAttribute("timer",t);  
+        //Handling whether the timer checkbox has been checked or not
+        String timerchoice =request.getParameter("timer");
         
-        
+        request.setAttribute("timer",timerchoice); 
+
+        //Handling which themes have been chosen 
+          
+        if(null != request.getParameter("button_b_clicked")){
+            
+        }
+  // do 'B' stuff
+        if(null != request.getParameter("button_c_clicked")){
+            
+        }
+  // do 'C' stuff
+
         RequestDispatcher rd = sc.getRequestDispatcher("/sologameoptions.jsp");
         rd.forward(request, response);
     }

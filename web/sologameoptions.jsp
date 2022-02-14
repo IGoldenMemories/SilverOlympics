@@ -12,19 +12,21 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Partie Solo</title>
         <link rel="stylesheet" href="ressources/css/sologame_panel.css" >
+        <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
     </head>
     <body>
         <div class="options">
             <div class="titreoption" >Options de la partie: </div>
             <br>
             <form action="optionspanelsolocontroller" method="post">
-                <!-- Limite de temps? 
+                <div class="titrechoix"> Limite de temps?  </div>
                 <input type="checkbox"
                    id="countdownbool"
                    name="timer"
                    onClick={this.handleClick;}
                    checked={this.state.active} 
-                    />  -->
+                    />  
+                <hr>
                
                 <div class="titrechoix"> Sélectionnez les thèmes des questions de la partie: </div> 
                 <br>
@@ -40,7 +42,7 @@
                 <hr>
                 <div class="titrechoix">  Choisissez d'avoir des questions de thèmes aléatoires: </div>
                 <br>
-                <input type="button" class="random" type=”submit” name="random_button" value="Aléatoire"> 
+                <input type="button" class="random" type=”submit” name="random_button" onclick="button_pressed(this)" value="Aléatoire"> 
                 <br>
                 <br>
                 <br>
@@ -50,7 +52,31 @@
             <a href="sologame.jsp"> Cliquer ici (pour le moment )pour tester partie solo </a>
         </div>
         
-            
+    <script type='text/javascript'>//<![CDATA[ 
+        $(window).load(function(){
+            $(function() {
+                $(".random").click(function(){
+                $(this).css("opacity", "1");
+                });
+                $(".langue").click(function(){
+                $(this).css("opacity", "1");
+                });
+                $(".geo").click(function(){
+                $(this).css("opacity", "1");
+                });
+                $(".sciences").click(function(){
+                $(this).css("opacity", "1");
+                });
+                $(".sport").click(function(){
+                $(this).css("opacity", "1");
+                });
+                $(".history").click(function(){
+                $(this).css("opacity", "1");
+                });
+                
+            });
+        });//]]> 
+    </script>
         
     </body>
 </html>

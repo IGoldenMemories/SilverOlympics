@@ -13,7 +13,7 @@ import java.sql.SQLException;
  */
 public class RegisterDao {
     
-    public String authorizeRegister(RegisterBean registerBean) throws SQLException{
+    public String authorizeRegister(RegisterBean registerBean) throws SQLException, ClassNotFoundException{
         
         String username= registerBean.getUsername();
         String password= registerBean.getPassword();
@@ -21,8 +21,12 @@ public class RegisterDao {
         String url="jdbc:mysql://localhost:3306/silver_schema?zeroDateTimeBehavior=CONVERT_TO_NULL [root on Default schema]";
         String uname="root";
         String pass="Silv3rQuestions42";
+        Class.forName("com.mysql.jdbc.Driver");
         
         try{
+            Connection connection = DriverManager
+            .getConnection("jdbc:mysql://localhost:3306/mysql_database?useSSL=false", "root", "root");
+
            Connection con=DriverManager.getConnection(url, uname, pass);
            
            PreparedStatement checkstatement= null;
