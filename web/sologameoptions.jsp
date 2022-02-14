@@ -18,7 +18,7 @@
         <div class="options">
             <div class="titreoption" >Options de la partie: </div>
             <br>
-            <form action="optionspanelsolocontroller" method="post">
+            <form method="post">
                 <div class="titrechoix"> Limite de temps?  </div>
                 <input type="checkbox"
                    id="countdownbool"
@@ -34,7 +34,7 @@
                 <input type="button" class="sport" type=”submit” name="sport_button" value="Sport"> 
                 <input type="button" class="sciences" type=”submit” name="sciences_button" value ="Nature">  
                 <input type="button" class="geo" type=”submit” name="geo_button" value="Géographie"> 
-                <input type="button" class="langue" type=”submit” name="langue_button" value="Littérature">  
+                <input type="button" class="language" type=”submit” name="language_button" value="Littérature">  
                 <br>
                 <br>
                 <hr>
@@ -58,7 +58,7 @@
                 $(".random").click(function(){
                 $(this).css("opacity", "1");
                 });
-                $(".langue").click(function(){
+                $(".language").click(function(){
                 $(this).css("opacity", "1");
                 });
                 $(".geo").click(function(){

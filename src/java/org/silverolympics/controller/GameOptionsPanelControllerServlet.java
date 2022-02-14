@@ -57,20 +57,49 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         String timerchoice =request.getParameter("timer");
         
         request.setAttribute("timer",timerchoice); 
-
+        
         //Handling which themes have been chosen 
-          
-        if(null != request.getParameter("button_b_clicked")){
-            
+        List<String> chosen_themes = new ArrayList<>();
+        //If the random button has been selected then other selected themes aren't taken into account 
+        if(request.getParameter("random_button") != null){
+            chosen_themes.add("random");
+            request.setAttribute("themeschoice", chosen_themes);
         }
-  // do 'B' stuff
-        if(null != request.getParameter("button_c_clicked")){
+        
+        //Otherwise the selected (clicked on) themes are gathered 
+        // and sent to the SoloGameControllerServlet to select this game's questions 
+  
+        else{
+            //If history has been selected
+            if(request.getParameter("history_button") != null){
+                chosen_themes.add("history");
+            }
+            //If history has been selected
+            if(request.getParameter("sport_button") != null){
+                chosen_themes.add("sport");
+            }
+            //If history has been selected
+            if(request.getParameter("sciences_button") != null){
+                chosen_themes.add("sciences");
+            }
+            //If history has been selected
+            if(request.getParameter("geo_button") != null){
+                chosen_themes.add("geo");
+            }
+            //If history has been selected
+            if(request.getParameter("language_button") != null){
+                chosen_themes.add("history");
+            }
             
+            request.setAttribute("themeschoice", chosen_themes);
         }
-  // do 'C' stuff
-
-        RequestDispatcher rd = sc.getRequestDispatcher("/sologameoptions.jsp");
-        rd.forward(request, response);
+        
+        
+        assert !chosen_themes.isEmpty(): "Issue with chosen_themes size";
+        
+        
+        RequestDispatcher rd=request.getRequestDispatcher("/sologame.jsp");  
+        rd.forward(request, response);  
     }
    
 }

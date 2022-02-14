@@ -31,11 +31,45 @@ public class SoloGameControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getAttribute("timer")!=null){
-            //ALLOW TIMER IN JSP/JAVASCRIPT
-        }
+        int nbr_questions = 0;
         RequestDispatcher dispatcher //
 				= this.getServletContext().getRequestDispatcher("/sologame.jsp");
+        //Timer checkbox was selected/checed in options panel
+        if(request.getAttribute("timer")!=null){
+            //ALLOW TIMER IN JSP/JAVASCRIPT
+            while(nbr_questions<10){
+            
+            //Select a question in BDD (random row with theme in chosen themes)
+            
+            //Put question in question div
+            //Put answers in respective div 
+            //Get answer
+            //Compare with one in BD 
+            //Scenario win 
+            //Scenario loose 
+            
+            }
+        }
+        //Timer not selected in solo game panel
+        else{
+            while(nbr_questions<10){
+            
+                //Select a question in BDD (random row with theme in chosen themes)
+            
+                //Put question in question div
+                //Put answers in respective div 
+                //Get answer
+                //Compare with one in BD 
+                //Scenario win 
+                //Scenario loose 
+            
+            }
+        }
+        
+        //score final added to current user score in database!
+        //Assert score user bfr game (stored bfr update) <= score user +scoregame
+        
+        //Screen fin
         dispatcher.forward(request, response);
     }
 

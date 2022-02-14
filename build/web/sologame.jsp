@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Partie solo</title>
         <link rel="stylesheet" href="ressources/css/sologamescreen.css" >
+        <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
         <script>
             
             function displaytimer() {
@@ -83,10 +84,10 @@
                     console.error('No cameras found.');
                     alert('No cameras found.');
 		}
-            })//.catch(function(e){
-		//console.error(e);
-		//alert(e);
-                //});
+            }).catch(function(e){
+		console.error(e);
+		alert(e);
+                });
         </script> 
         </br>
         <div class="question"> Question <div id="numquestion"> </div> :
