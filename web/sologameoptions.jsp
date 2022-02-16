@@ -30,11 +30,15 @@
                
                 <div class="titrechoix"> Sélectionnez les thèmes des questions de la partie: </div> 
                 <br>
-                <input type="button" class="history" type=”submit” name="history_button"  value ="Histoire">
-                <input type="button" class="sport" type=”submit” name="sport_button" value="Sport"> 
-                <input type="button" class="sciences" type=”submit” name="sciences_button" value ="Nature">  
-                <input type="button" class="geo" type=”submit” name="geo_button" value="Géographie"> 
-                <input type="button" class="language" type=”submit” name="language_button" value="Littérature">  
+                <select name="themes" size=5 multiple>
+                    <option class="history" name="history_button" value ="Histoire">Histoire</option>
+                    <option class="sport" name="sport_button" value="Sport">Sport</option>
+                    <option class="sciences" name="sciences_button" value ="Nature">Nature</option>  
+                    <option class="geo" name="geo_button" value="Geographie">Géographie</option> 
+                    <option class="language" name="language_button" value="Litterature">Littérature</option>  
+                </select>
+                <br>
+                <input id="okoption" class="gamelaunchbutton" type="submit" value="Lancer la partie"  />
                 <br>
                 <br>
                 <hr>
@@ -42,14 +46,10 @@
                 <hr>
                 <div class="titrechoix">  Choisissez d'avoir des questions de thèmes aléatoires: </div>
                 <br>
-                <input type="button" class="random" type=”submit” name="random_button" onclick="button_pressed(this)" value="Aléatoire"> 
-                <br>
-                <br>
-                <br>
-                <input id="okoption" class="gamelaunchbutton" type="submit" value="Lancer la partie"  />
-            
+                <input type="submit" class="random"  name="random_button" onclick="button_pressed(this)" value="Aléatoire"> 
+
             </form>
-            <a href="sologame.jsp"> Cliquer ici (pour le moment )pour tester partie solo </a>
+           
         </div>
         
     

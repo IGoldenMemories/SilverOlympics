@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -66,29 +67,30 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
             request.setAttribute("themeschoice", chosen_themes);
         }
         
-        //Otherwise the selected (clicked on) themes are gathered 
-        // and sent to the SoloGameControllerServlet to select this game's questions 
+        //Otherwise the selected (clicked on) themes (in the select )are gathered 
+        // and sent to the SoloGameControllerServlet to select this game's questions in the database
   
         else{
+            String[] selectedthemes = request.getParameterValues("themes");
             //If history has been selected
-            if(request.getParameter("history_button") != null){
+            if(Arrays.stream(selectedthemes).anyMatch("Histoire"::equals)){
                 chosen_themes.add("history");
             }
-            //If history has been selected
-            if(request.getParameter("sport_button") != null){
+            //If sport has been selected
+            if(Arrays.stream(selectedthemes).anyMatch("Sport"::equals)){
                 chosen_themes.add("sport");
             }
-            //If history has been selected
-            if(request.getParameter("sciences_button") != null){
+            //If sciences(nature) has been selected
+            if(Arrays.stream(selectedthemes).anyMatch("Nature"::equals)){
                 chosen_themes.add("sciences");
             }
-            //If history has been selected
-            if(request.getParameter("geo_button") != null){
+            //If geo(geography) has been selected
+            if(Arrays.stream(selectedthemes).anyMatch("Geographie"::equals)){
                 chosen_themes.add("geo");
             }
-            //If history has been selected
-            if(request.getParameter("language_button") != null){
-                chosen_themes.add("history");
+            //If language(litterature) has been selected
+            if(Arrays.stream(selectedthemes).anyMatch("Litterature"::equals)){
+                chosen_themes.add("language");
             }
             
             request.setAttribute("themeschoice", chosen_themes);
