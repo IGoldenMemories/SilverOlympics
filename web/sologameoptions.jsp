@@ -52,31 +52,9 @@
             <a href="sologame.jsp"> Cliquer ici (pour le moment )pour tester partie solo </a>
         </div>
         
-    <script type='text/javascript'>//<![CDATA[ 
-        $(window).load(function(){
-            $(function() {
-                $(".random").click(function(){
-                $(this).css("opacity", "1");
-                });
-                $(".language").click(function(){
-                $(this).css("opacity", "1");
-                });
-                $(".geo").click(function(){
-                $(this).css("opacity", "1");
-                });
-                $(".sciences").click(function(){
-                $(this).css("opacity", "1");
-                });
-                $(".sport").click(function(){
-                $(this).css("opacity", "1");
-                });
-                $(".history").click(function(){
-                $(this).css("opacity", "1");
-                });
-                
-            });
-        });//]]> 
-    </script>
+    
+    <script type="text/javascript" src="ressources/js/solooptions.js"></script>  
+        
         
     </body>
 </html>

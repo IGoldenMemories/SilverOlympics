@@ -7,7 +7,7 @@
 body{
     
     background-color: #993366;
-    
+    box-sizing: border-box;
 }
 
 #timerblock{
@@ -33,30 +33,17 @@ body{
     color:#e0e0d1;
 }
 
-.answers{
-    position: relative;
-    background-color: #ff6699;
-    padding: 100px 120px;
-}
-.answerA{
-    float: left;
-   left:60px;
-}
-    
-.answerC{
-   float: left;
-   left:60px;
-   bottom: 40px;
+/* Create four equal columns that floats next to each other */
+.answers {
+  float: left;
+  background: rgb(236,211,223);
+  background: radial-gradient(circle, rgba(236,211,223,1) 0%, rgba(242,222,179,1) 23%, rgba(149,204,212,1) 100%);
+  padding: 30px 25px;
 }
 
-.answerB{
-    float:right;
-    right: 40px;
-    
-}
-
-.answerD{
-    bottom: 40px;
-    float:right;
-    right: 40px;
+/* Clear floats after the columns */
+.answercontainer {
+  position: relative;
+ 
+  text-align: center;
 }

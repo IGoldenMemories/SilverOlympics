@@ -94,7 +94,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
             request.setAttribute("themeschoice", chosen_themes);
         }
         
-        
+        //At least one theme should be chosen 
         assert !chosen_themes.isEmpty(): "Issue with chosen_themes size";
         
         

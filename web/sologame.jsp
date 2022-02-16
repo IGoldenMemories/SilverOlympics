@@ -11,44 +11,19 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Partie solo</title>
         <link rel="stylesheet" href="ressources/css/sologamescreen.css" >
-        <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
-        <script>
-            
-            function displaytimer() {
-                 document.getElementById('timerblock').style.display = "block";
-            }
-            var seconds=60;
-            var timer;
-            function countdown() {
-                if(seconds < 60) {
-                    document.getElementById("timernbr").innerHTML = seconds;
-                }
-                if (seconds >0 ) {
-                    seconds--;
-                } 
-                else {
-                    clearInterval(timer);
-         
-                }
-            }
-            if(!timer) {
-                timer = window.setInterval(function() {
-                countdown();
-                    }, 1000);
-                }
-             
-            
-            document.getElementById("timer").innerHTML="1:00"; 
-            </script>
-        
-        
+        <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>      
     </head>
     <body>
+        <!<!-- Zone where the timer is displayed if the corresopnding checkbox has been checked in options panel (previous page) -->
         <div id="timerblock"  style="display:none;"  > 
             Temps restant: <div id="timernbr"> </div>
         </div>
         <div class="scoreblock"> Score: </div>
         <button  onClick="displaytimer()"> Cliquer ici pour tester le countdown </button>
+        chosen options:
+        ${timer}
+        ${themeschoice}
+        
         <video id="preview"></video>
         
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
@@ -98,13 +73,25 @@
         <div class="question"> Question <div id="numquestion"> </div> :</div> 
         <br>
         <hr>
-        <div class="answers">
-            <div class="answerA">  A  </div> 
-            <div class="answerB">  B  </div></br>
-            <div class="answerC">  C  </div> 
-            <div class="answerD">  D  </div> 
+        <div class="answercontainer">
+            <div class="answers" id="answerAsquare">  
+                <h2> A  </h2>
+                <p id="answera"></p>
+            </div> 
+            <div class="answers" id="answerBsquare">
+               <h2> B  </h2>
+               <p id="answerb"></p>
+            </div></br>
+            <div class="answers" id="answerCsquare">
+               <h2> C  </h2>
+               <p id="answerc"></p>
+            </div> 
+            <div class="answers" id="answerDsquare">
+               <h2> D  </h2>
+               <p id="answerd"></p>
+            </div> 
         </div>
            
-       
+       <script type="text/javascript" src="ressources/js/sologamescript.js"></script>  
     </body>
 </html>
