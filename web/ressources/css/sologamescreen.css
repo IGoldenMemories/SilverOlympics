@@ -6,8 +6,17 @@
 
 body{
     
-    background-color: #993366;
+    background: linear-gradient(270deg, #58377d, #6b4c1a);
+    background-size: 400% 400%;
+
+    animation: AnimationName 30s ease infinite;
     box-sizing: border-box;
+}
+
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 #timerblock{
@@ -17,7 +26,10 @@ body{
     color: #ffccff;
     font-family: "Lucida Console", "Courier New", monospace;
 }
-
+.webcam_output{
+    width: 50%;
+    height:50%;
+}
 .scoreblock{
     position: relative;
     float:right;
@@ -33,17 +45,32 @@ body{
     color:#e0e0d1;
 }
 
+/* Clear floats after the columns */
+.answercontainer {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+}
+
 /* Create four equal columns that floats next to each other */
 .answers {
   float: left;
   background: rgb(236,211,223);
   background: radial-gradient(circle, rgba(236,211,223,1) 0%, rgba(242,222,179,1) 23%, rgba(149,204,212,1) 100%);
-  padding: 30px 25px;
+  padding: 40px 40px;
+  left: 20px;
+}
+.answerA{
+    left: 20px;
+    
+}
+.answerB{
+    left: 60px;
+}
+.answerC{
+    right: 60px;
 }
 
-/* Clear floats after the columns */
-.answercontainer {
-  position: relative;
- 
-  text-align: center;
+.answerD{
+    right: 10px;
 }

@@ -25,7 +25,7 @@ public class UserAccount {
       return id;
    }
 
-   public void setId(Integer id) {
+    public void setId(Integer id) {
       this.id = id;
    }
     
@@ -33,23 +33,23 @@ public class UserAccount {
       return userName;
    }
 
-   public void setUserName(String userName) {
+    public void setUserName(String userName) {
       this.userName = userName;
    }
    
-   public void setPassword(String password) {
+    public void setPassword(String password) {
       this.password = password;
    }
    
-   public String getPassword() {
+    public String getPassword() {
        return password;
    }
    
-   public Integer getUserScore() {
+    public Integer getUserScore() {
       return score;
    }
 
-   public void setUserScore(Integer score) {
+    public void setUserScore(Integer score) {
       this.score = score;
    }
 }

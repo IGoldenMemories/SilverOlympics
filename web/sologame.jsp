@@ -14,6 +14,7 @@
         <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>      
     </head>
     <body>
+        <script type="text/javascript" src="ressources/js/sologamescript.js"></script>  
         <!<!-- Zone where the timer is displayed if the corresopnding checkbox has been checked in options panel (previous page) -->
         <div id="timerblock"  style="display:none;"  > 
             Temps restant: <div id="timernbr"> </div>
@@ -24,7 +25,7 @@
         ${timer}
         ${themeschoice}
         
-        <video id="preview"></video>
+        <video id="preview" class="webcam_output"></video>
         
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
         <script type="text/javascript">
@@ -70,28 +71,28 @@
         <hr>
         <div id ="chosenanswer" ></div>
         <hr>
-        <div class="question"> Question <div id="numquestion"> </div> :</div> 
+        <div class="question"> Question <div id="numquestion"></div><div id="question_txt"></div> :</div> 
         <br>
         <hr>
         <div class="answercontainer">
-            <div class="answers" id="answerAsquare">  
+            <div class="answers answerA" id="answerAsquare">  
                 <h2> A  </h2>
                 <p id="answera"></p>
             </div> 
-            <div class="answers" id="answerBsquare">
+            <div class="answers answerB" id="answerBsquare">
                <h2> B  </h2>
                <p id="answerb"></p>
             </div></br>
-            <div class="answers" id="answerCsquare">
+            <div class="answers answerC" id="answerCsquare">
                <h2> C  </h2>
                <p id="answerc"></p>
             </div> 
-            <div class="answers" id="answerDsquare">
+            <div class="answers answerD" id="answerDsquare">
                <h2> D  </h2>
                <p id="answerd"></p>
             </div> 
         </div>
            
-       <script type="text/javascript" src="ressources/js/sologamescript.js"></script>  
+       
     </body>
 </html>
