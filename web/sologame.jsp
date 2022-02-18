@@ -35,6 +35,7 @@
                 //HAD A DIV AND FILL IT WITH THE content (WHAT'S READ BY THE SCANNER 
 		//window.location.href=content;
                 document.getElementById('chosenanswer').innerHTML =content;
+                document.getElementById("givenanswer").value = content;
             });
             Instascan.Camera.getCameras().then(function (cameras){
 		if(cameras.length>0){
@@ -69,7 +70,9 @@
         </script> 
         <br>
         <hr>
-        <div id ="chosenanswer" ></div>
+        <input type="hidden" id ="givenanswer" name="given_answer" value="" />
+        <div id="chosenanswer"></div>
+        
         <hr>
         <div class="question"> Question ${question_nbr} : ${question} </div> 
         <br>

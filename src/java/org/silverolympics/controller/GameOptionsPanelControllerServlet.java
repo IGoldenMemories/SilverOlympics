@@ -100,7 +100,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         //At least one theme should be chosen 
         assert !chosen_themes.isEmpty(): "Issue with chosen_themes size";
         
-        int nbr_questions = 0;
+        int nbr_questions = 1;
         request.setAttribute("question_nbr", nbr_questions);
         //Assign the first question and its corresponding answers 
         QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);

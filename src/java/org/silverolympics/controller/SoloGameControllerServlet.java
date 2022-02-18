@@ -46,24 +46,14 @@ public class SoloGameControllerServlet extends HttpServlet {
         //Select a question in BDD (random row with theme in chosen themes)
         QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
         //assignation of parameters
-        String question_chosen ="Qui a dit : « Le sort en est jeté » (Alea jacta est) ?";
-        String answera_chosen = "Vercingétorix";
-        String answerb_chosen = "Attila";
-        String answerc_chosen = "Auguste";
-        String answerd_chosen = "César";
-        String correct_answer_chosen= "D";
-        chosen_question .setAnswerA(answera_chosen);
-        chosen_question .setQuestion(question_chosen);
-        chosen_question .setAnswerB(answerb_chosen);
-        chosen_question .setAnswerC(answerc_chosen);
-        chosen_question .setAnswerD(answerd_chosen);
-        chosen_question .setCorrectAnswer(correct_answer_chosen);
-        //Pass the different chosen values (qeustion and possible answers to the jsp)
-        request.setAttribute("question", chosen_question.getQuestion());
+        
         //Put question in question div
         //Put answers in respective div
         //Get answer
+        String given_answer = request.getParameter("given_answer");
+        
         //Compare with one in BD
+        
         //Scenario win
         //Scenario loose 
             
