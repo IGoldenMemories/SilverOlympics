@@ -41,27 +41,52 @@ public class SoloGameControllerServlet extends HttpServlet {
         List<String> chosen_themes = (List<String>) request.getAttribute("themeschoice");
         
         //Timer checkbox was selected/checked in options panel
-        if(request.getAttribute("timer")== "on"){            
-            //while(nbr_questions<10){
+        //while(nbr_questions<10){
+            
+        //Select a question in BDD (random row with theme in chosen themes)
+        QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
+        //assignation of parameters
+        String question_chosen ="Qui a dit : « Le sort en est jeté » (Alea jacta est) ?";
+        String answera_chosen = "Vercingétorix";
+        String answerb_chosen = "Attila";
+        String answerc_chosen = "Auguste";
+        String answerd_chosen = "César";
+        String correct_answer_chosen= "D";
+        chosen_question .setAnswerA(answera_chosen);
+        chosen_question .setQuestion(question_chosen);
+        chosen_question .setAnswerB(answerb_chosen);
+        chosen_question .setAnswerC(answerc_chosen);
+        chosen_question .setAnswerD(answerd_chosen);
+        chosen_question .setCorrectAnswer(correct_answer_chosen);
+        //Pass the different chosen values (qeustion and possible answers to the jsp)
+        request.setAttribute("question", chosen_question.getQuestion());
+        //Put question in question div
+        //Put answers in respective div
+        //Get answer
+        //Compare with one in BD
+        //Scenario win
+        //Scenario loose 
+            
+        //}//while(nbr_questions<10){
             
             //Select a question in BDD (random row with theme in chosen themes)
-            QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
+        //    QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
             //assignation of parameters
-            String question_chosen ="Qui a dit : « Le sort en est jeté » (Alea jacta est) ?";
-            String answera_chosen = "Vercingétorix";
-            String answerb_chosen = "Attila";
-            String answerc_chosen = "Auguste";
-            String answerd_chosen = "César";
-            String correct_answer_chosen= "D";
-            chosen_question .setAnswerA(answera_chosen);
-            chosen_question .setQuestion(question_chosen);
-            chosen_question .setAnswerB(answerb_chosen);
-            chosen_question .setAnswerC(answerc_chosen);
-            chosen_question .setAnswerD(answerd_chosen);
-            chosen_question .setCorrectAnswer(correct_answer_chosen);
+         //   String question_chosen ="Qui a dit : « Le sort en est jeté » (Alea jacta est) ?";
+           // String answera_chosen = "Vercingétorix";
+            //String answerb_chosen = "Attila";
+           // String answerc_chosen = "Auguste";
+           // String answerd_chosen = "César";
+           // String correct_answer_chosen= "D";
+            //chosen_question .setAnswerA(answera_chosen);
+            //chosen_question .setQuestion(question_chosen);
+            //chosen_question .setAnswerB(answerb_chosen);
+            //chosen_question .setAnswerC(answerc_chosen);
+           // chosen_question .setAnswerD(answerd_chosen);
+            //chosen_question .setCorrectAnswer(correct_answer_chosen);
             //Pass the different chosen values (qeustion and possible answers to the jsp)
-            request.setAttribute("question", chosen_question.getQuestion());
-            dispatcher.forward(request, response);
+            //request.setAttribute("question", chosen_question.getQuestion());
+            //dispatcher.forward(request, response);
             //Put question in question div
             //Put answers in respective div
             //Get answer
@@ -70,31 +95,32 @@ public class SoloGameControllerServlet extends HttpServlet {
             //Scenario loose 
             
             //}
-        }
+        //}
         //Timer not selected in solo game panel
-        else{
+        //else{
             //ALLOW TIMER IN JSP/JAVASCRIPT
             
             //while(nbr_questions<10){
             //Select a question in BDD (random row with theme in chosen themes)
-            QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
+           // QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
             //update the question number (for display)
-            request.setAttribute("question_nbr",nbr_questions);
+           // request.setAttribute("question_nbr",nbr_questions);
             //Pass the different chosen values (qeustion and possible answers to the jsp)
-            request.setAttribute("question", chosen_question.getQuestion());
-            dispatcher.forward(request, response);
+            //request.setAttribute("question", chosen_question.getQuestion());
+            //dispatcher.forward(request, response);
             //Get answer
             //Compare with one in BD
             //Scenario win
             //Scenario loose 
             
             //}
-        }
+        //}
         
         //score final added to current user score in database!
         //Assert score user bfr game (stored bfr update) <= score user +scoregame
         
         //Screen fin
+        dispatcher =request.getRequestDispatcher("/sologame.jsp");  
         dispatcher.forward(request, response);
     }
 

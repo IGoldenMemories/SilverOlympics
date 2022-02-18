@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.silverolympics.dao.QuestionGeneratorDao;
 
 /**
  *
@@ -99,7 +100,34 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         //At least one theme should be chosen 
         assert !chosen_themes.isEmpty(): "Issue with chosen_themes size";
         
+        int nbr_questions = 0;
+        request.setAttribute("question_nbr", nbr_questions);
+        //Assign the first question and its corresponding answers 
+        QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
         
+        //assignation of parameters
+        String question_chosen ="Qui a dit : « Le sort en est jeté » (Alea jacta est) ?";
+        String answera_chosen = "Vercingétorix";
+        String answerb_chosen = "Attila";
+        String answerc_chosen = "Auguste";
+        String answerd_chosen = "César";
+        String correct_answer_chosen= "D";
+        chosen_question .setAnswerA(answera_chosen);
+        chosen_question .setQuestion(question_chosen);
+        chosen_question .setAnswerB(answerb_chosen);
+        chosen_question .setAnswerC(answerc_chosen);
+        chosen_question .setAnswerD(answerd_chosen);
+        chosen_question .setCorrectAnswer(correct_answer_chosen);
+        
+        request.setAttribute("question", chosen_question.getQuestion());
+        request.setAttribute("answerA", chosen_question.getAnswerA());
+        request.setAttribute("answerB", chosen_question.getAnswerB());
+        request.setAttribute("answerC", chosen_question.getAnswerC());
+        request.setAttribute("answerD", chosen_question.getAnswerD());
+        request.setAttribute("correctAnswer", chosen_question.getCorrectAnswer());
+        
+        int current_score = 0;
+        request.setAttribute("score", current_score);
         RequestDispatcher rd=request.getRequestDispatcher("/sologame.jsp");  
         rd.forward(request, response);  
     }

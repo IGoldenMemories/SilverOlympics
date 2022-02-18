@@ -24,8 +24,3 @@ function displaytimer() {
     
 }
      
- var nbr_question = '${question_nbr}';   
- var chosen_question ='${question}';
- document.getElementByUd('numquestion').innerHTML = nbr_question;
- document.getElementByUd('question_txt').innerHTML = chosen_question;
- document.location.reload();

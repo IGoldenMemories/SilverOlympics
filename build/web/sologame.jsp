@@ -19,7 +19,7 @@
         <div id="timerblock"  style="display:none;"  > 
             Temps restant: <div id="timernbr"> </div>
         </div>
-        <div class="scoreblock"> Score: </div>
+        <div class="scoreblock"> Score: ${score} </div>
         <button  onClick="displaytimer()"> Cliquer ici pour tester le countdown </button>
         chosen options:
         ${timer}
@@ -71,27 +71,28 @@
         <hr>
         <div id ="chosenanswer" ></div>
         <hr>
-        <div class="question"> Question <div id="numquestion"></div><div id="question_txt"></div> :</div> 
+        <div class="question"> Question ${question_nbr} : ${question} </div> 
         <br>
         <hr>
         <div class="answercontainer">
             <div class="answers answerA" id="answerAsquare">  
                 <h2> A  </h2>
-                <p id="answera"></p>
+                <p id="answera"> ${answerA} </p>
             </div> 
             <div class="answers answerB" id="answerBsquare">
                <h2> B  </h2>
-               <p id="answerb"></p>
+               <p id="answerb"> ${answerB} </p>
             </div></br>
             <div class="answers answerC" id="answerCsquare">
                <h2> C  </h2>
-               <p id="answerc"></p>
+               <p id="answerc"> ${answerC} </p>
             </div> 
             <div class="answers answerD" id="answerDsquare">
                <h2> D  </h2>
-               <p id="answerd"></p>
+               <p id="answerd"> ${answerD} </p>
             </div> 
         </div>
+        
            
        
     </body>
