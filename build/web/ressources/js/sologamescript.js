@@ -8,7 +8,7 @@ function displaytimer() {
         document.getElementById("timer").innerHTML="1:00"; 
         timer = window.setInterval(function() {
             countdown();}, 1000);
-        while(still_timer){
+        while(still_time){
             document.getElementById('timerblock').style.display = "block";
             if(seconds < 60) {
                 document.getElementById("timernbr").innerHTML = seconds;

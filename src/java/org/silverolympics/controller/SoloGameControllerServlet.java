@@ -45,6 +45,7 @@ public class SoloGameControllerServlet extends HttpServlet {
             
         //Select a question in BDD (random row with theme in chosen themes)
         QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
+        
         //assignation of parameters
         
         //Put question in question div

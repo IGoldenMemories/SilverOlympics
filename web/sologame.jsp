@@ -32,10 +32,38 @@
             var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
             scanner.addListener('scan',function(content){
 		alert(content);
-                //HAD A DIV AND FILL IT WITH THE content (WHAT'S READ BY THE SCANNER 
-		//window.location.href=content;
+                
                 document.getElementById('chosenanswer').innerHTML =content;
                 document.getElementById("givenanswer").value = content;
+                var right_answer = '${correctAnswer}';
+                //Success scenario 
+                if (content!==null && content === right_answer){
+                    document.getElementById('chosenanswer').innerHTML ="Success!!";
+                    //play audio with out html audio tag
+                    var audioSuccess = new Audio('ressources/audio/success_one.mp3');
+                    audioSuccess.play();
+                    
+                    if(content==="D"){
+                        //Changing the color of the "answer"
+                        var square_d = document.getElementById("answerDsquare");
+                        square_d.style.backgroundColor = "#00FF00";
+                    }
+                }
+                //failure scenario
+                else{
+                    if(content!==null && content!== right_answer){
+                        document.getElementById('chosenanswer').innerHTML ="Wrong Answer!!";
+                        //play audio with out html audio tag
+                        var audioSuccess = new Audio('ressources/audio/fail_one.mp3');
+                        audioSuccess.play();
+                        if(content==="C"){
+                            //Changing color of wrong given answer to red 
+                            //Changing color of right answer to green
+                            
+                        }
+                    }
+                }
+                
             });
             Instascan.Camera.getCameras().then(function (cameras){
 		if(cameras.length>0){
@@ -71,7 +99,7 @@
         <br>
         <hr>
         <input type="hidden" id ="givenanswer" name="given_answer" value="" />
-        <div id="chosenanswer"></div>
+        <div id="chosenanswer"></div> <div> correct answer : ${correctAnswer}</div>
         
         <hr>
         <div class="question"> Question ${question_nbr} : ${question} </div> 
