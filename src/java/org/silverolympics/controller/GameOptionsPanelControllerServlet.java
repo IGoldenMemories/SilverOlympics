@@ -127,6 +127,10 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         request.setAttribute("correctAnswer", chosen_question.getCorrectAnswer());
         
         int current_score = 0;
+        // Attention divide score in:
+        //-currentscore attribute (before the game)
+        //-score attribute(which will be updated and asserted in SoloGameController >= currentscore)
+        
         request.setAttribute("score", current_score);
         RequestDispatcher rd=request.getRequestDispatcher("/sologame.jsp");  
         rd.forward(request, response);  

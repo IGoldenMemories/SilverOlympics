@@ -6,11 +6,11 @@
 
 body{
     
-    background: linear-gradient(270deg, #58377d, #6b4c1a);
+    background: linear-gradient(270deg, #43414b, #615037);
     background-size: 400% 400%;
 
     animation: AnimationName 30s ease infinite;
-    box-sizing: border-box;
+    
 }
 
 @keyframes AnimationName {
@@ -47,30 +47,49 @@ body{
 
 /* Clear floats after the columns */
 .answercontainer {
-  position: absolute;
-  display: inline-block;
+  position: relative;
   text-align: center;
 }
 
 /* Create four equal columns that floats next to each other */
 .answers {
-  float: left;
-  background: rgb(236,211,223);
-  background: radial-gradient(circle, rgba(236,211,223,1) 0%, rgba(242,222,179,1) 23%, rgba(149,204,212,1) 100%);
-  padding: 40px 40px;
-  left: 20px;
+    background: rgb(236,211,223);
+  
+}
+.answers h2{
+    font-size: 30px;
 }
 .answerA{
-    left: 20px;
+    position: absolute;
+    left: 120px;
+    top: 0px;
+    width: 180px;
+    height: 180px;
+    font-size: 17px;
     
 }
 .answerB{
-    left: 60px;
+    position: absolute;
+    left: 360px;
+    top: 0px;
+    width: 180px;
+    height: 180px;
+    font-size: 17px;
 }
 .answerC{
-    right: 60px;
+    position: absolute;
+    right: 360px;
+    top: 0px;
+    width: 180px;
+    height: 180px;
+    font-size: 17px;
 }
 
 .answerD{
-    right: 10px;
+    position: absolute;
+    right: 120px;
+    top: 0px;
+    width: 180px;
+    height: 180px;
+    font-size: 17px;
 }

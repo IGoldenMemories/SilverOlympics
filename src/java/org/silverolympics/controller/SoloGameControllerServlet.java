@@ -32,86 +32,62 @@ public class SoloGameControllerServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int nbr_questions = 1;
+        
         RequestDispatcher dispatcher //
 				= this.getServletContext().getRequestDispatcher("/sologame.jsp");
         
         List<String> chosen_themes = (List<String>) request.getAttribute("themeschoice");
+        int number_question = (int) request.getAttribute("question_nbr");
+        String result_prev_quest = (String) request.getParameter("result");
         
-        //Timer checkbox was selected/checked in options panel
-        //while(nbr_questions<10){
+        //Display the end screen 
+        if(number_question == 10){
             
-        //Select a question in BDD (random row with theme in chosen themes)
-        QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
+        }
+        //Displays the next question / posssible answers
+        else{
+            //If the previous question was correctly answered 
+            if(result_prev_quest.equals("success")){
+                //update score
+                int current_score = (int) request.getAttribute("score");
+                current_score+=1;
+                request.setAttribute("score", current_score);
+            }
+            //Select a new question 
+            QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
+            String question_chosen ="Qui a dit : « Le sort en est jeté » (Alea jacta est) ?";
+            String answera_chosen = "Vercingétorix";
+            String answerb_chosen = "Attila";
+            String answerc_chosen = "Auguste";
+            String answerd_chosen = "César";
+            String correct_answer_chosen= "D";
+            chosen_question .setAnswerA(answera_chosen);
+            chosen_question .setQuestion(question_chosen);
+            chosen_question .setAnswerB(answerb_chosen);
+            chosen_question .setAnswerC(answerc_chosen);
+            chosen_question .setAnswerD(answerd_chosen);
+            chosen_question .setCorrectAnswer(correct_answer_chosen);
         
-        //assignation of parameters
+            request.setAttribute("question", chosen_question.getQuestion());
+            request.setAttribute("answerA", chosen_question.getAnswerA());
+            request.setAttribute("answerB", chosen_question.getAnswerB());
+            request.setAttribute("answerC", chosen_question.getAnswerC());
+            request.setAttribute("answerD", chosen_question.getAnswerD());
         
-        //Put question in question div
-        //Put answers in respective div
-        //Get answer
-        String given_answer = request.getParameter("given_answer");
+            
         
-        //Compare with one in BD
-        
-        //Scenario win
-        //Scenario loose 
-            
-        //}//while(nbr_questions<10){
-            
-            //Select a question in BDD (random row with theme in chosen themes)
-        //    QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
-            //assignation of parameters
-         //   String question_chosen ="Qui a dit : « Le sort en est jeté » (Alea jacta est) ?";
-           // String answera_chosen = "Vercingétorix";
-            //String answerb_chosen = "Attila";
-           // String answerc_chosen = "Auguste";
-           // String answerd_chosen = "César";
-           // String correct_answer_chosen= "D";
-            //chosen_question .setAnswerA(answera_chosen);
-            //chosen_question .setQuestion(question_chosen);
-            //chosen_question .setAnswerB(answerb_chosen);
-            //chosen_question .setAnswerC(answerc_chosen);
-           // chosen_question .setAnswerD(answerd_chosen);
-            //chosen_question .setCorrectAnswer(correct_answer_chosen);
-            //Pass the different chosen values (qeustion and possible answers to the jsp)
-            //request.setAttribute("question", chosen_question.getQuestion());
-            //dispatcher.forward(request, response);
-            //Put question in question div
-            //Put answers in respective div
-            //Get answer
-            //Compare with one in BD
-            //Scenario win
-            //Scenario loose 
-            
-            //}
-        //}
-        //Timer not selected in solo game panel
-        //else{
-            //ALLOW TIMER IN JSP/JAVASCRIPT
-            
-            //while(nbr_questions<10){
-            //Select a question in BDD (random row with theme in chosen themes)
-           // QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
-            //update the question number (for display)
-           // request.setAttribute("question_nbr",nbr_questions);
-            //Pass the different chosen values (qeustion and possible answers to the jsp)
-            //request.setAttribute("question", chosen_question.getQuestion());
-            //dispatcher.forward(request, response);
-            //Get answer
-            //Compare with one in BD
-            //Scenario win
-            //Scenario loose 
-            
-            //}
-        //}
-        
+                
+                //assignation of parameters
+        }   
+   
+       
         //score final added to current user score in database!
         //Assert score user bfr game (stored bfr update) <= score user +scoregame
         
         //Screen fin
-        dispatcher =request.getRequestDispatcher("/sologame.jsp");  
+        
         dispatcher.forward(request, response);
     }
 
@@ -124,9 +100,12 @@ public class SoloGameControllerServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request,response);
+        RequestDispatcher dispatcher //
+				= this.getServletContext().getRequestDispatcher("/sologame.jsp");
+        
+        dispatcher.forward(request, response);
     }
    
 }

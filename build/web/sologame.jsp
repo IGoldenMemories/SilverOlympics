@@ -34,7 +34,7 @@
 		alert(content);
                 
                 document.getElementById('chosenanswer').innerHTML =content;
-                document.getElementById("givenanswer").value = content;
+                
                 var right_answer = '${correctAnswer}';
                 //Success scenario 
                 if (content!==null && content === right_answer){
@@ -42,36 +42,74 @@
                     //play audio with out html audio tag
                     var audioSuccess = new Audio('ressources/audio/success_one.mp3');
                     audioSuccess.play();
-                    //Update score
-                    var new_score = "${score}" + 1;
-                    document.getElementById('current_score').innerHTML = new_score;
+                    
                     if(content==="D"){
                         //Changing the color of the "answer"
                         var square_d = document.getElementById("answerDsquare");
-                        square_d.style.backgroundColor = "#00FF00";
+                        square_d.style.backgroundColor = "#99cc00";
+                        
                     }
+                    document.getElementById("givenanswer").value = "success";
+                    //document.end_of_screen.submit();
                 }
-                //failure scenario
+                //failure scenario (given answer(in content variable) != correct answer)
                 else{
                     if(content!==null && content!== right_answer){
                         document.getElementById('chosenanswer').innerHTML ="Wrong Answer!!";
                         //play audio with out html audio tag
                         var audioSuccess = new Audio('ressources/audio/fail_one.mp3');
                         audioSuccess.play();
-                        if(content==="C"){
+                        //Given answer is A
+                        if(content==="A"){
                             //Changing color of wrong given answer to red 
-                            var square_c = document.getElementById("answerCsquare");
-                            square_c.style.backgroundColor = 'red';
+                            var square_a = document.getElementById("answerAsquare");
+                            square_a.style.backgroundColor = '#800000';
                             //Changing color of right answer to green
                             if(right_answer==="D"){
                                 var square_d = document.getElementById("answerDsquare");
-                                square_d.style.backgroundColor = 'green';
+                                square_d.style.backgroundColor = '#99cc00';
+                                
+                            }
+                        }
+                        //Given answer is B
+                        if(content==="B"){
+                            //Changing color of wrong given answer to red 
+                            var square_b = document.getElementById("answerBsquare");
+                            square_b.style.backgroundColor = '#800000';
+                            //Changing color of right answer to green
+                            if(right_answer==="D"){
+                                var square_d = document.getElementById("answerDsquare");
+                                square_d.style.backgroundColor = '#99cc00';
+                            }
+                        }
+                        //Given answer is C
+                        if(content==="C"){
+                            //Changing color of wrong given answer to red 
+                            var square_c = document.getElementById("answerCsquare");
+                            square_c.style.backgroundColor = '#800000';
+                            //Changing color of right answer to green
+                            if(right_answer==="D"){
+                                var square_d = document.getElementById("answerDsquare");
+                                square_d.style.backgroundColor = '#99cc00';
                             }
                             
-                            
                         }
+                        //Given answer is D
+                        if(content==="D"){
+                            //Changing color of wrong given answer to red 
+                            var square_c = document.getElementById("answerCsquare");
+                            square_c.style.backgroundColor = '#800000';
+                            //Changing color of right answer to green
+                            if(right_answer==="B"){
+                                var square_b = document.getElementById("answerBsquare");
+                                square_b.style.backgroundColor = '#99cc00';
+                            }
+                        }
+                        //document.end_of_screen.submit();
                     }
+                    
                 }
+                
                 
             });
             Instascan.Camera.getCameras().then(function (cameras){
@@ -105,10 +143,13 @@
 		alert(e);
                 });
         </script> 
-        <c:set var="score" value="${new_score}" scope="request"/>
+        
         <br>
         <hr>
-        <input type="hidden" id ="givenanswer" name="given_answer" value="" />
+        <form method="post" action="SoloGameControllerServlet" name="end_of_screen">
+            <input type="hidden" id ="givenanswer" name="result"  />
+            
+        </form>
         <div id="chosenanswer"></div> <div> correct answer : ${correctAnswer}</div>
         
         <hr>
