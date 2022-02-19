@@ -19,7 +19,7 @@
         <div id="timerblock"  style="display:none;"  > 
             Temps restant: <div id="timernbr"> </div>
         </div>
-        <div class="scoreblock"> Score: ${score} </div>
+        <div class="scoreblock"> Score: <div id="current_score"> ${score} </div> </div>
         <button  onClick="displaytimer()"> Cliquer ici pour tester le countdown </button>
         chosen options:
         ${timer}
@@ -42,7 +42,9 @@
                     //play audio with out html audio tag
                     var audioSuccess = new Audio('ressources/audio/success_one.mp3');
                     audioSuccess.play();
-                    
+                    //Update score
+                    var new_score = "${score}" + 1;
+                    document.getElementById('current_score').innerHTML = new_score;
                     if(content==="D"){
                         //Changing the color of the "answer"
                         var square_d = document.getElementById("answerDsquare");
@@ -58,7 +60,14 @@
                         audioSuccess.play();
                         if(content==="C"){
                             //Changing color of wrong given answer to red 
+                            var square_c = document.getElementById("answerCsquare");
+                            square_c.style.backgroundColor = 'red';
                             //Changing color of right answer to green
+                            if(right_answer==="D"){
+                                var square_d = document.getElementById("answerDsquare");
+                                square_d.style.backgroundColor = 'green';
+                            }
+                            
                             
                         }
                     }
@@ -96,6 +105,7 @@
 		alert(e);
                 });
         </script> 
+        <c:set var="score" value="${new_score}" scope="request"/>
         <br>
         <hr>
         <input type="hidden" id ="givenanswer" name="given_answer" value="" />
