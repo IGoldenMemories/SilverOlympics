@@ -60,48 +60,45 @@ public class EndScreenControllerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ServletContext sc = this.getServletContext();
+        RequestDispatcher dispatcher //
+				= this.getServletContext().getRequestDispatcher("/endscreen.jsp");
+        String choice = (String)request.getParameter("result");
         
-        
-        
-        
-        //If a new game with same options is chosen
-        if(request.getParameter("newgamebutton") != null){
+        if(choice != null){
+         
+            //If a new game with same options is chosen
+            if("A".equals(choice)){
+                HttpSession session = request.getSession();
+                int nbr_questions = 1;
+                session.setAttribute("question_nbr", nbr_questions);
+                //Assign the first question and its corresponding answers 
+                //QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
             
-            HttpSession session = request.getSession();
-            int nbr_questions = 1;
-            session.setAttribute("question_nbr", nbr_questions);
-            //Assign the first question and its corresponding answers 
-            //QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
+                int current_score = 0;
             
-            int current_score = 0;
-            
-            request.setAttribute("score", current_score);
-            RequestDispatcher rd=request.getRequestDispatcher("/sologame.jsp");  
-            rd.forward(request, response);  
-        }
+                request.setAttribute("score", current_score);
+                RequestDispatcher rd=request.getRequestDispatcher("/sologame.jsp");  
+                rd.forward(request, response);      
+            }
         
-        // If a new game with different options is chosen
-  
-        else{
-             // If a new game with different options is chosen
-             if(request.getParameter("other_options") != null){
-                RequestDispatcher rd=request.getRequestDispatcher("/sologameoptions.jsp");  
-                rd.forward(request, response); 
-             }
-             else{
-                //If the user wants to go back to the homepage
-                if(request.getParameter("homepagebutton") != null){
-                    RequestDispatcher rd=request.getRequestDispatcher("/homepage.jsp");  
+            // If a new game with different options is chosen
+            else{
+                // If a new game with different options is chosen
+                if("B".equals(choice)){
+                    RequestDispatcher rd=request.getRequestDispatcher("/sologameoptions.jsp");  
                     rd.forward(request, response); 
                 }
+                else{
+                    //If the user wants to go back to the homepage
+                    assert choice.equals("C");
+                    RequestDispatcher rd=request.getRequestDispatcher("/homepage.jsp");  
+                    rd.forward(request, response); 
+                    }
                  
-             }
+                }
             
+            }
         }
-        
-        
-        
-    }
+ }
    
-}
+
