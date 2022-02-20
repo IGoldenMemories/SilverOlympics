@@ -49,8 +49,16 @@
                         square_d.style.backgroundColor = "#99cc00";
                         
                     }
+                    var current_nbr = '{question_nbr}';
+                    document.getElementById("nbr_question").value = "+current_nbr+";
                     document.getElementById("givenanswer").value = "success";
-                    //document.end_of_screen.submit();
+                    var delayInMilliseconds = 5000; //10 seconds
+
+                        setTimeout(function() {
+                            document.end_of_screen.submit();
+                            
+                            }, delayInMilliseconds);
+                    
                 }
                 //failure scenario (given answer(in content variable) != correct answer)
                 else{
@@ -105,7 +113,14 @@
                                 square_b.style.backgroundColor = '#99cc00';
                             }
                         }
-                        //document.end_of_screen.submit();
+                        document.getElementById("givenanswer").value = "fail";
+                        var delayInMilliseconds = 5000; //5 seconds
+
+                        setTimeout(function() {
+                            document.end_of_screen.submit();
+                            
+                            }, delayInMilliseconds);
+                        
                     }
                     
                 }
@@ -146,8 +161,9 @@
         
         <br>
         <hr>
-        <form method="post" action="SoloGameControllerServlet" name="end_of_screen">
+        <form name="end_of_screen" action="jeusolo" method="post"  >
             <input type="hidden" id ="givenanswer" name="result"  />
+            <input type="hidden" id="nbr_question" name="current_nbr_question"/>
             
         </form>
         <div id="chosenanswer"></div> <div> correct answer : ${correctAnswer}</div>
