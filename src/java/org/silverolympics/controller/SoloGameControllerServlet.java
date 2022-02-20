@@ -39,7 +39,9 @@ public class SoloGameControllerServlet extends HttpServlet {
 				= this.getServletContext().getRequestDispatcher("/sologame.jsp");
         
         List<String> chosen_themes = (List<String>) request.getAttribute("themeschoice");
-        int number_question = (int) request.getAttribute("question_nbr");
+        int number_question = Integer.parseInt(request.getParameter("current_nbr_question"));
+        number_question +=1;
+        request.setAttribute("question_nbr", number_question);
         String result_prev_quest = (String) request.getParameter("result");
         
         //Display the end screen 

@@ -50,7 +50,7 @@
                         
                     }
                     var current_nbr = '{question_nbr}';
-                    document.getElementById("nbr_question").value = "+current_nbr+";
+                    document.getElementById("nbr_question").value = current_nbr;
                     document.getElementById("givenanswer").value = "success";
                     var delayInMilliseconds = 5000; //10 seconds
 
