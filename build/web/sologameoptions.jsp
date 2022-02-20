@@ -18,7 +18,7 @@
         <div class="options">
             <div class="titreoption" >Options de la partie: </div>
             <br>
-            <form method="post">
+            <form method="post" action="jeusolooptions">
                 <div class="titrechoix"> Limite de temps?  </div>
                 <input type="checkbox"
                    id="countdownbool"
@@ -46,7 +46,7 @@
                 <hr>
                 <div class="titrechoix">  Choisissez d'avoir des questions de thèmes aléatoires: </div>
                 <br>
-                <input type="submit" class="random"  name="random_button" onclick="button_pressed(this)" value="Aléatoire"> 
+                <input type="submit" class="random"  name="random_button" value="Aléatoire"> 
 
             </form>
            

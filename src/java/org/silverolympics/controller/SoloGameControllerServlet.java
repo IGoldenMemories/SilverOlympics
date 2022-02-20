@@ -40,6 +40,7 @@ public class SoloGameControllerServlet extends HttpServlet {
         
         List<String> chosen_themes = (List<String>) request.getAttribute("themeschoice");
         HttpSession session = request.getSession();
+        
         //Integer number_question = session.getAttribute("question_nbr");
         //number_question +=1;
         //session.setAttribute("question_nbr", number_question);
@@ -58,9 +59,10 @@ public class SoloGameControllerServlet extends HttpServlet {
             //If the previous question was correctly answered 
         if ("success".equals(result_prev_quest)){
                 //update score
-            int current_score = (int) request.getAttribute("score");
-            current_score+=1;
-            request.setAttribute("score", current_score);
+            //int current_score = (int) request.getAttribute("score");
+            //current_score+=1;
+            //request.setAttribute("score", current_score);
+            
             //Select a new question 
             //QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
             //String question_chosen ="À qui doit-on la chanson « I Shot the Sheriff » ?";
@@ -82,9 +84,12 @@ public class SoloGameControllerServlet extends HttpServlet {
             //request.setAttribute("answerC", chosen_question.getAnswerC());
             //request.setAttribute("answerD", chosen_question.getAnswerD());
             //request.setAttribute("correctAnswer",chosen_question.getCorrectAnswer());
+            int current_score = 1;
+            request.setAttribute("score", current_score);
+            RequestDispatcher rd=request.getRequestDispatcher("/endscreen.jsp");  
+            rd.forward(request, response);  
             }
   
-            dispatcher.forward(request, response);
                 
                 //assignation of parameters
         //}   

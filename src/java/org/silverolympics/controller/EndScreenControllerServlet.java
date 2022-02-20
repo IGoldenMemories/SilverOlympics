@@ -36,6 +36,13 @@ public class EndScreenControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        //-currentscore attribute (before the game)
+        //-score attribute(which will be updated and asserted in SoloGameController >= currentscore)
+        //int game_score = (int) request.getAttribute("score");
+        //UserAccount current_user = (UserAccount) request.getAttribute(UserAccount);
+        //int current_score = current_user.getScore();
+        // assert current_score <= current_score + game_score;
         RequestDispatcher dispatcher //
 				= this.getServletContext().getRequestDispatcher("/endscreen.jsp");
         
@@ -79,12 +86,15 @@ public class EndScreenControllerServlet extends HttpServlet {
         else{
              // If a new game with different options is chosen
              if(request.getParameter("other_options") != null){
-                 
+                RequestDispatcher rd=request.getRequestDispatcher("/sologameoptions.jsp");  
+                rd.forward(request, response); 
              }
              else{
-                 //If the user wants to go back to the homepage
-                 if(request.getParameter("homepagebutton") != null){
-             }
+                //If the user wants to go back to the homepage
+                if(request.getParameter("homepagebutton") != null){
+                    RequestDispatcher rd=request.getRequestDispatcher("/homepage.jsp");  
+                    rd.forward(request, response); 
+                }
                  
              }
             
