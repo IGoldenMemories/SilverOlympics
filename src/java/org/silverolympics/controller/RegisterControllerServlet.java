@@ -13,9 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
-import org.silverolympics.bean.ConnectionDB;
 import org.silverolympics.bean.UserAccount;
 import org.silverolympics.dao.DataBaseDao;
 /**
@@ -65,23 +63,28 @@ public class RegisterControllerServlet extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
-        String url="jdbc:mysql://localhost:3306/silver_schema?zeroDateTimeBehavior=CONVERT_TO_NULL [root on Default schema]";
-        String uname="root";
-        String pass="Silv3rQuestions42";
         
-        Connection con;
+        //con = DriverManager.getConnection(url, uname, pass);
+        String input_userName = request.getParameter("username");
+        //String input_password = request.getParameter("password");
+        DataBaseDao databaseconnector = new DataBaseDao();
+        Connection con = databaseconnector.getCon();
+        //int nbr_user = DataBaseDao.number_users();
+        //create a registerbean 
+        //call authorizeRegister(registerbean)
+        //Following result(msg) --> redirect (login if successful, register if chosen username already used)
+        
         try {
-            con = DriverManager.getConnection(url, uname, pass);
-            String input_userName = request.getParameter("username");
-            String input_password = request.getParameter("password");
-            DataBaseDao reguser = new DataBaseDao();
-            //int nbr_user = DataBaseDao.number_users();
-            //create a registerbean 
-            //call authorizeRegister(registerbean)
-            //Following result(msg) --> redirect (login if successful, register if chosen username already used)
+            Statement stmt =  con.createStatement();
+            stmt.executeUpdate("insert into user (username) values('"+input_userName+"'");
             
-        } catch (SQLException ex) {
-            Logger.getLogger(RegisterControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
+            RequestDispatcher rd = request.getRequestDispatcher("/sologame.jsp");
+            rd.forward(request, response); 
+        } 
+        catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
+        
     }
 }

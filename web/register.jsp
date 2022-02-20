@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class="formwrapper">
-            <form class="registerform" method="post" accept-charset="ISO-8859-1" action="RegisterControllerServlet"  >
+            <form class="registerform" method="post" accept-charset="ISO-8859-1" action="creercompte"  >
                 
                 <!-- form header -->
                 <div class="form-header">
@@ -27,8 +27,8 @@
                     <label for="username" class="label-title"> Nom d'utilisateur: </label>
                     <input class="form-input" name ="username" size="40" required/>
                     <!-- Password of the institution's account -->
-                    <label for="password" class="label-title"> Mot de passe:</label>
-                    <input class="form-input" name ="password" size="40" required/>
+                    <!-- <label for="password" class="label-title"> Mot de passe:</label>
+                    <input class="form-input" name ="password" size="40" required/> -->
                     
                 </div>
                 

@@ -15,13 +15,32 @@ import org.silverolympics.bean.UserAccount;
  * @see org.silverolympics.bean.UserAccount
  */
 public class DataBaseDao {
+    private String url="jdbc:mysql://localhost:3306/silver_schema";
+    private String uname="root";
+    private String pass="Silv3rQuestions42";
+    public Connection con;
     /**
      * Constructor method 
      */
     public DataBaseDao() {
         super();
     }
-    
+    public Connection getCon(){
+        try {
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            con =  DriverManager.getConnection(url, uname,pass);
+        } 
+        catch (ClassNotFoundException e) {
+
+            e.printStackTrace();
+        } 
+        catch (SQLException e) {
+
+        e.printStackTrace();
+        }
+        return con;
+    }
     
     //for register user 
 
