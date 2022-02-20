@@ -39,58 +39,59 @@ public class SoloGameControllerServlet extends HttpServlet {
 				= this.getServletContext().getRequestDispatcher("/sologame.jsp");
         
         List<String> chosen_themes = (List<String>) request.getAttribute("themeschoice");
-        int number_question = Integer.parseInt(request.getParameter("current_nbr_question"));
-        number_question +=1;
-        request.setAttribute("question_nbr", number_question);
+        HttpSession session = request.getSession();
+        //Integer number_question = session.getAttribute("question_nbr");
+        //number_question +=1;
+        //session.setAttribute("question_nbr", number_question);
         String result_prev_quest = (String) request.getParameter("result");
         
         //Display the end screen 
-        if(number_question == 10){
-            
-        }
+        //if(number_question == 10){
+            //score final added to current user score in database!
+            //Assert score user bfr game (stored bfr update) <= score user +scoregame
+        
+            //Screen fin
+        
+        //}
         //Displays the next question / posssible answers
-        else{
+        //else{
             //If the previous question was correctly answered 
-            if(result_prev_quest.equals("success")){
+        if ("success".equals(result_prev_quest)){
                 //update score
-                int current_score = (int) request.getAttribute("score");
-                current_score+=1;
-                request.setAttribute("score", current_score);
-            }
+            int current_score = (int) request.getAttribute("score");
+            current_score+=1;
+            request.setAttribute("score", current_score);
             //Select a new question 
-            QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
-            String question_chosen ="Qui a dit : « Le sort en est jeté » (Alea jacta est) ?";
-            String answera_chosen = "Vercingétorix";
-            String answerb_chosen = "Attila";
-            String answerc_chosen = "Auguste";
-            String answerd_chosen = "César";
-            String correct_answer_chosen= "D";
-            chosen_question .setAnswerA(answera_chosen);
-            chosen_question .setQuestion(question_chosen);
-            chosen_question .setAnswerB(answerb_chosen);
-            chosen_question .setAnswerC(answerc_chosen);
-            chosen_question .setAnswerD(answerd_chosen);
-            chosen_question .setCorrectAnswer(correct_answer_chosen);
+            //QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
+            //String question_chosen ="À qui doit-on la chanson « I Shot the Sheriff » ?";
+            //String answera_chosen = "Bob Marley";
+            //String answerb_chosen = "Eric Clapton";
+            //String answerc_chosen = "UB40";
+            //String answerd_chosen = "Jim Morrison";
+            //String correct_answer_chosen= "A";
+            //chosen_question .setAnswerA(answera_chosen);
+            //chosen_question .setQuestion(question_chosen);
+            //chosen_question .setAnswerB(answerb_chosen);
+            //chosen_question .setAnswerC(answerc_chosen);
+            //chosen_question .setAnswerD(answerd_chosen);
+            //chosen_question .setCorrectAnswer(correct_answer_chosen);
         
-            request.setAttribute("question", chosen_question.getQuestion());
-            request.setAttribute("answerA", chosen_question.getAnswerA());
-            request.setAttribute("answerB", chosen_question.getAnswerB());
-            request.setAttribute("answerC", chosen_question.getAnswerC());
-            request.setAttribute("answerD", chosen_question.getAnswerD());
-        
-            
-        
+            //request.setAttribute("question", chosen_question.getQuestion());
+            //request.setAttribute("answerA", chosen_question.getAnswerA());
+            //request.setAttribute("answerB", chosen_question.getAnswerB());
+            //request.setAttribute("answerC", chosen_question.getAnswerC());
+            //request.setAttribute("answerD", chosen_question.getAnswerD());
+            //request.setAttribute("correctAnswer",chosen_question.getCorrectAnswer());
+            }
+  
+            dispatcher.forward(request, response);
                 
                 //assignation of parameters
-        }   
+        //}   
    
        
-        //score final added to current user score in database!
-        //Assert score user bfr game (stored bfr update) <= score user +scoregame
         
-        //Screen fin
         
-        dispatcher.forward(request, response);
     }
 
     /**

@@ -37,8 +37,8 @@ public class DataBaseDao {
         try{
             //Insert register data to database
             String query = "insert into user(id,username,password) values(?,?,?)";
-            int id_user = DataBaseDao.number_users();
-            user.setId(id_user);
+            //int id_user = DataBaseDao.number_users();
+            //user.setId(id_user);
             PreparedStatement pt = con.prepareStatement(query);
             
             pt.setInt(1, user.getId());
@@ -109,29 +109,7 @@ public class DataBaseDao {
         return list;
 }
     
-    /**
-     * Returns the number of current accounts in user database
-     * @return the number of entries (rows) of the user database
-     * @throws SQLException
-     */
-    public static int number_users() throws SQLException {
-        
-        try{
-            // Setup the connection with the DB
-            Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/silver_schema?zeroDateTimeBehavior=CONVERT_TO_NULL [root on Default schema]" + "user=root&password=Silv3rQuestions42");
-        
-            Statement statement = connect.createStatement();
-            ResultSet resultSet = statement.executeQuery("select count(*) from user");
-        
-            while(resultSet.next()){
-                return resultSet.getInt(1);
-            }
-        }
-       catch(SQLException e){
-               
-               }
-        return 0;
-    }
+   
     
     
 }

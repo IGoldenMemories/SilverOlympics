@@ -75,7 +75,7 @@ public class RegisterControllerServlet extends HttpServlet {
             String input_userName = request.getParameter("username");
             String input_password = request.getParameter("password");
             DataBaseDao reguser = new DataBaseDao();
-            int nbr_user = DataBaseDao.number_users();
+            //int nbr_user = DataBaseDao.number_users();
             //create a registerbean 
             //call authorizeRegister(registerbean)
             //Following result(msg) --> redirect (login if successful, register if chosen username already used)

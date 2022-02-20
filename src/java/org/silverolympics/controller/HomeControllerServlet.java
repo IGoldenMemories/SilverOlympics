@@ -57,13 +57,8 @@ public class HomeControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int value = 0;
-        try {
-            value = DataBaseDao.number_users();
-        } catch (SQLException ex) {
-            Logger.getLogger(HomeControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        request.setAttribute("resultdb",value);
+        
+        
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
        

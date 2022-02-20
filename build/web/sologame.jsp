@@ -49,8 +49,8 @@
                         square_d.style.backgroundColor = "#99cc00";
                         
                     }
-                    var current_nbr = '{question_nbr}';
-                    document.getElementById("nbr_question").value = current_nbr;
+                   
+                    
                     document.getElementById("givenanswer").value = "success";
                     var delayInMilliseconds = 5000; //10 seconds
 
@@ -163,13 +163,14 @@
         <hr>
         <form name="end_of_screen" action="jeusolo" method="post"  >
             <input type="hidden" id ="givenanswer" name="result"  />
-            <input type="hidden" id="nbr_question" name="current_nbr_question"/>
+            <input type="hidden" name="nbr_question" value="${question_nbr}" />
             
         </form>
+         
         <div id="chosenanswer"></div> <div> correct answer : ${correctAnswer}</div>
         
         <hr>
-        <div class="question"> Question ${question_nbr} : ${question} </div> 
+        <div class="question"> Question  ${sessionScope.question_nbr}": ${question} </div> 
         <br>
         <hr>
         <div class="answercontainer">
