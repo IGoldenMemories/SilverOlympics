@@ -42,7 +42,24 @@
                     //play audio with out html audio tag
                     var audioSuccess = new Audio('ressources/audio/success_one.mp3');
                     audioSuccess.play();
-                    
+                    if(content==="A"){
+                        //Changing the color of the "answer"
+                        var square_a = document.getElementById("answerAsquare");
+                        square_a.style.backgroundColor = "#99cc00";
+                        
+                    }
+                    if(content==="B"){
+                        //Changing the color of the "answer"
+                        var square_b = document.getElementById("answerBsquare");
+                        square_b.style.backgroundColor = "#99cc00";
+                        
+                    }
+                    if(content==="C"){
+                        //Changing the color of the "answer"
+                        var square_c = document.getElementById("answerCsquare");
+                        square_c.style.backgroundColor = "#99cc00";
+                        
+                    }
                     if(content==="D"){
                         //Changing the color of the "answer"
                         var square_d = document.getElementById("answerDsquare");
@@ -73,6 +90,17 @@
                             var square_a = document.getElementById("answerAsquare");
                             square_a.style.backgroundColor = '#800000';
                             //Changing color of right answer to green
+                            if(right_answer==="B"){
+                                var square_b = document.getElementById("answerBsquare");
+                                square_b.style.backgroundColor = '#99cc00';
+                                
+                            }
+                            if(right_answer==="C"){
+                                var square_c = document.getElementById("answerCsquare");
+                                square_c.style.backgroundColor = '#99cc00';
+                                
+                            }
+                            
                             if(right_answer==="D"){
                                 var square_d = document.getElementById("answerDsquare");
                                 square_d.style.backgroundColor = '#99cc00';
@@ -85,10 +113,23 @@
                             var square_b = document.getElementById("answerBsquare");
                             square_b.style.backgroundColor = '#800000';
                             //Changing color of right answer to green
+                            if(right_answer==="A"){
+                                var square_a = document.getElementById("answerAsquare");
+                                square_a.style.backgroundColor = '#99cc00';
+                                
+                            }
+                            if(right_answer==="C"){
+                                var square_c = document.getElementById("answerCsquare");
+                                square_c.style.backgroundColor = '#99cc00';
+                                
+                            }
+                            
                             if(right_answer==="D"){
                                 var square_d = document.getElementById("answerDsquare");
                                 square_d.style.backgroundColor = '#99cc00';
+                                
                             }
+                            
                         }
                         //Given answer is C
                         if(content==="C"){
@@ -96,9 +137,21 @@
                             var square_c = document.getElementById("answerCsquare");
                             square_c.style.backgroundColor = '#800000';
                             //Changing color of right answer to green
+                            if(right_answer==="A"){
+                                var square_a = document.getElementById("answerAsquare");
+                                square_a.style.backgroundColor = '#99cc00';
+                                
+                            }
+                            if(right_answer==="B"){
+                                var square_b = document.getElementById("answerBsquare");
+                                square_b.style.backgroundColor = '#99cc00';
+                                
+                            }
+                            
                             if(right_answer==="D"){
                                 var square_d = document.getElementById("answerDsquare");
                                 square_d.style.backgroundColor = '#99cc00';
+                                
                             }
                             
                         }
@@ -108,9 +161,21 @@
                             var square_c = document.getElementById("answerCsquare");
                             square_c.style.backgroundColor = '#800000';
                             //Changing color of right answer to green
+                            if(right_answer==="A"){
+                                var square_a = document.getElementById("answerAsquare");
+                                square_a.style.backgroundColor = '#99cc00';
+                                
+                            }
+                            if(right_answer==="C"){
+                                var square_c = document.getElementById("answerCsquare");
+                                square_c.style.backgroundColor = '#99cc00';
+                                
+                            }
+                            
                             if(right_answer==="B"){
                                 var square_b = document.getElementById("answerBsquare");
                                 square_b.style.backgroundColor = '#99cc00';
+                                
                             }
                         }
                         document.getElementById("givenanswer").value = "fail";
