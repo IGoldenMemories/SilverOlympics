@@ -163,14 +163,14 @@
         <hr>
         <form name="end_of_screen" action="jeusolo" method="post"  >
             <input type="hidden" id ="givenanswer" name="result"  />
-            <input type="hidden" name="nbr_question" value="${question_nbr}" />
+            
             
         </form>
          
         <div id="chosenanswer"></div> <div> correct answer : ${correctAnswer}</div>
         
         <hr>
-        <div class="question"> Question  ${sessionScope.question_nbr}": ${question} </div> 
+        <div class="question"> Question  ${question_number} : ${question} </div> 
         <br>
         <hr>
         <div class="answercontainer">

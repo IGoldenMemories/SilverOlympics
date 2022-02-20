@@ -101,7 +101,9 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         assert !chosen_themes.isEmpty(): "Issue with chosen_themes size";
         HttpSession session = request.getSession();
         int nbr_questions = 1;
-        session.setAttribute("question_nbr", nbr_questions);
+        session.setAttribute("question_number", nbr_questions);
+        int game_score  = 0;
+        session.setAttribute("score",game_score);
         //Assign the first question and its corresponding answers 
         QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
         
@@ -126,12 +128,12 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         request.setAttribute("answerD", chosen_question.getAnswerD());
         request.setAttribute("correctAnswer", chosen_question.getCorrectAnswer());
         
-        int current_score = 0;
+        
         // Attention divide score in:
         //-currentscore attribute (before the game)
         //-score attribute(which will be updated and asserted in SoloGameController >= currentscore)
         
-        request.setAttribute("score", current_score);
+        
         RequestDispatcher rd=request.getRequestDispatcher("/sologame.jsp");  
         rd.forward(request, response);  
     }
