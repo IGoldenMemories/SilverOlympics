@@ -15,9 +15,7 @@ import org.silverolympics.bean.UserAccount;
  * @see org.silverolympics.bean.UserAccount
  */
 public class DataBaseDao {
-    private String url="jdbc:mysql://localhost:3306/silver_schema";
-    private String uname="root";
-    private String pass="Silv3rQuestions42";
+    
     public Connection con;
     /**
      * Constructor method 
@@ -26,10 +24,13 @@ public class DataBaseDao {
         super();
     }
     public Connection getCon(){
+       
         try {
             
-            Class.forName("com.mysql.jdbc.Driver");
-            con =  DriverManager.getConnection(url, uname,pass);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql?"
+                            + "user=root&password=Silv3rQuestions42");
+            
         } 
         catch (ClassNotFoundException e) {
 
@@ -60,9 +61,9 @@ public class DataBaseDao {
             //user.setId(id_user);
             PreparedStatement pt = con.prepareStatement(query);
             
-            pt.setInt(1, user.getId());
-            pt.setString(2, user.getUserName());
-            pt.setString(3, user.getPassword());
+            
+            pt.setString(1, user.getUserName());
+            pt.setInt(2, user.getUserScore());
             pt.executeUpdate();
             set = true;
         }
@@ -98,9 +99,9 @@ public class DataBaseDao {
             
             while (rs.next()) {
                 UserAccount user=new UserAccount();
-                user.setId(rs.getInt("id"));
+                
                 user.setUserName(rs.getString("username"));
-                user.setPassword(rs.getString("password"));
+                //user.setPassword(rs.getString("password"));
                 user.setUserScore(rs.getInt("score"));
                 list.add(user);
             }

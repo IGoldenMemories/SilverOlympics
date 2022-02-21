@@ -8,7 +8,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import org.silverolympics.bean.UserAccount;
+import org.silverolympics.dao.AllUserData;
 import org.silverolympics.dao.DataBaseDao;
 
 /**
@@ -23,8 +28,6 @@ public class ScoreBoardControllerServlet extends HttpServlet {
     }
 
     
-
-    
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -36,15 +39,21 @@ public class ScoreBoardControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        DataBaseDao model=new DataBaseDao();
-        List list=null;
-        list=model.listusers();
-        System.out.println(list.size());
-    
-        assert (!list.isEmpty());
-     
-        request.setAttribute("listuser", list);
-        //https://www.geeksforgeeks.org/getattribute-passing-data-from-server-to-jsp/
+        
+        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/scoreboard.jsp");
+        //DataBaseDao model=new DataBaseDao();
+        
+        //Connection con = model.getCon();
+        //if(null!= con){
+        //    response.getWriter().print("Connection established......");
+        //}
+        //else{
+        //    response.getWriter().print("Connection failed......");
+        //}
+        AllUserData userdata = new AllUserData();
+        HashMap<String,Integer> usersmap = userdata.mapusers;
+        request.setAttribute("listusers", usersmap);
+        dispatcher.forward(request, response);
     }
 
     /**

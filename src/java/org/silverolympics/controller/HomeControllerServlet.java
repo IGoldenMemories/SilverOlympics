@@ -42,8 +42,7 @@ public class HomeControllerServlet extends HttpServlet {
             throws ServletException, IOException {
         //https://codedec.com/tutorials/how-to-retrieve-data-and-display-in-table-format-in-jsp-and-servlet-using-mysql/
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
-        //RESEARCH DISPLAY FIRST DB ENTRY (ATTEMPT BFR --> SCOREBOARD)
-        request.setAttribute("noconnection",true);
+        
         
         dispatcher.forward(request, response);
     }

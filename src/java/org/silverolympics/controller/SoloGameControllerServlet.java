@@ -11,7 +11,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
-import org.silverolympics.dao.QuestionGeneratorDao;
+import org.silverolympics.dao.Question;
+import org.silverolympics.dao.Questionselector;
 
 /**
  *
@@ -48,8 +49,7 @@ public class SoloGameControllerServlet extends HttpServlet {
         //number_question +=1;
         //session.setAttribute("question_nbr", number_question);
         String result_prev_quest = (String) request.getParameter("result");
-        
-        
+        List<String> used_questions = new ArrayList<>();
         
        //If the previous question was correctly answered 
         if ("success".equals(result_prev_quest)){
@@ -69,7 +69,9 @@ public class SoloGameControllerServlet extends HttpServlet {
             }
             else{
                 //Selects a new question 
-                QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
+                Questionselector selector = new Questionselector();
+        
+                Question chosen_question =selector.selectquestion(chosen_themes, used_questions);
                 String question_chosen ="À qui doit-on la chanson « I Shot the Sheriff » ?";
                 String answera_chosen = "Bob Marley";
                 String answerb_chosen = "Eric Clapton";
@@ -117,7 +119,9 @@ public class SoloGameControllerServlet extends HttpServlet {
             else{
   
                 //Selects a new question 
-                QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
+                Questionselector selector = new Questionselector();
+                
+                Question chosen_question = selector.selectquestion(chosen_themes, used_questions);
                 String question_chosen ="À qui doit-on la chanson « I Shot the Sheriff » ?";
                 String answera_chosen = "Bob Marley";
                 String answerb_chosen = "Eric Clapton";

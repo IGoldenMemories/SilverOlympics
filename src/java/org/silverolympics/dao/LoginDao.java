@@ -70,10 +70,10 @@ public class LoginDao {
                    ResultSet logged_user_id = add_logged_user.executeQuery();
                    int user_id;
                    int user_score;
-                   user_id = logged_user_id.getInt("id");
+                  
                    user_score = logged_user_id.getInt("score");
                    UserAccount current_user = new UserAccount();
-                   current_user.setId(user_id);
+                   
                    current_user.setUserName(username);
                    AppUtils.storeLoggedinUser(session, current_user);
                    session.setAttribute("user_name", current_user.getUserName());

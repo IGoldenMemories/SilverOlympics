@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.silverolympics.dao.QuestionGeneratorDao;
+import org.silverolympics.dao.Question;
 
 /**
  *
@@ -105,7 +105,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         int game_score  = 0;
         session.setAttribute("score",game_score);
         //Assign the first question and its corresponding answers 
-        QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
+        Question chosen_question = new Question(chosen_themes);
         
         //assignation of parameters
         String question_chosen ="Qui a dit : « Le sort en est jeté » (Alea jacta est) ?";

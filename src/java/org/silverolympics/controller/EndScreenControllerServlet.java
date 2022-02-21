@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.silverolympics.dao.QuestionGeneratorDao;
+import org.silverolympics.dao.Question;
 
 /**
  *
@@ -72,7 +72,7 @@ public class EndScreenControllerServlet extends HttpServlet {
                 int nbr_questions = 1;
                 session.setAttribute("question_nbr", nbr_questions);
                 //Assign the first question and its corresponding answers 
-                //QuestionGeneratorDao chosen_question = new QuestionGeneratorDao(chosen_themes);
+                //QuestionGeneratorDao chosen_question = new Question(chosen_themes);
             
                 int current_score = 0;
             

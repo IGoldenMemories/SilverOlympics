@@ -12,7 +12,7 @@ import java.util.Map;
  * @see org.silverolympics.controller.GameOptionsPanelControllerServlet
  * @see org.silverolympics.controller.SoloGameControllerServlet
  */
-public final class QuestionGeneratorDao {
+public final class Question {
 
     
     private String question;
@@ -30,7 +30,7 @@ public final class QuestionGeneratorDao {
      * Constructor for the QuestionGeneratorDao class
      * @param chosenthemes list regrouping all of the chosen themes for this game
      */
-    public QuestionGeneratorDao(List<String> chosenthemes){
+    public Question(List<String> chosenthemes){
         //String question_chosen;
         //String answera_chosen;
         //String answerb_chosen;

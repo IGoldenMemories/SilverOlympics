@@ -4,6 +4,7 @@
     Author     : Manon
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="org.silverolympics.bean.UserAccount"%>
 <%@page import="org.silverolympics.controller.ServletUtility"%>
 <%@page import="java.util.Iterator"%>
@@ -18,32 +19,32 @@
     <body>
         <h1>Tableau de score</h1>
         
-        <table class="scoretable" border="1">
-            <thead>
-                <tr>
-                    <!-- Table headers -->
-                    <td></td>
-                    <td>Nom</td>
-                    <td>Total de points</td>
-                </tr>
-            </thead>
-            <tbody>
-                <%
-                    int index=1;
-                    List list= request.getAttribute("listuser");
-                    Iterator it=list.iterator();
-                    while(it.hasNext()){
-                        UserAccount user= (UserAccount)it.next();
-                %>
-                <tr>
-                    <th scope="row"><%=index++%></th>
-                    <td><%=user.getUserName()%></td>
-                    <td><%=user.getUserScore()%></td>
-                </tr>
-                <%} %>
+        <table>
+            <tr bgcolor="00FF7F">
                 
-            </tbody>
-            </table>
+                <th><b>Nom d'utilisateur</b></th>
+                <th><b>Score</b></th>
+                
+            </tr>
+           
+            <tr>
+                <c:forEach var="entry" items="${authors}">
+                    <c:forEach var="value" items="${entry.key}">
+                        <c:forEach var="hvalue" items="${value}">
+                            <TR>
+                                <TD>${entry.value}</TD>
+                                <c:if test="${!empty value}">
+                                    <TD>${hvalue}<br></TD>
+                                </c:if>
+                            </TR> 
+                        </c:forEach>
+                    </c:forEach> 
+                                       
+                </c:forEach>  
+            </tr>
+           
+        </table>
+               
             
     </body>
 </html>
