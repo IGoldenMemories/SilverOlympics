@@ -8,8 +8,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.silverolympics.bean.UserAccount;
@@ -29,23 +31,7 @@ public class HomeControllerServlet extends HttpServlet {
     public HomeControllerServlet() {
         super();
     }
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //https://codedec.com/tutorials/how-to-retrieve-data-and-display-in-table-format-in-jsp-and-servlet-using-mysql/
-        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/index.jsp");
-        
-        
-        dispatcher.forward(request, response);
-    }
+    
     /**
      * takes care of get request
      * @param request the incoming request (from the user's web agent)
@@ -57,7 +43,9 @@ public class HomeControllerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
+        List<Integer> used_questions = new ArrayList<>();
+        HttpSession session = request.getSession();
+        session.setAttribute("used_questions", used_questions);
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
        

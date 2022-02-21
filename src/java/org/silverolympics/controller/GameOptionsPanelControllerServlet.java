@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.silverolympics.dao.Question;
+import org.silverolympics.dao.Questionselector;
 
 /**
  *
@@ -56,12 +57,13 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         ServletContext sc = this.getServletContext();
         
         //Handling whether the timer checkbox has been checked or not
-        String timerchoice =request.getParameter("timer");
+        //String timerchoice =request.getParameter("timer");
         
-        request.setAttribute("timer",timerchoice); 
+        //request.setAttribute("timer",timerchoice); 
         
         //Handling which themes have been chosen 
         List<String> chosen_themes = new ArrayList<>();
+        
         //If the random button has been selected then other selected themes aren't taken into account 
         if(request.getParameter("random_button") != null){
             chosen_themes.add("random");
@@ -99,36 +101,57 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         
         //At least one theme should be chosen 
         assert !chosen_themes.isEmpty(): "Issue with chosen_themes size";
+        
+        
         HttpSession session = request.getSession();
+        List<Integer> used_questions = (List<Integer>) session.getAttribute("used_questions");
+        
         int nbr_questions = 1;
         session.setAttribute("question_number", nbr_questions);
         int game_score  = 0;
         session.setAttribute("score",game_score);
-        //Assign the first question and its corresponding answers 
-        Question chosen_question = new Question(chosen_themes);
         
+        //Assign the first question and its corresponding answers
+        //By selecting a random in the chosen themes (or any one if random was chosen instead)
+        Questionselector selector = new Questionselector();
+        
+        Question chosen_question =selector.selectquestion(chosen_themes, used_questions);
+        
+        Integer id_chosen = chosen_question.getIdQuestion();
+        
+        assert !(used_questions.contains(id_chosen)):"Question Already Chosen in GameOptionsPanelControllerServleet";
+        
+        used_questions.add(id_chosen);
+        
+        String question_chosen =chosen_question.getQuestion();
+        String answera_chosen = chosen_question.getAnswerA();
+        String answerb_chosen = chosen_question.getAnswerB();
+        String answerc_chosen = chosen_question.getAnswerC();
+        String answerd_chosen = chosen_question.getAnswerD();
+        String correct_answer_chosen= chosen_question.getCorrectAnswer();
         //assignation of parameters
-        String question_chosen ="Qui a dit : « Le sort en est jeté » (Alea jacta est) ?";
-        String answera_chosen = "Vercingétorix";
-        String answerb_chosen = "Attila";
-        String answerc_chosen = "Auguste";
-        String answerd_chosen = "César";
-        String correct_answer_chosen= "D";
-        chosen_question .setAnswerA(answera_chosen);
-        chosen_question .setQuestion(question_chosen);
-        chosen_question .setAnswerB(answerb_chosen);
-        chosen_question .setAnswerC(answerc_chosen);
-        chosen_question .setAnswerD(answerd_chosen);
-        chosen_question .setCorrectAnswer(correct_answer_chosen);
+        //String question_chosen ="Qui a dit : « Le sort en est jeté » (Alea jacta est) ?";
+        //String answera_chosen = "Vercingétorix";
+        //String answerb_chosen = "Attila";
+        //String answerc_chosen = "Auguste";
+        //String answerd_chosen = "César";
+        //String correct_answer_chosen= "D";
+        //chosen_question .setAnswerA(answera_chosen);
+        //chosen_question .setQuestion(question_chosen);
+        //chosen_question .setAnswerB(answerb_chosen);
+        //chosen_question .setAnswerC(answerc_chosen);
+        //chosen_question .setAnswerD(answerd_chosen);
+        //chosen_question .setCorrectAnswer(correct_answer_chosen);
         
-        request.setAttribute("question", chosen_question.getQuestion());
-        request.setAttribute("answerA", chosen_question.getAnswerA());
-        request.setAttribute("answerB", chosen_question.getAnswerB());
-        request.setAttribute("answerC", chosen_question.getAnswerC());
-        request.setAttribute("answerD", chosen_question.getAnswerD());
-        request.setAttribute("correctAnswer", chosen_question.getCorrectAnswer());
+        request.setAttribute("question", question_chosen);
+        request.setAttribute("answerA", answera_chosen);
+        request.setAttribute("answerB", answerb_chosen);
+        request.setAttribute("answerC", answerc_chosen);
+        request.setAttribute("answerD", answerd_chosen);
+        request.setAttribute("correctAnswer", correct_answer_chosen);
         
-        
+        //update the already selected question list
+        session.setAttribute("used_questions", used_questions);
         // Attention divide score in:
         //-currentscore attribute (before the game)
         //-score attribute(which will be updated and asserted in SoloGameController >= currentscore)

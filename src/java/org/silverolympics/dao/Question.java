@@ -14,15 +14,13 @@ import java.util.Map;
  */
 public final class Question {
 
-    
+    private Integer id_quest;
     private String question;
     private String answera;
     private String answerb;
     private String answerc;
     private String answerd;
     private String correct_answer;
-    private List<Integer> used_questions = new ArrayList<Integer>();
-    Map<Integer, List<String>> possiblequestions= new HashMap<>();
     
     
     
@@ -30,26 +28,22 @@ public final class Question {
      * Constructor for the QuestionGeneratorDao class
      * @param chosenthemes list regrouping all of the chosen themes for this game
      */
-    public Question(List<String> chosenthemes){
-        //String question_chosen;
-        //String answera_chosen;
-        //String answerb_chosen;
-        //String answerc_chosen;
-        //String answerd_chosen;
-        //String correct_answer_chosen;
+    public Question(){
+        
         //Connection to BDD
         super();
         //Selection of random row where theme in chosenthemes
         }
     
+    public Integer getIdQuestion() {
+      return this.id_quest;
+   }
+
+    public void setIdQuestion(Integer id_quest) {
+      this.id_quest = id_quest;
+   }
     
-    public void UpdateUsedQuestions(Integer id_question){
-        this.used_questions.add(id_question);
-        
-    }
-    public List<Integer> GetUsedQuestions(){
-        return this.used_questions;
-    }
+    
     public String getQuestion() {
       return this.question;
    }

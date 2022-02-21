@@ -49,7 +49,7 @@ public class SoloGameControllerServlet extends HttpServlet {
         //number_question +=1;
         //session.setAttribute("question_nbr", number_question);
         String result_prev_quest = (String) request.getParameter("result");
-        List<String> used_questions = new ArrayList<>();
+        List<Integer> used_questions = new ArrayList<>();
         
        //If the previous question was correctly answered 
         if ("success".equals(result_prev_quest)){
