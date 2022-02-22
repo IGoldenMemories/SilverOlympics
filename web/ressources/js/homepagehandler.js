@@ -11,6 +11,6 @@ index = Math.floor(Math.random() * images_src.length);
 var displayed_img = document.createElement("img");
 displayed_img.src =images_src[index];
 displayed_img.setAttribute("height", "500");
-displayed_img.setAttribute("width", "1000");
+displayed_img.setAttribute("width", "900");
 
 document.getElementById("backimage").appendChild(displayed_img);

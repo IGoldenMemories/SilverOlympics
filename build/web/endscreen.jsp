@@ -10,12 +10,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ecran de fin de partie</title>
+        <link rel="stylesheet" href="ressources/css/endscreenlook.css" >
     </head>
     <body>
         
         <video id="preview" class="webcam_output"></video>
+        
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
         <script type="text/javascript">
+            var hideVideo = document.getElementsByClassName("webcam_output")[0];
+            hideVideo.style.display = "none";
             var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
             scanner.addListener('scan',function(content){
 		alert(content);
@@ -75,20 +79,27 @@
 		//alert(e);
                 });
         </script> 
-        <h1>Félicitation vôtre score est de :</h1>
+        <h1>Félicitation votre score est de :</h1>
         <div class="scoredisplay"> ${score} </div>
         <form name="next_screen_choice" action="ecranfinpartie" method="post" >
             Voulez-vous recommencer une partie ?
             <hr>
             Avec les mêmes options? 
+            <div class="imgcontainer">
+                <img src="ressources/img/signA.png">
+            </div>
             
             <hr>
             Ou 
             Avec des options différentes ?
-            
+            <div class="imgcontainer">
+                <img src="ressources/img/signB.png">
+            </div>
             <hr>
             Souhaitez vous plutôt revenir au menu principal
-            
+            <div class="imgcontainer">
+                <img src="ressources/img/signC.png">
+            </div>
             <input type="hidden" id ="givenanswer" name="result" />
             
         </form>

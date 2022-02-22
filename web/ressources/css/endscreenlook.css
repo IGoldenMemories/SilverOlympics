@@ -1,0 +1,44 @@
+
+/* 
+    Created on : 22 févr. 2022, 15:47:33
+    Author     : Manon
+*/
+
+body {
+    background: linear-gradient(270deg, #db9e38, #a9b665, #b67865);
+    background-size: 600% 600%;
+
+    animation: AnimationName 30s ease infinite;
+}
+
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+#preview{
+    width: 300px;
+    height: 500px;
+}
+
+
+h1{
+    color: #ccccff;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-align: center;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 0;
+}
+
+.imgcontainer {
+    width: 200px;
+    height: 120px;
+}
+
+/* Resize images */
+.imgcontainer img {
+    width: 100%;
+    height: auto;
+}

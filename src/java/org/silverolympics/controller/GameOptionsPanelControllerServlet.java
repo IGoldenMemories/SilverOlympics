@@ -68,7 +68,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         }
         
         //Otherwise the selected (clicked on) themes (in the select )are gathered 
-        // and sent to the SoloGameControllerServlet to select this game's questions in the database
+        // and sent to the SoloGameControllerServlet to select this game's questions
   
         else{
             String[] selectedthemes = request.getParameterValues("themes");

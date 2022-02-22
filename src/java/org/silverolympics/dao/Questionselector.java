@@ -2,7 +2,13 @@
 package org.silverolympics.dao;
 
 import java.util.ArrayList;
+import static java.util.Arrays.asList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import java.util.Arrays;
+import static java.util.Arrays.asList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +16,7 @@ import java.util.Map;
 /**
  * Selects "randomly" a question from the map following the theme(s) that was/were chosen in the option panel
  * This is the class where you can add new questions by respecting the pattern of the previously added one 
- * By first adding each one of them to a new ArrayList<String> 
+ * By first adding each one of them to a new List<String> 
  * And adding the mapping with the next unused number of question to the filled map HashMap
  * @author Manon
  * @see org.silverolympics.controller.GameOptionsPanelControllerServlet
@@ -26,61 +32,61 @@ public class Questionselector {
         
         Question chosen_question = new Question();
         
-        ArrayList<String> q1 = new ArrayList<>(Arrays.asList("Qui a dit : « Le sort en est jeté » (Alea jacta est) ?","Vercingétorix","Attila","Auguste","César","D","history"));
-        ArrayList<String> q2 = new ArrayList<>(Arrays.asList("À qui doit-on la chanson « I Shot the Sheriff » ?","Bob Marley","Eric Clapton","UB40","Jim Morrison","A","aleatoire"));
-        ArrayList<String> q3 = new ArrayList<>(Arrays.asList("Dans quelle ville italienne l’action de la pièce de Shakespeare « Roméo et Juliette » se situe-t-elle ?","Vérone","Venise","Rome","Milan","A","language"));
-        ArrayList<String> q4 = new ArrayList<>(Arrays.asList("Par quel mot désigne-t-on une belle-mère cruelle ?","Une jocrisse","Une chenapan","Une marâtre","Une godiche","C","language"));
-        ArrayList<String> q5 = new ArrayList<>(Arrays.asList("Qui était le dieu de la guerre dans la mythologie grecque ?","Hadès","Arès","Hermès","Apollon","B","history"));
-        ArrayList<String> q6 = new ArrayList<>(Arrays.asList("Quel est l’impératif du verbe feindre à la première personne du pluriel ?","Feignons!","Feins!","Feignez!","Feindez!","A","language"));
-        ArrayList<String> q7 = new ArrayList<>(Arrays.asList("Quel roi de France proclama l’Édit de Nantes ?","Louis XVI","François Ier","Henri IV","Louis XIII","C","history"));
-        ArrayList<String> q8 = new ArrayList<>(Arrays.asList("À quel écrivain attribue-t-on la rédaction de l’Illiade et l’Odyssée ?","Virgile","Homère","Euripide","Sophocle","B","language"));
-        ArrayList<String> q9 = new ArrayList<>(Arrays.asList("Le drapeau russe est blanc, bleu et…?","Rouge","Jaune","Vert","Noir","A","geo"));
-        ArrayList<String> q10 = new ArrayList<>(Arrays.asList("Quel animal andin de la famille des camélidés est élevé pour sa laine ?","Le lama","Le yak","Le chameau","Le buffle","A","sciences"));
-        ArrayList<String> q11 = new ArrayList<>(Arrays.asList("Quel célèbre égyptologue fut le premier à déchiffrer les hiéroglyphes ?","Christian Jacq","Jean-François Champollion","Jean-Philippe Lauer","Gaston Maspéro","B","history"));
-        ArrayList<String> q12 = new ArrayList<>(Arrays.asList("Dans quel pays peut-on trouver le mont Elbrouz ?","La Russie","L'Azerbaïdjan","La Géorgie","L'Iran","A","geo"));
-        ArrayList<String> q13 = new ArrayList<>(Arrays.asList("On écrit des…","choux-fleur","choux-fleurs","chou-fleur","chou-fleurs","B","language"));
-        ArrayList<String> q14 = new ArrayList<>(Arrays.asList("Quel animal peut être marteau, tigre ou pèlerin ?","La baleine","L'orque","Le moustique","Le requin","D"	,"sciences"));
-        ArrayList<String> q15 = new ArrayList<>(Arrays.asList("Parmi les marques de voiture suivantes, laquelle n’est pas allemande ?	Ford	Audi	Volkswagen	Mercedes	A	aleatoire"));
-        ArrayList<String> q16 = new ArrayList<>(Arrays.asList("Parmi les animaux suivants, lequel est le plus rapide ?","Le faucon pélerin","Le canard colvert","Le moineau","Le pigeon","A","sciences"));
-        ArrayList<String> q17 = new ArrayList<>(Arrays.asList("Parmi les termes suivants, lequel est féminin ?","Entête","Equivoque","Entracte","Emblème","B","language"));
-        ArrayList<String> q18 = new ArrayList<>(Arrays.asList("De quel pays Recep Tayyip Erdogan est le dirigeant (depuis 2003)…","de la Turquie","de l'Iran","du Pakistan","de l'Egypte","A","geo"));
-        ArrayList<String> q19 = new ArrayList<>(Arrays.asList("De ces villes, laquelle est la plus peuplée (en comptant les banlieues) ?","Madrid","Rome","Berlin","Paris","D","geo"));
-        ArrayList<String> q20 = new ArrayList<>(Arrays.asList("En combien de temps la Terre tourne-t-elle autour du Soleil ?","456 jours et demi","24h","365 jours et un quart","364 jours","C","sciences"));
-        ArrayList<String> q21 = new ArrayList<>(Arrays.asList("Qui est Zlatan Ibrahimovic ?","Un joueur de football suédois","Un joueur de football serbe","Un joueur de football croate","Un joueur de football turque","A","sport"));
-        ArrayList<String> q22 = new ArrayList<>(Arrays.asList("Quelle est la périodicité des jeux Olympiques d’été ?","Tous les ans","Tous les deux ans","Tous les trois ans","Tous les quatre ans","D","sport"));
-        ArrayList<String> q23 = new ArrayList<>(Arrays.asList("Lors du Tour de France cycliste, qui est récompensé d’un maillot blanc à pois rouges ?","Le meilleur jeune coureur","Le meilleur sprinteur","Le meilleur grimpeur","Le meilleur pédaleur","C","sport"));
-        ArrayList<String> q24 = new ArrayList<>(Arrays.asList("Quel nom porte un terrain de tennis ?","La surface","La terre battue", "Le Field","Le court","D","sport"));
-        ArrayList<String> q25 = new ArrayList<>(Arrays.asList("Au judo, quel est le grade le plus élevé parmi ces ceintures ?","Orange","Verte","Bleue","Jaune","C","sport"));
-        ArrayList<String> q26 = new ArrayList<>(Arrays.asList("Aux Etats-Unis, qu’est-ce que la NBA ?","La National Basketball Association","La National Boxe Association","La National Base-Ball Association","La National Billiard Association","A","sport"));
-        ArrayList<String> q27 = new ArrayList<>(Arrays.asList("Quel est le revêtement d’un terrain de curling ?","De l'herbe", "De la glace", "De l'eau", "Du sable","B","sport"));
-        ArrayList<String> q28 = new ArrayList<>(Arrays.asList("On dit qu'un cheval...","rugit","hurle","blatère","hennit","D","sciences"));
-        ArrayList<String> q29 = new ArrayList<>(Arrays.asList("Où se situe l'Oural?","En Ukraine","Au Kazakhstan","En Turquie","En Russie","D","geo"));
-        ArrayList<String> q30 = new ArrayList<>(Arrays.asList("Que collectionne un philatéliste?","Des badges", "Des timbres", "Des papillons","Des pièces de monnaie","B","aleatoire"));
+        List<String> q1 = asList("Qui a dit : « Le sort en est jeté » (Alea jacta est) ?","Vercingétorix","Attila","Auguste","César","D","history");
+        List<String> q2 = asList("À qui doit-on la chanson « I Shot the Sheriff » ?","Bob Marley","Eric Clapton","UB40","Jim Morrison","A","aleatoire");
+        List<String> q3 = asList("Dans quelle ville italienne l’action de la pièce de Shakespeare « Roméo et Juliette » se situe-t-elle ?","Vérone","Venise","Rome","Milan","A","language");
+        List<String> q4 = asList("Par quel mot désigne-t-on une belle-mère cruelle ?","Une jocrisse","Une chenapan","Une marâtre","Une godiche","C","language");
+        List<String> q5 = asList("Qui était le dieu de la guerre dans la mythologie grecque ?","Hadès","Arès","Hermès","Apollon","B","history");
+        List<String> q6 = asList("Quel est l’impératif du verbe feindre à la première personne du pluriel ?","Feignons!","Feins!","Feignez!","Feindez!","A","language");
+        List<String> q7 = asList("Quel roi de France proclama l’Édit de Nantes ?","Louis XVI","François Ier","Henri IV","Louis XIII","C","history");
+        List<String> q8 = asList("À quel écrivain attribue-t-on la rédaction de l’Illiade et l’Odyssée ?","Virgile","Homère","Euripide","Sophocle","B","language");
+        List<String> q9 = asList("Le drapeau russe est blanc, bleu et…?","Rouge","Jaune","Vert","Noir","A","geo");
+        List<String> q10 = asList("Quel animal andin de la famille des camélidés est élevé pour sa laine ?","Le lama","Le yak","Le chameau","Le buffle","A","sciences");
+        List<String> q11 = asList("Quel célèbre égyptologue fut le premier à déchiffrer les hiéroglyphes ?","Christian Jacq","Jean-François Champollion","Jean-Philippe Lauer","Gaston Maspéro","B","history");
+        List<String> q12 = asList("Dans quel pays peut-on trouver le mont Elbrouz ?","La Russie","L'Azerbaïdjan","La Géorgie","L'Iran","A","geo");
+        List<String> q13 = asList("On écrit des…","choux-fleur","choux-fleurs","chou-fleur","chou-fleurs","B","language");
+        List<String> q14 = asList("Quel animal peut être marteau, tigre ou pèlerin ?","La baleine","L'orque","Le moustique","Le requin","D","sciences");
+        List<String> q15 = asList("Parmi les marques de voiture suivantes, laquelle n’est pas allemande ?","Ford","Audi","Volkswagen","Mercedes","A","aleatoire");
+        List<String> q16 = asList("Parmi les animaux suivants, lequel est le plus rapide ?","Le faucon pélerin","Le canard colvert","Le moineau","Le pigeon","A","sciences");
+        List<String> q17 = asList("Parmi les termes suivants, lequel est féminin ?","Entête","Equivoque","Entracte","Emblème","B","language");
+        List<String> q18 = asList("De quel pays Recep Tayyip Erdogan est le dirigeant (depuis 2003)…","de la Turquie","de l'Iran","du Pakistan","de l'Egypte","A","geo");
+        List<String> q19 = asList("De ces villes, laquelle est la plus peuplée (en comptant les banlieues) ?","Madrid","Rome","Berlin","Paris","D","geo");
+        List<String> q20 = asList("En combien de temps la Terre tourne-t-elle autour du Soleil ?","456 jours et demi","24h","365 jours et un quart","364 jours","C","sciences");
+        List<String> q21 = asList("Qui est Zlatan Ibrahimovic ?","Un joueur de football suédois","Un joueur de football serbe","Un joueur de football croate","Un joueur de football turque","A","sport");
+        List<String> q22 = asList("Quelle est la périodicité des jeux Olympiques d’été ?","Tous les ans","Tous les deux ans","Tous les trois ans","Tous les quatre ans","D","sport");
+        List<String> q23 = asList("Lors du Tour de France cycliste, qui est récompensé d’un maillot blanc à pois rouges ?","Le meilleur jeune coureur","Le meilleur sprinteur","Le meilleur grimpeur","Le meilleur pédaleur","C","sport");
+        List<String> q24 = asList("Quel nom porte un terrain de tennis ?","La surface","La terre battue", "Le Field","Le court","D","sport");
+        List<String> q25 = asList("Au judo, quel est le grade le plus élevé parmi ces ceintures ?","Orange","Verte","Bleue","Jaune","C","sport");
+        List<String> q26 = asList("Aux Etats-Unis, qu’est-ce que la NBA ?","La National Basketball Association","La National Boxe Association","La National Base-Ball Association","La National Billiard Association","A","sport");
+        List<String> q27 = asList("Quel est le revêtement d’un terrain de curling ?","De l'herbe", "De la glace", "De l'eau", "Du sable","B","sport");
+        List<String> q28 = asList("On dit qu'un cheval...","rugit","hurle","blatère","hennit","D","sciences");
+        List<String> q29 = asList("Où se situe l'Oural?","En Ukraine","Au Kazakhstan","En Turquie","En Russie","D","geo");
+        List<String> q30 = asList("Que collectionne un philatéliste?","Des badges", "Des timbres", "Des papillons","Des pièces de monnaie","B","aleatoire");
         
-        ArrayList<String> q31 = new ArrayList<>(Arrays.asList("Quel est le plus petit état du monde?","Monaco","Saint-Martin","Le Vatican","Andorre","C","geo"));
-        ArrayList<String> q32 = new ArrayList<>(Arrays.asList("Quelle est la femelle du cochon ?","La gorette","La trouille","La cochonne","La truie","D","sciences"));
-        ArrayList<String> q33 = new ArrayList<>(Arrays.asList("Quel est l'organe respiratoire des poissons ?","Le tuba","Les poumons","Les branchies","L'estomac","C","sciences"));
-        ArrayList<String> q34 = new ArrayList<>(Arrays.asList("En quelle année Adolf Hitler accède-t-il au pouvoir en Allemagne ?","1931","1929", "1937","1933","D","history"));
-        ArrayList<String> q35 = new ArrayList<>(Arrays.asList("Quelle est la spécificité du portrait de Dorian Gray ?","Il veillit","C'est un monochrome","Il parle","Il change chaque jour","A","language"));
-        ArrayList<String> q36 = new ArrayList<>(Arrays.asList("Quel est le plus grand État du monde ?","La Chine","Les Etats-Unis","La Russie","Le Canada","C","geo"));
-        ArrayList<String> q37 = new ArrayList<>(Arrays.asList("Quel animal appelle-t-on aussi le « hérisson des mers » ?","L'étoile de mer", "Le crabe", "L'oursin", "L'huître","C","sciences"));
-        ArrayList<String> q38 = new ArrayList<>(Arrays.asList("On dit qu'un cheval...","rugit","hurle","blatère","hennit","D","sciences"));
-        ArrayList<String> q39 = new ArrayList<>(Arrays.asList("Qui a déclare en 1944 : « Paris outragé, Paris brisé, Paris martyrisé, mais Paris libéré ! » ?","François Mitterrand","Charles de Gaulle","Philippe Leclerc","Winston Churchill","B","history"));
-        ArrayList<String> q40 = new ArrayList<>(Arrays.asList("Quelle est la capitale du Maroc ?","Rabat", "Marrakech", "Casablanca","Tanger","A","geo"));
+        List<String> q31 = asList("Quel est le plus petit état du monde?","Monaco","Saint-Martin","Le Vatican","Andorre","C","geo");
+        List<String> q32 = asList("Quelle est la femelle du cochon ?","La gorette","La trouille","La cochonne","La truie","D","sciences");
+        List<String> q33 = asList("Quel est l'organe respiratoire des poissons ?","Le tuba","Les poumons","Les branchies","L'estomac","C","sciences");
+        List<String> q34 = asList("En quelle année Adolf Hitler accède-t-il au pouvoir en Allemagne ?","1931","1929", "1937","1933","D","history");
+        List<String> q35 = asList("Quelle est la spécificité du portrait de Dorian Gray ?","Il veillit","C'est un monochrome","Il parle","Il change chaque jour","A","language");
+        List<String> q36 = asList("Quel est le plus grand État du monde ?","La Chine","Les Etats-Unis","La Russie","Le Canada","C","geo");
+        List<String> q37 = asList("Quel animal appelle-t-on aussi le « hérisson des mers » ?","L'étoile de mer", "Le crabe", "L'oursin", "L'huître","C","sciences");
+        List<String> q38 = asList("On dit qu'un cheval...","rugit","hurle","blatère","hennit","D","sciences");
+        List<String> q39 = asList("Qui a déclare en 1944 : « Paris outragé, Paris brisé, Paris martyrisé, mais Paris libéré ! » ?","François Mitterrand","Charles de Gaulle","Philippe Leclerc","Winston Churchill","B","history");
+        List<String> q40 = asList("Quelle est la capitale du Maroc ?","Rabat", "Marrakech", "Casablanca","Tanger","A","geo");
         
-        ArrayList<String> q41 = new ArrayList<>(Arrays.asList("Que fait la mante après l’accouplement avec le mâle ?","Elle migre","Elle le dévore","Elle forme un nid","Elle mange un de ses petits","B","sciences"));
-        ArrayList<String> q42 = new ArrayList<>(Arrays.asList("Quel pays surnomme-t-on « Le pays du Soleil levant » ?","La Thaïlande","La Chine","Le Japon","La Corée","c","geo"));
-        ArrayList<String> q43 = new ArrayList<>(Arrays.asList("Quel est l'organe respiratoire des poissons ?","Le tuba","Les poumons","Les branchies","L'estomac","C","sciences"));
-        ArrayList<String> q44 = new ArrayList<>(Arrays.asList("En quelle année Adolf Hitler accède-t-il au pouvoir en Allemagne ?","1931","1929", "1937","1933","D","history"));
-        ArrayList<String> q45 = new ArrayList<>(Arrays.asList("Quelle est la spécificité du portrait de Dorian Gray ?","Il veillit","C'est un monochrome","Il parle","Il change chaque jour","A","language"));
-        ArrayList<String> q46 = new ArrayList<>(Arrays.asList("Quel est le plus grand État du monde ?","La Chine","Les Etats-Unis","La Russie","Le Canada","C","geo"));
-        ArrayList<String> q47 = new ArrayList<>(Arrays.asList("Quel animal appelle-t-on aussi le « hérisson des mers » ?","L'étoile de mer", "Le crabe", "L'oursin", "L'huître","C","sciences"));
-        ArrayList<String> q48 = new ArrayList<>(Arrays.asList("On dit qu'un cheval...","rugit","hurle","blatère","hennit","D","sciences"));
-        ArrayList<String> q49 = new ArrayList<>(Arrays.asList("Qui a déclare en 1944 : « Paris outragé, Paris brisé, Paris martyrisé, mais Paris libéré ! » ?","François Mitterrand","Charles de Gaulle","Philippe Leclerc","Winston Churchill","B","history"));
-        ArrayList<String> q50 = new ArrayList<>(Arrays.asList("Quelle est la capitale du Maroc ?","Rabat", "Marrakech", "Casablanca","Tanger","A","geo"));
+        List<String> q41 = asList("Que fait la mante après l’accouplement avec le mâle ?","Elle migre","Elle le dévore","Elle forme un nid","Elle mange un de ses petits","B","sciences");
+        List<String> q42 = asList("Quel pays surnomme-t-on « Le pays du Soleil levant » ?","La Thaïlande","La Chine","Le Japon","La Corée","C","geo");
+        List<String> q43 = asList("Quel est l'organe respiratoire des poissons ?","Le tuba","Les poumons","Les branchies","L'estomac","C","sciences");
+        List<String> q44 = asList("En quelle année Adolf Hitler accède-t-il au pouvoir en Allemagne ?","1931","1929", "1937","1933","D","history");
+        List<String> q45 = asList("Quelle est la spécificité du portrait de Dorian Gray ?","Il veillit","C'est un monochrome","Il parle","Il change chaque jour","A","language");
+        List<String> q46 = asList("Quel est le plus grand État du monde ?","La Chine","Les Etats-Unis","La Russie","Le Canada","C","geo");
+        List<String> q47 = asList("Quel animal appelle-t-on aussi le « hérisson des mers » ?","L'étoile de mer", "Le crabe", "L'oursin", "L'huître","C","sciences");
+        List<String> q48 = asList("On dit qu'un cheval...","rugit","hurle","blatère","hennit","D","sciences");
+        List<String> q49 = asList("Qui a déclare en 1944 : « Paris outragé, Paris brisé, Paris martyrisé, mais Paris libéré ! » ?","François Mitterrand","Charles de Gaulle","Philippe Leclerc","Winston Churchill","B","history");
+        List<String> q50 = asList("Quelle est la capitale du Maroc ?","Rabat", "Marrakech", "Casablanca","Tanger","A","geo");
         
         
-        Map<Integer,ArrayList<String>> filledmap = new HashMap<>();
+        Map<Integer,List<String>> filledmap = new HashMap<>();
         
         filledmap.put(1,q1);
         filledmap.put(2,q2);

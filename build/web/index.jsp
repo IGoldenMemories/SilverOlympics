@@ -20,7 +20,7 @@
 
     </head>
     <body>
-        <!-- Display of the header/navigation tab -->
+        <!-- Display of the header/navigation tab
         <div class = "header">
             <a href="${pageContext.request.contextPath}/creercompte" >Créer un compte </a>  
             <a href="${pageContext.request.contextPath}/connection" >Se connecter</a>
@@ -28,7 +28,7 @@
             <a href="${pageContext.request.contextPath}/aide">Aide</a>
            
         </div>
-
+         -->
         <div class="title">
            
             <h1>Bienvenue sur Silver Olympics </h1>
@@ -37,11 +37,11 @@
         <video id="preview" class="webcam_output"></video>
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
         <script type="text/javascript">
-            //var hideVideo = document.getElementsByClassName("webcam_output")[0];
-            //hideVideo.style.display = "none";
+            var hideVideo = document.getElementsByClassName("webcam_output")[0];
+            hideVideo.style.display = "none";
             var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
             scanner.addListener('scan',function(content){
-		alert(content);
+		//alert(content);
                 
                 document.getElementById('chosenanswer').innerHTML =content;
                 
@@ -49,7 +49,7 @@
                 
                 //New game asked
                 if (content!==null && content === "A"){
-                    document.getElementById('gievnanswer').value ="Newgame";
+                    document.getElementById('givenanswer').value ="Newgame";
                     
                     
                     var delayInMilliseconds = 5000; //10 seconds
@@ -110,14 +110,27 @@
 		//alert(e);
                 });
         </script> 
-        <div id="chosenanswer"></div>
-        <form name="end_of_screen" action="HomeControllerServlet" method="post"  >
+        <div class="displayansw"> Vous avez sélectionné : <div  id="chosenanswer"></div></div>
+        <form name="end_of_screen" action="acceuil" method="post"  >
             <input type="hidden" id ="givenanswer" name="result"  />
             
         </form>
-        <div class="solobutton"><button> 
+        <div class="imagescont">
+            <div class="imgcontainer imgA" >
+                <img src="ressources/img/signA.png" alt="signA">   
+            </div>
+            <div class="textlegendA">Pour lancer une partie montrer le qr Code A! </div>
+        
+            <div class="imgcontainer imgB"> 
+                <img src="ressources/img/signB.png" alt="signB">
+            </div>
+        
+            <div class="textlegendB">Pour accéder à la page d'aide, montrer le qr Code B! </div>
+        </div>
+        <!--<div class="solobutton"><button> 
                 <a href="${pageContext.request.contextPath}/jeusolooptions"> Entraînement </a></button> 
         </div>
+        -->
         <br>
         <div class="center imagebackground" id="backimage">
            
