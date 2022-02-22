@@ -4,12 +4,8 @@ package org.silverolympics.dao;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import org.junit.Before;	;
 import java.util.Random;
 
 /**
@@ -24,16 +20,9 @@ public class QuestionselectorTest {
         super();
     }
     
-    @BeforeAll
-    public static void setUpClass() {
-        
-    }
     
-    @AfterAll
-    public static void tearDownClass() {
-    }
     
-    @BeforeEach
+    @Before
     public void setUp() {
         //randomly choose themes (random or within the list of possible ones)
         List<String> potentialthemes = new ArrayList<>(Arrays.asList("history","sport","sciences","geo","language"));
@@ -42,12 +31,13 @@ public class QuestionselectorTest {
         int choice = (int)Math.floor(Math.random()*(2)+1);
         if(choice ==1){
             List<String> chosenthemes = randomchoice;
+            System.out.println("Random option chosen and Chosen theme(s) "+ chosenthemes);
         }
         else{
             List<String> chosenthemes = potentialthemes;
             Random rand = new Random();
         
-            int nbrelementinlist = (int)(Math.random() * ((chosenthemes.size())));
+            int nbrelementinlist = (int)(Math.random() * ((chosenthemes.size())-1));
             // create a temporary list for storing
             // selected element
             List<String> newList = new ArrayList<>();
@@ -63,8 +53,12 @@ public class QuestionselectorTest {
  
                 // Remove selected element from original list
                 chosenthemes.remove(randomIndex);
+                
             }
+            chosenthemes = newList;
+            System.out.println("Chosen theme(s) "+ chosenthemes);
         }
+        
         
         //Randomly populates the used questions list
         List<Integer> usedquestions = new ArrayList<>();
@@ -83,25 +77,21 @@ public class QuestionselectorTest {
         
     }
     
-    @AfterEach
-    public void tearDown() {
-       
-    }
-
+    
     /**
      * Test of selectquestion method, of class Questionselector.
      */
     @Test
     public void testSelectquestion() {
         int nbrtest = 1;
-        System.out.println("Select question test"+nbrtest);
+        
         List<String> chosenthemes = null;
         List<Integer> usedquestions = null;
         Questionselector instance = new Questionselector();
         
         // Test Loop 
         while(nbrtest<5){
-            
+            System.out.println("Select question test"+nbrtest);
             Question result = instance.selectquestion(chosenthemes, usedquestions);
             String chosenquestiontheme = result.gettheme();
             int chosenquestionid = result.getIdQuestion();
