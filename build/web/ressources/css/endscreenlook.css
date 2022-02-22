@@ -32,6 +32,12 @@ h1{
     padding-top: 0;
 }
 
+.scoredisplay{
+    text-align: center;
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
 .imgcontainer {
     width: 200px;
     height: 120px;

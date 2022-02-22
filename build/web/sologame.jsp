@@ -15,18 +15,14 @@
     </head>
     <body>
         <script type="text/javascript" src="ressources/js/sologamescript.js"></script>  
-        <!<!-- Zone where the timer is displayed if the corresopnding checkbox has been checked in options panel (previous page) -->
-        <div id="timerblock"  style="display:none;"  > 
-            Temps restant: <div id="timernbr"> </div>
-        </div>
+        <div class="displayansw" id = "resultquestion"> <div  id="chosenanswer"></div></div>
         <div class="scoreblock"> Score: <div id="current_score"> ${score} </div> </div>
-        <button  onClick="displaytimer()"> Cliquer ici pour tester le countdown </button>
-        chosen options:
-        ${timer}
-        ${themeschoice}
-        
-        <video id="preview" class="webcam_output"></video>
-        
+        <!--
+        chosen options://${themeschoice}
+        -->
+        <center>
+            <video id="preview" class="webcam_output"></video>
+        </center>
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
         <script type="text/javascript">
             var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
@@ -39,7 +35,9 @@
                 var right_answer = '${correctAnswer}';
                 //Success scenario 
                 if (content!==null && content === right_answer){
-                    document.getElementById('chosenanswer').innerHTML ="Success!!";
+                    document.getElementById("resultquestion").style.display = "block";
+                    document.getElementById('chosenanswer').innerHTML ="Bien joué!";
+                    
                     //play audio with out html audio tag
                     var audioSuccess = new Audio('ressources/audio/success_one.mp3');
                     audioSuccess.play();
@@ -82,7 +80,8 @@
                 //failure scenario (given answer(in content variable) != correct answer)
                 else{
                     if(content!==null && content!== right_answer){
-                        document.getElementById('chosenanswer').innerHTML ="Wrong Answer!!";
+                        document.getElementById("resultquestion").style.display = "block";
+                        document.getElementById('chosenanswer').innerHTML ="La prochaine sera la bonne!";
                         //play audio with out html audio tag
                         var audioSuccess = new Audio('ressources/audio/fail_one.mp3');
                         audioSuccess.play();
@@ -233,9 +232,9 @@
             
         </form>
          
-        <div id="chosenanswer"></div> <div> correct answer : ${correctAnswer}</div>
         
-        <hr>
+        <div> correct answer : ${correctAnswer}</div>
+        
         <div class="question"> Question  ${question_number} : ${question} </div> 
         <br>
         <hr>

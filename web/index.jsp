@@ -50,9 +50,11 @@
                 //New game asked
                 if (content!==null && content === "A"){
                     document.getElementById('givenanswer').value ="Newgame";
+                    //play audio with out html audio tag
+                    var audioSuccess = new Audio('ressources/audio/ChoixAindex.mp3');
+                    audioSuccess.play();
                     
-                    
-                    var delayInMilliseconds = 5000; //10 seconds
+                    var delayInMilliseconds = 8000; //8 seconds
 
                         setTimeout(function() {
                             document.end_of_screen.submit();
@@ -65,8 +67,10 @@
                     if(content!==null && content=== "B"){
                         document.getElementById('givenanswer').value ="Help";
                         
-                        
-                        var delayInMilliseconds = 5000; //5 seconds
+                        //play audio with out html audio tag
+                        var audioSuccess = new Audio('ressources/audio/ChoixBindex.mp3');
+                        audioSuccess.play();
+                        var delayInMilliseconds = 8000; //8 seconds
 
                         setTimeout(function() {
                             document.end_of_screen.submit();
