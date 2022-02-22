@@ -7,8 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Select "randomly" a question from the database following the themes that were chosen in the option panel
+ * Represents a question to be displayed on a game screen 
  * @author Manon
+ * @see org.silverolympics.dao.Questionselector.selectquestion()
  * @see org.silverolympics.controller.GameOptionsPanelControllerServlet
  * @see org.silverolympics.controller.SoloGameControllerServlet
  */
@@ -24,15 +25,11 @@ public final class Question {
     
     
     
-    /**
-     * Constructor for the QuestionGeneratorDao class
-     * @param chosenthemes list regrouping all of the chosen themes for this game
-     */
+    
     public Question(){
         
-        //Connection to BDD
         super();
-        //Selection of random row where theme in chosenthemes
+        
         }
     
     public Integer getIdQuestion() {

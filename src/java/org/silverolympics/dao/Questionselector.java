@@ -8,8 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
+ * Selects "randomly" a question from the map following the theme(s) that was/were chosen in the option panel
  * @author Manon
+ * @see org.silverolympics.controller.GameOptionsPanelControllerServlet
+ * @see org.silverolympics.controller.SoloGameControllerServlet
  */
 public class Questionselector {
     
@@ -135,7 +137,7 @@ public class Questionselector {
         if(random){
             while(noquestfound){
                 //Selects a question "randomly"
-                int nbrquest = 1 + (int)(Math.random() * ((filledmap.size())));
+                int nbrquest = 1 + (int)(Math.random() * 50);
                 if (! (usedquestions==null)){
                     //If it hasn't be asked in the current user's session
                     if(!usedquestions.contains(nbrquest)){

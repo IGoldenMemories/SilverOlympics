@@ -35,6 +35,7 @@
                 
                 document.getElementById('chosenanswer').innerHTML =content;
                 
+                
                 var right_answer = '${correctAnswer}';
                 //Success scenario 
                 if (content!==null && content === right_answer){
@@ -69,6 +70,7 @@
                    
                     
                     document.getElementById("givenanswer").value = "success";
+                    
                     var delayInMilliseconds = 5000; //10 seconds
 
                         setTimeout(function() {
@@ -228,7 +230,7 @@
         <hr>
         <form name="end_of_screen" action="jeusolo" method="post"  >
             <input type="hidden" id ="givenanswer" name="result"  />
-            
+            <input type="hidden" id ="themelist" name="chosenthemes"/>
             
         </form>
          

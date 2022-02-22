@@ -39,15 +39,16 @@ public class SoloGameControllerServlet extends HttpServlet {
         RequestDispatcher dispatcher //
 				= this.getServletContext().getRequestDispatcher("/sologame.jsp");
         
-        List<String> chosen_themes = (List<String>) request.getAttribute("themeschoice");
+        
         HttpSession session = request.getSession();
+        List<String> chosen_themes = (List<String>) session.getAttribute("chosenthemes");
+        
         int game_score = (Integer)session.getAttribute("score");
         int nbr_quest = (Integer)session.getAttribute("question_number");
         
         nbr_quest++;
         session.setAttribute("question_number", nbr_quest);
-        //number_question +=1;
-        //session.setAttribute("question_nbr", number_question);
+        
         String result_prev_quest = (String) request.getParameter("result");
         List<Integer> used_questions = new ArrayList<>();
         
