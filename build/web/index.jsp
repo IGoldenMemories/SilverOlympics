@@ -33,8 +33,88 @@
            
             <h1>Bienvenue sur Silver Olympics </h1>
             
-        </div>   
-        
+        </div> 
+        <video id="preview" class="webcam_output"></video>
+        <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+        <script type="text/javascript">
+            //var hideVideo = document.getElementsByClassName("webcam_output")[0];
+            //hideVideo.style.display = "none";
+            var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
+            scanner.addListener('scan',function(content){
+		alert(content);
+                
+                document.getElementById('chosenanswer').innerHTML =content;
+                
+                
+                
+                //New game asked
+                if (content!==null && content === "A"){
+                    document.getElementById('gievnanswer').value ="Newgame";
+                    
+                    
+                    var delayInMilliseconds = 5000; //10 seconds
+
+                        setTimeout(function() {
+                            document.end_of_screen.submit();
+                            
+                            }, delayInMilliseconds);
+                    
+                }
+                //Help page requested
+                else{
+                    if(content!==null && content=== "B"){
+                        document.getElementById('givenanswer').value ="Help";
+                        
+                        
+                        var delayInMilliseconds = 5000; //5 seconds
+
+                        setTimeout(function() {
+                            document.end_of_screen.submit();
+                            
+                            }, delayInMilliseconds);
+                        
+                    }
+                    
+                }
+                
+                
+            });
+            Instascan.Camera.getCameras().then(function (cameras){
+		if(cameras.length>0){
+                    scanner.start(cameras[0]);
+                    $('[name="options"]').on('change',function(){
+			if($(this).val()===1){
+                            if(cameras[0]!==""){
+				scanner.start(cameras[0]);
+                            }
+                            else{
+				alert('No Front camera found!');
+                            }
+			}
+                        else if($(this).val()===2){
+                            if(cameras[1]!==""){
+				scanner.start(cameras[1]);
+                            }
+                            else{
+				alert('No Back camera found!');
+                            }
+			}
+                    });
+		}
+                else{
+                    console.error('No cameras found.');
+                    alert('No cameras found.');
+		}
+            }).catch(function(e){
+		console.error(e);
+		//alert(e);
+                });
+        </script> 
+        <div id="chosenanswer"></div>
+        <form name="end_of_screen" action="HomeControllerServlet" method="post"  >
+            <input type="hidden" id ="givenanswer" name="result"  />
+            
+        </form>
         <div class="solobutton"><button> 
                 <a href="${pageContext.request.contextPath}/jeusolooptions"> Entraînement </a></button> 
         </div>

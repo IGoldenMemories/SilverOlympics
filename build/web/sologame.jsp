@@ -230,7 +230,6 @@
         <hr>
         <form name="end_of_screen" action="jeusolo" method="post"  >
             <input type="hidden" id ="givenanswer" name="result"  />
-            <input type="hidden" id ="themelist" name="chosenthemes"/>
             
         </form>
          

@@ -32,6 +32,10 @@
         <servlet-name>EndScreenControllerServlet</servlet-name>
         <servlet-class>org.silverolympics.controller.EndScreenControllerServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HelpControllerServlet</servlet-name>
+        <servlet-class>org.silverolympics.controller.HelpControllerServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControllerServlet</servlet-name>
         <url-pattern>/acceuil</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>EndScreenControllerServlet</servlet-name>
         <url-pattern>/ecranfinpartie</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelpControllerServlet</servlet-name>
+        <url-pattern>/aide</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

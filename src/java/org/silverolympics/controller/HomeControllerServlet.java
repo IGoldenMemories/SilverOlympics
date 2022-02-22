@@ -62,6 +62,30 @@ public class HomeControllerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        doGet(request, response);
+        RequestDispatcher dispatcher //
+				= this.getServletContext().getRequestDispatcher("/sologame.jsp");
+        
+        
+        
+        String result_prev_quest = (String) request.getParameter("result");
+        
+       //If new game is requested, redirects to the game options panel
+        if ("Newgame".equals(result_prev_quest)){
+            
+            
+            RequestDispatcher rd=request.getRequestDispatcher("/sologameoptions.jsp");  
+            rd.forward(request, response);  
+        }
+        //If help page was requested
+        else{
+            assert ("Help".equals(result_prev_quest)):"Result value issue for post form in index.jsp";
+
+            //Displays Help document
+            RequestDispatcher rd=request.getRequestDispatcher("/endscreen.jsp");  
+            rd.forward(request, response);  
+
+            }
+            
+        
     }
 }

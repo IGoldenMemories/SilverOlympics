@@ -90,7 +90,7 @@ public class QuestionselectorTest {
         Questionselector instance = new Questionselector();
         
         // Test Loop 
-        while(nbrtest<5){
+        //while(nbrtest<5){
             System.out.println("Select question test"+nbrtest);
             Question result = instance.selectquestion(chosenthemes, usedquestions);
             String chosenquestiontheme = result.gettheme();
@@ -105,7 +105,7 @@ public class QuestionselectorTest {
             }
        
             nbrtest++;
-        }
+       // }
     }
     
 }

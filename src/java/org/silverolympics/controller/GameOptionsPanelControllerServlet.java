@@ -56,10 +56,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
             throws ServletException, IOException {
         ServletContext sc = this.getServletContext();
         
-        //Handling whether the timer checkbox has been checked or not
-        //String timerchoice =request.getParameter("timer");
         
-        //request.setAttribute("timer",timerchoice); 
         
         //Handling which themes have been chosen 
         List<String> chosen_themes = new ArrayList<>();

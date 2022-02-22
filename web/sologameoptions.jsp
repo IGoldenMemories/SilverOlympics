@@ -19,13 +19,14 @@
             <div class="titreoption" >Options de la partie: </div>
             <br>
             <form method="post" action="jeusolooptions">
-                <div class="titrechoix"> Limite de temps?  </div>
+                <!-- <div class="titrechoix"> Limite de temps?  </div>
                 <input type="checkbox"
                    id="countdownbool"
                    name="timer"
                    onClick={this.handleClick;}
                    checked={this.state.active} 
-                    />  
+                    />-->
+                
                 <hr>
                
                 <div class="titrechoix"> Sélectionnez les thèmes des questions de la partie: </div> 
