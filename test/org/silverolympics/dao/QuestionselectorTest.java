@@ -71,6 +71,12 @@ public class QuestionselectorTest {
         int choicefill = (int)Math.floor(Math.random()*(2)+1);
         //Fill the usedquestions list with a random ammount of andwer id in chosen theme(s)
         if(choicefill == 1){
+            int nbrquesttoadd = 1 + (int)(Math.random() * 50);
+            int i =0;
+            while(i<nbrquesttoadd){
+                int nbrquest = 1 + (int)(Math.random() * 50);
+                usedquestions.add(nbrquest);
+            }
             
         }
         //otherwise leaves it empty (null) to test whether the class reacts properly
@@ -95,11 +101,19 @@ public class QuestionselectorTest {
         
         // Test Loop 
         while(nbrtest<5){
-            Question expResult = null;
+            
             Question result = instance.selectquestion(chosenthemes, usedquestions);
-            assertEquals(expResult, result);
-        
-            fail("The test case is a prototype.");
+            String chosenquestiontheme = result.gettheme();
+            int chosenquestionid = result.getIdQuestion();
+            
+            boolean themeok = chosenthemes.contains(chosenquestiontheme);
+            assert themeok:"Issue with the themes of chosen question";
+            
+            if(usedquestions != null){
+                boolean notyetinused = (usedquestions.contains(chosenquestionid));
+                assert notyetinused:"Issue with the themes of chosen question";
+            }
+       
             nbrtest++;
         }
     }

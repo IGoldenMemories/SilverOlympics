@@ -59,8 +59,8 @@ public class SoloGameControllerServlet extends HttpServlet {
             
             //Displays the end screen 
             if(nbr_quest == 5){
-                //score final added to current user score in database!
-                //Assert score user bfr game (stored bfr update) <= score user +scoregame
+                //score final passed to end screen
+                //Assert score not null
                 assert game_score >=0:"Game score value issue";
                 session.setAttribute("score", game_score);
                 RequestDispatcher rd=request.getRequestDispatcher("/endscreen.jsp");  
@@ -71,36 +71,44 @@ public class SoloGameControllerServlet extends HttpServlet {
             else{
                 //Selects a new question 
                 Questionselector selector = new Questionselector();
-        
+                
                 Question chosen_question =selector.selectquestion(chosen_themes, used_questions);
-                String question_chosen ="À qui doit-on la chanson « I Shot the Sheriff » ?";
-                String answera_chosen = "Bob Marley";
-                String answerb_chosen = "Eric Clapton";
-                String answerc_chosen = "UB40";
-                String answerd_chosen = "Jim Morrison";
-                String correct_answer_chosen= "A";
-                chosen_question .setAnswerA(answera_chosen);
-                chosen_question .setQuestion(question_chosen);
-                chosen_question .setAnswerB(answerb_chosen);
-                chosen_question .setAnswerC(answerc_chosen);
-                chosen_question .setAnswerD(answerd_chosen);
-                chosen_question .setCorrectAnswer(correct_answer_chosen);
         
-                request.setAttribute("question", chosen_question.getQuestion());
-                request.setAttribute("answerA", chosen_question.getAnswerA());
-                request.setAttribute("answerB", chosen_question.getAnswerB());
-                request.setAttribute("answerC", chosen_question.getAnswerC());
-                request.setAttribute("answerD", chosen_question.getAnswerD());
-                request.setAttribute("correctAnswer",chosen_question.getCorrectAnswer());
-            
+                Integer id_chosen = chosen_question.getIdQuestion();
+        
+                assert !(used_questions.contains(id_chosen)):"Question Already Chosen in GameOptionsPanelControllerServleet";
+        
+        
+                //update the already selected question list
+                used_questions.add(id_chosen);
+                session.setAttribute("used_questions", used_questions);
+                
+                //Retrieves the chosen question/its answers
+                String question_chosen =chosen_question.getQuestion();
+                String answera_chosen = chosen_question.getAnswerA();
+                String answerb_chosen = chosen_question.getAnswerB();
+                String answerc_chosen = chosen_question.getAnswerC();
+                String answerd_chosen = chosen_question.getAnswerD();
+                String correct_answer_chosen= chosen_question.getCorrectAnswer();
+        
+                //assignation of and filling of  the next game screen 
+        
+                request.setAttribute("question", question_chosen);
+                request.setAttribute("answerA", answera_chosen);
+                request.setAttribute("answerB", answerb_chosen);
+                request.setAttribute("answerC", answerc_chosen);
+                request.setAttribute("answerD", answerd_chosen);
+                request.setAttribute("correctAnswer", correct_answer_chosen);
+        
+                //updates score for next screen 
                 session.setAttribute("score", game_score);
+                
                 RequestDispatcher rd = request.getRequestDispatcher("/sologame.jsp");
-                //RequestDispatcher rd=request.getRequestDispatcher("/endscreen.jsp");  
+                
                 rd.forward(request, response);  
             }
         }
-  
-                
+      
                 
         //If the previous question was incorrectly answered 
         else{
@@ -108,41 +116,48 @@ public class SoloGameControllerServlet extends HttpServlet {
 
             //Displays the end screen 
             if(nbr_quest == 5){
-                //score final added to current user score in database!
-                //Assert score user bfr game (stored bfr update) <= score user +scoregame
+                //score final passed to end screen
+                //Assert score not null
                 assert game_score >=0:"Game score value issue";
                 session.setAttribute("score", game_score);
                 RequestDispatcher rd=request.getRequestDispatcher("/endscreen.jsp");  
                 rd.forward(request, response);  
-                
-        
+
             }
+            
             else{
   
                 //Selects a new question 
                 Questionselector selector = new Questionselector();
                 
-                Question chosen_question = selector.selectquestion(chosen_themes, used_questions);
-                String question_chosen ="À qui doit-on la chanson « I Shot the Sheriff » ?";
-                String answera_chosen = "Bob Marley";
-                String answerb_chosen = "Eric Clapton";
-                String answerc_chosen = "UB40";
-                String answerd_chosen = "Jim Morrison";
-                String correct_answer_chosen= "A";
-                chosen_question .setAnswerA(answera_chosen);
-                chosen_question .setQuestion(question_chosen);
-                chosen_question .setAnswerB(answerb_chosen);
-                chosen_question .setAnswerC(answerc_chosen);
-                chosen_question .setAnswerD(answerd_chosen);
-                chosen_question .setCorrectAnswer(correct_answer_chosen);
+                Question chosen_question =selector.selectquestion(chosen_themes, used_questions);
         
-                request.setAttribute("question", chosen_question.getQuestion());
-                request.setAttribute("answerA", chosen_question.getAnswerA());
-                request.setAttribute("answerB", chosen_question.getAnswerB());
-                request.setAttribute("answerC", chosen_question.getAnswerC());
-                request.setAttribute("answerD", chosen_question.getAnswerD());
-                request.setAttribute("correctAnswer",chosen_question.getCorrectAnswer());
-            
+                Integer id_chosen = chosen_question.getIdQuestion();
+        
+                assert !(used_questions.contains(id_chosen)):"Question Already Chosen in GameOptionsPanelControllerServleet";
+        
+        
+                //update the already selected question list
+                used_questions.add(id_chosen);
+                session.setAttribute("used_questions", used_questions);
+                
+                //Retrieves the chosen question/its answers
+                String question_chosen =chosen_question.getQuestion();
+                String answera_chosen = chosen_question.getAnswerA();
+                String answerb_chosen = chosen_question.getAnswerB();
+                String answerc_chosen = chosen_question.getAnswerC();
+                String answerd_chosen = chosen_question.getAnswerD();
+                String correct_answer_chosen= chosen_question.getCorrectAnswer();
+        
+                //assignation of and filling of  the next game screen 
+        
+                request.setAttribute("question", question_chosen);
+                request.setAttribute("answerA", answera_chosen);
+                request.setAttribute("answerB", answerb_chosen);
+                request.setAttribute("answerC", answerc_chosen);
+                request.setAttribute("answerD", answerd_chosen);
+                request.setAttribute("correctAnswer", correct_answer_chosen);
+        
                 
                 RequestDispatcher rd = request.getRequestDispatcher("/sologame.jsp");
                 rd.forward(request, response);  

@@ -9,6 +9,9 @@ import java.util.Map;
 
 /**
  * Selects "randomly" a question from the map following the theme(s) that was/were chosen in the option panel
+ * This is the class where you can add new questions by respecting the pattern of the previously added one 
+ * By first adding each one of them to a new ArrayList<String> 
+ * And adding the mapping with the next unused number of question to the filled map HashMap
  * @author Manon
  * @see org.silverolympics.controller.GameOptionsPanelControllerServlet
  * @see org.silverolympics.controller.SoloGameControllerServlet
@@ -138,12 +141,13 @@ public class Questionselector {
             while(noquestfound){
                 //Selects a question "randomly"
                 int nbrquest = 1 + (int)(Math.random() * 50);
+                
                 if (! (usedquestions==null)){
                     //If it hasn't be asked in the current user's session
                     if(!usedquestions.contains(nbrquest)){
                         List<String> questioncomponent = new ArrayList<>();
                         questioncomponent = filledmap.get(nbrquest);
-                    
+                        
                         chosen_question.setIdQuestion(nbrquest);
                         String question = questioncomponent.get(0);
                         chosen_question.setQuestion(question);
@@ -157,6 +161,8 @@ public class Questionselector {
                         chosen_question.setAnswerD(answerd);
                         String right_answer = questioncomponent.get(5);
                         chosen_question.setCorrectAnswer(right_answer);
+                        String theme = questioncomponent.get(6);
+                        chosen_question.setTheme(theme);
                         noquestfound = false;
                     } 
                 }
@@ -177,6 +183,8 @@ public class Questionselector {
                         chosen_question.setAnswerD(answerd);
                         String right_answer = questioncomponent.get(5);
                         chosen_question.setCorrectAnswer(right_answer);
+                        String theme = questioncomponent.get(6);
+                        chosen_question.setTheme(theme);
                         noquestfound = false;
                     
                 }
@@ -188,7 +196,7 @@ public class Questionselector {
             //Finds a question which theme is in the chosen one
             while(noquestfound){
                 //Selects a question "randomly"
-                int nbrquest = 1 + (int)(Math.random() * ((filledmap.size())));
+                int nbrquest = 1 + (int)(Math.random() * 50);
                 
                 //verifies that last element in list value in chosenthemes
                 List<String> questioncomponent = new ArrayList<>();
@@ -213,6 +221,8 @@ public class Questionselector {
                             chosen_question.setAnswerD(answerd);
                             String right_answer = questioncomponent.get(5);
                             chosen_question.setCorrectAnswer(right_answer);
+                            String theme = questioncomponent.get(6);
+                            chosen_question.setTheme(theme);
                             noquestfound = false;
                         }
                     }
@@ -230,6 +240,8 @@ public class Questionselector {
                         chosen_question.setAnswerD(answerd);
                         String right_answer = questioncomponent.get(5);
                         chosen_question.setCorrectAnswer(right_answer);
+                        String theme = questioncomponent.get(6);
+                        chosen_question.setTheme(theme);
                         noquestfound = false;
                     }
                     

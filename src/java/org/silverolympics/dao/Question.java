@@ -22,7 +22,7 @@ public final class Question {
     private String answerc;
     private String answerd;
     private String correct_answer;
-    
+    private String theme;
     
     
     
@@ -92,6 +92,14 @@ public final class Question {
 
     public void setCorrectAnswer(String correct_answer) {
       this.correct_answer = correct_answer;
+   }
+    
+    public String gettheme() {
+      return this.theme;
+   }
+
+    public void setTheme(String theme) {
+      this.theme = theme;
    }
    
 }
