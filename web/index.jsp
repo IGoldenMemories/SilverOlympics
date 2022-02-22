@@ -54,7 +54,7 @@
                     var audioSuccess = new Audio('ressources/audio/ChoixAindex.mp3');
                     audioSuccess.play();
                     
-                    var delayInMilliseconds = 8000; //8 seconds
+                    var delayInMilliseconds = 9000; //8 seconds
 
                         setTimeout(function() {
                             document.end_of_screen.submit();
@@ -70,7 +70,7 @@
                         //play audio with out html audio tag
                         var audioSuccess = new Audio('ressources/audio/ChoixBindex.mp3');
                         audioSuccess.play();
-                        var delayInMilliseconds = 8000; //8 seconds
+                        var delayInMilliseconds = 9000; //8 seconds
 
                         setTimeout(function() {
                             document.end_of_screen.submit();
