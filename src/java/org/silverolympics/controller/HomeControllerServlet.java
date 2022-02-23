@@ -43,16 +43,19 @@ public class HomeControllerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<Integer> used_questions = new ArrayList<>();
         HttpSession session = request.getSession();
-        session.setAttribute("used_questions", used_questions);
+        List<Integer> used_questions = new ArrayList<Integer>();
+        session.setAttribute("used_questions",used_questions);
+        
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
        
     }
     
     /**
-     * takes care of post request
+     * redirects to:
+     * either the solo game panel (if the A qr code is shown)
+     * or the help page that contains the user guide pdf (if the B qr code is shown)
      * @param request the incoming request (from the user's web agent)
      * @param response the outgoing answer (from the server side)
      * @throws ServletException
@@ -72,7 +75,6 @@ public class HomeControllerServlet extends HttpServlet {
        //If new game is requested, redirects to the game options panel
         if ("Newgame".equals(result_prev_quest)){
             
-            
             RequestDispatcher rd=request.getRequestDispatcher("/sologameoptions.jsp");  
             rd.forward(request, response);  
         }
@@ -80,7 +82,7 @@ public class HomeControllerServlet extends HttpServlet {
         else{
             assert ("Help".equals(result_prev_quest)):"Result value issue for post form in index.jsp";
 
-            //Displays Help document
+            //Displays Help page/document
             RequestDispatcher rd=request.getRequestDispatcher("/help.jsp");  
             rd.forward(request, response);  
 

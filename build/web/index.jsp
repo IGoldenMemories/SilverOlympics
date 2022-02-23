@@ -35,6 +35,7 @@
             
         </div> 
         <video id="preview" class="webcam_output"></video>
+        <div class="displayansw" id="choice"> Vous avez sélectionné : <div  id="chosenanswer"></div></div>
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
         <script type="text/javascript">
             var hideVideo = document.getElementsByClassName("webcam_output")[0];
@@ -44,11 +45,12 @@
 		//alert(content);
                 
                 document.getElementById('chosenanswer').innerHTML =content;
-                
+               
                 
                 
                 //New game asked
                 if (content!==null && content === "A"){
+                    document.getElementById("choice").style.display = "block";
                     document.getElementById('givenanswer').value ="Newgame";
                     //play audio with out html audio tag
                     var audioSuccess = new Audio('ressources/audio/ChoixAindex.mp3');
@@ -65,6 +67,7 @@
                 //Help page requested
                 else{
                     if(content!==null && content=== "B"){
+                        document.getElementById("choice").style.display = "block";
                         document.getElementById('givenanswer').value ="Help";
                         
                         //play audio with out html audio tag
@@ -114,11 +117,12 @@
 		//alert(e);
                 });
         </script> 
-        <div class="displayansw"> Vous avez sélectionné : <div  id="chosenanswer"></div></div>
+        
         <form name="end_of_screen" action="acceuil" method="post"  >
             <input type="hidden" id ="givenanswer" name="result"  />
             
         </form>
+        <form name="tooption" action="jeusolooptions" method="get"></form>
         <div class="imagescont">
             <div class="imgcontainer imgA" >
                 <img src="ressources/img/signA.png" alt="signA">   

@@ -226,7 +226,7 @@
         </script> 
         
         <br>
-        <hr>
+        
         <form name="end_of_screen" action="jeusolo" method="post"  >
             <input type="hidden" id ="givenanswer" name="result"  />
             

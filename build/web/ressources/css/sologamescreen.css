@@ -21,7 +21,7 @@ body{
 
 
 .webcam_output{
-    width: 50%;
+    width: 45%;
     height:50%;
 }
 .scoreblock{
@@ -46,6 +46,8 @@ body{
     position: absolute;
     font-size: 28px;
     color:#e0e0d1;
+    margin-bottom:50px;
+    line-height: 30px;
 }
 
 /* Clear floats after the columns */

@@ -15,84 +15,94 @@
         <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
     </head>
     <body>
-        <div class="options">
-            <div class="titreoption" >Options de la partie: </div>
-            <br>
-            <video id="preview" class="webcam_output"></video>
-            <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
-            <script type="text/javascript">
-                //var hideVideo = document.getElementsByClassName("webcam_output")[0];
-                //hideVideo.style.display = "none";
-                var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
-                scanner.addListener('scan',function(content){
-                    alert(content);
+        
+        <video id="preview" class="webcam_output"></video>
+        <div class="displayansw" id="choice"> Vous avez sélectionné : <div  id="chosenanswer"></div></div>
+        <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+        <script type="text/javascript">
+            var hideVideo = document.getElementsByClassName("webcam_output")[0];
+            hideVideo.style.display = "none";
+            var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
+            scanner.addListener('scan',function(content){
+		//alert(content);
                 
-                    document.getElementById('chosenanswer').innerHTML =content;
+                document.getElementById('chosenanswer').innerHTML =content;
+               
                 
-                    //options are ok and game is launched
-                    if(content!== null && (content ==="A" || content ==="random" ){
-                        var delayInMilliseconds = 5000; //10 seconds
+                
+                //Options approved
+                if (content!==null && content === "A"){
+                    document.getElementById("choice").style.display = "block";
+                    document.getElementById('givenanswer').value ="Newgame";
+                    //play audio with out html audio tag
+                    var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
+                    audioSuccess.play();
+                    
+                    var delayInMilliseconds = 9000; //8 seconds
 
                         setTimeout(function() {
                             document.end_of_screen.submit();
                             
                             }, delayInMilliseconds);
-                    }
-                
-                    //history was selected
-                    if (content!==null && content === "history"){
-                        document.getElementById('givenanswer').value.add("history");
-    
-                    }
-                    //Help page requested
-                    else{
-                        if(content!==null && content=== "B"){
-                            document.getElementById('givenanswer').value ="Help";
+                    
+                }
+                //Help page requested
+                else{
+                    if(content!==null && content=== "B"){
+                        document.getElementById("choice").style.display = "block";
+                        document.getElementById('givenanswer').value ="Help";
                         
-                        
-                            var delayInMilliseconds = 5000; //5 seconds
+                        //play audio with out html audio tag
+                        var audioSuccess = new Audio('ressources/audio/ChoixBindex.mp3');
+                        audioSuccess.play();
+                        var delayInMilliseconds = 9000; //8 seconds
 
-                            setTimeout(function() {
-                                document.end_of_screen.submit();
+                        setTimeout(function() {
+                            document.end_of_screen.submit();
                             
                             }, delayInMilliseconds);
                         
-                        }
+                    }
                     
-                    }
+                }
                 
-                });
-                Instascan.Camera.getCameras().then(function (cameras){
-                    if(cameras.length>0){
-                        scanner.start(cameras[0]);
-                        $('[name="options"]').on('change',function(){
-                            if($(this).val()===1){
-                                if(cameras[0]!==""){
-                                    scanner.start(cameras[0]);
-                                }
-                                else{
-                                    alert('No Front camera found!');
-                                }
+                
+            });
+            Instascan.Camera.getCameras().then(function (cameras){
+		if(cameras.length>0){
+                    scanner.start(cameras[0]);
+                    $('[name="options"]').on('change',function(){
+			if($(this).val()===1){
+                            if(cameras[0]!==""){
+				scanner.start(cameras[0]);
                             }
-                            else if($(this).val()===2){
-                                if(cameras[1]!==""){
-                                    scanner.start(cameras[1]);
-                                }
-                                else{
-                                    alert('No Back camera found!');
-                                }
+                            else{
+				alert('No Front camera found!');
                             }
-                        });
-                    }
-                    else{
-                        console.error('No cameras found.');
-                        alert('No cameras found.');
-                    }
-                }).catch(function(e){
-                    console.error(e);
-                    //alert(e);
+			}
+                        else if($(this).val()===2){
+                            if(cameras[1]!==""){
+				scanner.start(cameras[1]);
+                            }
+                            else{
+				alert('No Back camera found!');
+                            }
+			}
                     });
-            </script> 
+		}
+                else{
+                    console.error('No cameras found.');
+                    alert('No cameras found.');
+		}
+            }).catch(function(e){
+		console.error(e);
+		//alert(e);
+                });
+        </script> 
+        <div class="options">
+            <div class="titreoption" >Options de la partie: </div>
+            <br>
+            
             <div id="chosenanswer"></div>
             
             <form method="post" action="jeusolooptions">
@@ -124,7 +134,7 @@
         </div>
         
     
-    <script type="text/javascript" src="ressources/js/solooptions.js"></script>  
+    
         
         
     </body>

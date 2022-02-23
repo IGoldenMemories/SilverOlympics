@@ -56,7 +56,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
             throws ServletException, IOException {
         ServletContext sc = this.getServletContext();
         
-        
+        HttpSession session = request.getSession();
         
         //Handling which themes have been chosen 
         List<String> chosen_themes = new ArrayList<>();
@@ -64,7 +64,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         //If the random button has been selected then other selected themes aren't taken into account 
         if(request.getParameter("random_button") != null){
             chosen_themes.add("random");
-            request.setAttribute("themeschoice", chosen_themes);
+            session.setAttribute("chosenthemes", chosen_themes);
         }
         
         //Otherwise the selected (clicked on) themes (in the select )are gathered 
@@ -93,7 +93,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
                 chosen_themes.add("language");
             }
             
-            request.setAttribute("themeschoice", chosen_themes);
+            session.setAttribute("chosenthemes", chosen_themes);
             
         }
         
@@ -101,14 +101,13 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         assert !chosen_themes.isEmpty(): "Issue with chosen_themes size";
         
         
-        HttpSession session = request.getSession();
+        
         
         
         int nbr_questions = 1;
         session.setAttribute("question_number", nbr_questions);
         int game_score  = 0;
         session.setAttribute("score",game_score);
-        session.setAttribute("chosenthemes", chosen_themes);
         //Assign the first question and its corresponding answers
         //By selecting a random in the chosen themes (or any one if random was chosen instead)
         Questionselector selector = new Questionselector();
@@ -147,12 +146,8 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         request.setAttribute("correctAnswer", correct_answer_chosen);
         
         
-        // Attention divide score in:
-        //-currentscore attribute (before the game)
-        //-score attribute(which will be updated and asserted in SoloGameController >= currentscore)
         
-        
-        RequestDispatcher rd=request.getRequestDispatcher("/sologame.jsp");  
+        RequestDispatcher rd=request.getRequestDispatcher("/sologameoptions.jsp");  
         rd.forward(request, response);  
     }
    
