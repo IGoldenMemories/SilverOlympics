@@ -32,30 +32,31 @@
                 
                 //Options approved
                 if (content!==null && content === "A"){
-                    document.getElementById("choice").style.display = "block";
+                    document.getElementById('choice').style.display = "block";
                     document.getElementById('givenanswer').value ="Newgame";
                     //play audio with out html audio tag
                     var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
                     audioSuccess.play();
                     
                     var delayInMilliseconds = 9000; //8 seconds
-
-                        setTimeout(function() {
+                    
+                    setTimeout(function() {
                             document.end_of_screen.submit();
                             
                             }, delayInMilliseconds);
                     
                 }
-                //Help page requested
+                
                 else{
-                    if(content!==null && content=== "B"){
-                        document.getElementById("choice").style.display = "block";
-                        document.getElementById('givenanswer').value ="Help";
+                    if(content!==null && content=== "random"){
+                        document.getElementById('choice').style.display = "block";
+                        document.getElementById('givenanswer').value ="random";
                         
                         //play audio with out html audio tag
-                        var audioSuccess = new Audio('ressources/audio/ChoixBindex.mp3');
+                        var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
                         audioSuccess.play();
-                        var delayInMilliseconds = 9000; //8 seconds
+                        
+                        var delayInMilliseconds = 7000; //7 seconds
 
                         setTimeout(function() {
                             document.end_of_screen.submit();
@@ -104,7 +105,10 @@
             <br>
             
             <div id="chosenanswer"></div>
+            <form name="end_of_screen" action="jeusolooptions" method="post"  >
+                <input type="hidden" id ="givenanswer" name="result"  />
             
+            </form>
             <form method="post" action="jeusolooptions">
                 
                 <hr>

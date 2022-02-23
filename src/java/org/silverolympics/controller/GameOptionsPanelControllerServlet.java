@@ -60,17 +60,10 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         
         //Handling which themes have been chosen 
         List<String> chosen_themes = new ArrayList<>();
+        String result_prev_quest = (String) request.getParameter("result");
         
-        //If the random button has been selected then other selected themes aren't taken into account 
-        if(request.getParameter("random_button") != null){
-            chosen_themes.add("random");
-            session.setAttribute("chosenthemes", chosen_themes);
-        }
-        
-        //Otherwise the selected (clicked on) themes (in the select )are gathered 
-        // and sent to the SoloGameControllerServlet to select this game's questions
-  
-        else{
+        //Checks which themes have been selected (which theme qr code were shown)
+        if("A".equals(result_prev_quest)){
             String[] selectedthemes = request.getParameterValues("themes");
             //If history has been selected
             if(Arrays.stream(selectedthemes).anyMatch("Histoire"::equals)){
@@ -95,15 +88,22 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
             
             session.setAttribute("chosenthemes", chosen_themes);
             
+        
         }
+        
+        //If the random button has been selected then other selected themes aren't taken into account 
+        if("random".equals(result_prev_quest)){
+            chosen_themes.add("random");
+            session.setAttribute("chosenthemes", chosen_themes);
+        }
+        
+        //Otherwise the selected (clicked on) themes (in the select )are gathered 
+        // and sent to the SoloGameControllerServlet to select this game's questions
+  
         
         //At least one theme should be chosen 
         assert !chosen_themes.isEmpty(): "Issue with chosen_themes size";
-        
-        
-        
-        
-        
+
         int nbr_questions = 1;
         session.setAttribute("question_number", nbr_questions);
         int game_score  = 0;
@@ -147,7 +147,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         
         
         
-        RequestDispatcher rd=request.getRequestDispatcher("/sologameoptions.jsp");  
+        RequestDispatcher rd=request.getRequestDispatcher("/sologame.jsp");  
         rd.forward(request, response);  
     }
    

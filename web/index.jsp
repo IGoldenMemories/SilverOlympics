@@ -122,7 +122,7 @@
             <input type="hidden" id ="givenanswer" name="result"  />
             
         </form>
-        <form name="tooption" action="jeusolooptions" method="get"></form>
+        
         <div class="imagescont">
             <div class="imgcontainer imgA" >
                 <img src="ressources/img/signA.png" alt="signA">   

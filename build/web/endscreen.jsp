@@ -35,16 +35,23 @@
                     else{
                         if(content!==null && content==="C"){
                             document.getElementById("givenanswer").value = "C";
+                            //play audio with out html audio tag
+                        var audioSuccess = new Audio('ressources/audio/ChoixCendscreen.mp3');
+                        audioSuccess.play();
+                        
+                        var delayInMilliseconds = 7000; //7 seconds
+
+                        setTimeout(function() {
+                            
+                            document.next_screen_choice.submit();
+                            }, delayInMilliseconds);
                         }
                         else{
                             alert("Essayez de montrer le qr code correspondant à A B ou C plutôt");
                         }
                     }
                 }
-                var delayInMilliseconds = 5000; //10 seconds
-                setTimeout(function() {
-                    document.next_screen_choice.submit();
-                }, delayInMilliseconds);
+                
                 
                 
             });
