@@ -30,40 +30,144 @@
                
                 
                 
-                //Options approved
-                if (content!==null && content === "A"){
+                //History was chosen
+                if (content!==null && content === "history"){
                     document.getElementById('choice').style.display = "block";
-                    document.getElementById('givenanswer').value ="Newgame";
+                    document.getElementById('givenanswer').value =content;
                     //play audio with out html audio tag
-                    var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
+                    var audioSuccess = new Audio('ressources/audio/historytheme.mp3');
                     audioSuccess.play();
-                    
-                    var delayInMilliseconds = 9000; //8 seconds
-                    
+                    var delaytolaunchmsg = 4000;//4seconds
                     setTimeout(function() {
-                            document.end_of_screen.submit();
+                            var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
+                            audioSuccess.play();
+                    
+                            var delayInMilliseconds = 7000; //8 seconds
+                    
+                            setTimeout(function() {
+                                document.end_of_screen.submit();
                             
-                            }, delayInMilliseconds);
+                                }, delayInMilliseconds);
+                            
+                            }, delaytolaunchmsg);
+                    
+                    
+                }
+                //Sport was chosen
+                if (content!==null && content === "sport"){
+                    document.getElementById('choice').style.display = "block";
+                    document.getElementById('givenanswer').value =content;
+                    //play audio with out html audio tag
+                    var audioSuccess = new Audio('ressources/audio/sporttheme.mp3');
+                    audioSuccess.play();
+                    var delaytolaunchmsg = 4000;//4seconds
+                    setTimeout(function() {
+                            var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
+                            audioSuccess.play();
+                    
+                            var delayInMilliseconds = 7000; //8 seconds
+                    
+                            setTimeout(function() {
+                                document.end_of_screen.submit();
+                            
+                                }, delayInMilliseconds);
+                            
+                            }, delaytolaunchmsg);
+                    
+                    
+                }
+                //Language was chosen
+                if (content!==null && content === "language"){
+                    document.getElementById('choice').style.display = "block";
+                    document.getElementById('givenanswer').value =content;
+                    //play audio with out html audio tag
+                    var audioSuccess = new Audio('ressources/audio/languagetheme.mp3');
+                    audioSuccess.play();
+                    var delaytolaunchmsg = 4000;//4seconds
+                    setTimeout(function() {
+                            var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
+                            audioSuccess.play();
+                    
+                            var delayInMilliseconds = 7000; //8 seconds
+                    
+                            setTimeout(function() {
+                                document.end_of_screen.submit();
+                            
+                                }, delayInMilliseconds);
+                            
+                            }, delaytolaunchmsg);
+                    
+                    
+                }
+                //Sciences was chosen
+                if (content!==null && content === "sciences"){
+                    document.getElementById('choice').style.display = "block";
+                    document.getElementById('givenanswer').value =content;
+                    //play audio with out html audio tag
+                    var audioSuccess = new Audio('ressources/audio/sciencestheme.mp3');
+                    audioSuccess.play();
+                    var delaytolaunchmsg = 4000;//4seconds
+                    setTimeout(function() {
+                            var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
+                            audioSuccess.play();
+                    
+                            var delayInMilliseconds = 7000; //8 seconds
+                    
+                            setTimeout(function() {
+                                document.end_of_screen.submit();
+                            
+                                }, delayInMilliseconds);
+                            
+                            }, delaytolaunchmsg);
+                    
+                    
+                }
+                //Geo was chosen
+                if (content!==null && content === "geo"){
+                    document.getElementById('choice').style.display = "block";
+                    document.getElementById('givenanswer').value =content;
+                    //play audio with out html audio tag
+                    var audioSuccess = new Audio('ressources/audio/geotheme.mp3');
+                    audioSuccess.play();
+                    var delaytolaunchmsg = 4000;//4seconds
+                    setTimeout(function() {
+                            var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
+                            audioSuccess.play();
+                    
+                            var delayInMilliseconds = 7000; //8 seconds
+                    
+                            setTimeout(function() {
+                                document.end_of_screen.submit();
+                            
+                                }, delayInMilliseconds);
+                            
+                            }, delaytolaunchmsg);
+                    
                     
                 }
                 
-                else{
-                    if(content!==null && content=== "random"){
-                        document.getElementById('choice').style.display = "block";
-                        document.getElementById('givenanswer').value ="random";
+                if(content!==null && content=== "random"){
+                    document.getElementById('choice').style.display = "block";
+                    document.getElementById('givenanswer').value ="random";
                         
-                        //play audio with out html audio tag
-                        var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
-                        audioSuccess.play();
-                        
-                        var delayInMilliseconds = 7000; //7 seconds
-
-                        setTimeout(function() {
-                            document.end_of_screen.submit();
+                    //play audio with out html audio tag
+                    var audioSuccess = new Audio('ressources/audio/randomtheme.mp3');
+                    audioSuccess.play();
+                    var delaytolaunchmsg = 4000;//4seconds
+                    setTimeout(function() {
+                            var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
+                            audioSuccess.play();
+                    
+                            var delayInMilliseconds = 7000; //8 seconds
+                    
+                            setTimeout(function() {
+                                document.end_of_screen.submit();
                             
-                            }, delayInMilliseconds);
-                        
-                    }
+                                }, delayInMilliseconds);
+                            
+                            }, delaytolaunchmsg);
+                    
+                    
                     
                 }
                 

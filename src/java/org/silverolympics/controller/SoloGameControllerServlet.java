@@ -41,12 +41,15 @@ public class SoloGameControllerServlet extends HttpServlet {
         
         
         HttpSession session = request.getSession();
-        List<String> chosen_themes = (ArrayList<String>) session.getAttribute("chosenthemes");
+        //Retrieving the chosen theme
+        String chosen_themes = (String) session.getAttribute("chosenthemes");
         
+        //Retrieving the current score/question number
         int game_score = (Integer)session.getAttribute("score");
         int nbr_quest = (Integer)session.getAttribute("question_number");
         
         nbr_quest++;
+        
         session.setAttribute("question_number", nbr_quest);
         
         String result_prev_quest = (String) request.getParameter("result");

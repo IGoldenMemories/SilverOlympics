@@ -24,39 +24,37 @@ public class QuestionselectorTest {
     
     @Before
     public void setUp() {
+        
+        
+    }
+    
+    
+    /**
+     * Test of selectquestion method, of class Questionselector.
+     */
+    @Test
+    public void testSelectquestion() {
+        int nbrtest = 1;
         //randomly choose themes (random or within the list of possible ones)
         List<String> potentialthemes = new ArrayList<>(Arrays.asList("history","sport","sciences","geo","language"));
-        List<String> randomchoice = new ArrayList<>(Arrays.asList("random"));
+        String chosentheme;
         
         int choice = (int)Math.floor(Math.random()*(2)+1);
+        //Chooses random as the "theme"
         if(choice ==1){
-            List<String> chosenthemes = randomchoice;
-            System.out.println("Random option chosen and Chosen theme(s) "+ chosenthemes);
+            chosentheme = "random";
+            System.out.println("Random option chosen and Chosen theme(s) "+ chosentheme);
         }
         else{
-            List<String> chosenthemes = potentialthemes;
+            //chooses from one of the possible themes (in potentialthemes)
+            
+            
             Random rand = new Random();
-        
-            int nbrelementinlist = (int)(Math.random() * ((chosenthemes.size())-1));
-            // create a temporary list for storing
-            // selected element
-            List<String> newList = new ArrayList<>();
-        
-            for (int i = 0; i < nbrelementinlist; i++) {
- 
-                // take a random index between 0 to size
-                // of given List
-                int randomIndex = rand.nextInt(chosenthemes.size());
- 
-                // add element in temporary list
-                newList.add(chosenthemes.get(randomIndex));
- 
-                // Remove selected element from original list
-                chosenthemes.remove(randomIndex);
-                
-            }
-            chosenthemes = newList;
-            System.out.println("Chosen theme(s) "+ chosenthemes);
+            
+            String randomElement = potentialthemes.get(rand.nextInt(potentialthemes.size()));
+            
+            chosentheme = randomElement;
+            System.out.println("Chosen theme "+ chosentheme);
         }
         
         
@@ -75,28 +73,16 @@ public class QuestionselectorTest {
         }
         //otherwise leaves it empty (null) to test whether the class reacts properly
         
-    }
-    
-    
-    /**
-     * Test of selectquestion method, of class Questionselector.
-     */
-    @Test
-    public void testSelectquestion() {
-        int nbrtest = 1;
-        
-        List<String> chosenthemes = null;
-        List<Integer> usedquestions = null;
         Questionselector instance = new Questionselector();
         
         // Test Loop 
         //while(nbrtest<5){
             System.out.println("Select question test"+nbrtest);
-            Question result = instance.selectquestion(chosenthemes, usedquestions);
+            Question result = instance.selectquestion(chosentheme, usedquestions);
             String chosenquestiontheme = result.gettheme();
             int chosenquestionid = result.getIdQuestion();
             
-            boolean themeok = chosenthemes.contains(chosenquestiontheme);
+            boolean themeok = chosentheme.equals(chosenquestiontheme);
             assert themeok:"Issue with the themes of chosen question";
             
             if(usedquestions != null){

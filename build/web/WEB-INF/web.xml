@@ -5,18 +5,6 @@
         <servlet-class>org.silverolympics.controller.HomeControllerServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegisterControllerServlet</servlet-name>
-        <servlet-class>org.silverolympics.controller.RegisterControllerServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LoginControllerServlet</servlet-name>
-        <servlet-class>org.silverolympics.controller.LoginControllerServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ScoreBoardControllerServlet</servlet-name>
-        <servlet-class>org.silverolympics.controller.ScoreBoardControllerServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>GameOptionsPanelControllerServlet</servlet-name>
         <servlet-class>org.silverolympics.controller.GameOptionsPanelControllerServlet</servlet-class>
     </servlet>
@@ -39,18 +27,6 @@
     <servlet-mapping>
         <servlet-name>HomeControllerServlet</servlet-name>
         <url-pattern>/acceuil</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RegisterControllerServlet</servlet-name>
-        <url-pattern>/creercompte</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginControllerServlet</servlet-name>
-        <url-pattern>/connection</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ScoreBoardControllerServlet</servlet-name>
-        <url-pattern>/classement</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GameOptionsPanelControllerServlet</servlet-name>

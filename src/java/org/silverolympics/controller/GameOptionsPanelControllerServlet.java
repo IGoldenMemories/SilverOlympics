@@ -1,7 +1,7 @@
 
 package org.silverolympics.controller;
 
-import static com.google.gwt.user.client.Window.alert;
+
 import java.io.IOException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletContext;
@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.silverolympics.dao.Question;
 import org.silverolympics.dao.Questionselector;
@@ -58,56 +57,32 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         
         HttpSession session = request.getSession();
         
-        //Handling which themes have been chosen 
-        List<String> chosen_themes = new ArrayList<>();
+        //Theme choice handling
+        String chosen_themes;
         String result_prev_quest = (String) request.getParameter("result");
         
-        //Checks which themes have been selected (which theme qr code were shown)
-        if("A".equals(result_prev_quest)){
-            String[] selectedthemes = request.getParameterValues("themes");
-            //If history has been selected
-            if(Arrays.stream(selectedthemes).anyMatch("Histoire"::equals)){
-                chosen_themes.add("history");
-            }
-            //If sport has been selected
-            if(Arrays.stream(selectedthemes).anyMatch("Sport"::equals)){
-                chosen_themes.add("sport");
-            }
-            //If sciences(nature) has been selected
-            if(Arrays.stream(selectedthemes).anyMatch("Nature"::equals)){
-                chosen_themes.add("sciences");
-            }
-            //If geo(geography) has been selected
-            if(Arrays.stream(selectedthemes).anyMatch("Geographie"::equals)){
-                chosen_themes.add("geo");
-            }
-            //If language(litterature) has been selected
-            if(Arrays.stream(selectedthemes).anyMatch("Litterature"::equals)){
-                chosen_themes.add("language");
-            }
-            
-            session.setAttribute("chosenthemes", chosen_themes);
-            
         
-        }
+        //Checks which theme has been selected (which theme's qr code was shown)
+        //the result of the read qr code should be of the following
+        assert "history".equals(result_prev_quest) ^ "sport".equals(result_prev_quest) ^ "sciences".equals(result_prev_quest) 
+                ^ "geo".equals(result_prev_quest) ^ "language".equals(result_prev_quest) ^ "random".equals(result_prev_quest):"Issue with value of result in sologameoptions.jsp";
         
-        //If the random button has been selected then other selected themes aren't taken into account 
-        if("random".equals(result_prev_quest)){
-            chosen_themes.add("random");
-            session.setAttribute("chosenthemes", chosen_themes);
-        }
+        chosen_themes = result_prev_quest;
         
-        //Otherwise the selected (clicked on) themes (in the select )are gathered 
-        // and sent to the SoloGameControllerServlet to select this game's questions
-  
+        session.setAttribute("chosenthemes", chosen_themes);
+        
         
         //At least one theme should be chosen 
-        assert !chosen_themes.isEmpty(): "Issue with chosen_themes size";
-
+        assert !(chosen_themes == null): "No chosen theme in GameOptionsPanelControllerServlet";
+        
+        
+        //Setting the score and question number (for each game(first of the session and next ones)
         int nbr_questions = 1;
         session.setAttribute("question_number", nbr_questions);
         int game_score  = 0;
         session.setAttribute("score",game_score);
+        
+        
         //Assign the first question and its corresponding answers
         //By selecting a random in the chosen themes (or any one if random was chosen instead)
         Questionselector selector = new Questionselector();
@@ -116,7 +91,9 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         
         Integer id_chosen = chosen_question.getIdQuestion();
         
-        assert !(used_questions.contains(id_chosen)):"Question Already Chosen in GameOptionsPanelControllerServleet";
+        assert !(used_questions.contains(id_chosen)):"Question already selected was chosen in GameOptionsPanelControllerServleet";
+        
+        //If it's the first game of the session (used_question is null)
         if(used_questions == null){
             List<Integer> first_used_questions = new ArrayList<Integer> (); 
             first_used_questions.add(id_chosen);
@@ -136,7 +113,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         String answerd_chosen = chosen_question.getAnswerD();
         String correct_answer_chosen= chosen_question.getCorrectAnswer();
         
-        //assignation of parameters
+        //Passing the first selected question/its possible and correct answers to the next screen (sologame.jsp)
         
         request.setAttribute("question", question_chosen);
         request.setAttribute("answerA", answera_chosen);

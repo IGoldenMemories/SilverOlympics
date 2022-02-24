@@ -27,7 +27,7 @@ public class Questionselector {
     public Questionselector(){
         super();
     }
-    public Question selectquestion(List<String> chosenthemes,List<Integer> usedquestions){
+    public Question selectquestion(String chosenthemes,List<Integer> usedquestions){
         
         
         Question chosen_question = new Question();
@@ -141,9 +141,11 @@ public class Questionselector {
         
         
         //If no particular theme was chosen (if aleatoire was chosen)
-        boolean random = chosenthemes.contains("random");
+        boolean random = chosenthemes.equals("random");
         boolean noquestfound = true;
+        
         if(random){
+            //Carries on searching while no unasked question has been found
             while(noquestfound){
                 //Selects a question "randomly"
                 int nbrquest = 1 + (int)(Math.random() * 50);
@@ -199,7 +201,7 @@ public class Questionselector {
         } 
         else{
             
-            //Finds a question which theme is in the chosen one
+            //Finds a question which theme is the chosen one
             while(noquestfound){
                 //Selects a question "randomly"
                 int nbrquest = 1 + (int)(Math.random() * 50);
@@ -210,7 +212,7 @@ public class Questionselector {
                 String theme_quest = questioncomponent.get(6);
                 
                 //If the randomly chosen question is of one of the chosen themes
-                if(chosenthemes.contains(theme_quest)){
+                if(chosenthemes.equals(theme_quest)){
                     if(!(usedquestions==null)){
                         //If it hasn't be asked in the current user's session
                         if(!usedquestions.contains(nbrquest)){
