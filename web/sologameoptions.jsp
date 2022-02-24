@@ -88,7 +88,7 @@
                             var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
                             audioSuccess.play();
                     
-                            var delayInMilliseconds = 7000; //8 seconds
+                            var delayInMilliseconds = 8000; //8 seconds
                     
                             setTimeout(function() {
                                 document.end_of_screen.submit();

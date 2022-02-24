@@ -42,8 +42,15 @@ public class HomeControllerServlet extends HttpServlet {
             throws ServletException, IOException {
         
         HttpSession session = request.getSession();
-        List<Integer> used_questions = new ArrayList<Integer>();
-        session.setAttribute("used_questions",used_questions);
+        
+        //Creates a new list to store which questions have been asked
+        // if it's the first time the homepage is accessed during this session
+        // on web app launch
+        if(null == session.getAttribute("used_questions")){
+            List<Integer> used_questions = new ArrayList<>();
+            session.setAttribute("used_questions",used_questions);
+        }
+        
         
         request.getRequestDispatcher("index.jsp").forward(request, response);
 

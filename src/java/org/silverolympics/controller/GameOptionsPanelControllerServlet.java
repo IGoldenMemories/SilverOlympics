@@ -63,7 +63,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
         
         
         //Checks which theme has been selected (which theme's qr code was shown)
-        //the result of the read qr code should be of the following
+        //the result of the read qr code should be of the following:
         assert "history".equals(result_prev_quest) ^ "sport".equals(result_prev_quest) ^ "sciences".equals(result_prev_quest) 
                 ^ "geo".equals(result_prev_quest) ^ "language".equals(result_prev_quest) ^ "random".equals(result_prev_quest):"Issue with value of result in sologameoptions.jsp";
         
@@ -105,7 +105,7 @@ public class GameOptionsPanelControllerServlet extends HttpServlet {
             session.setAttribute("used_questions", used_questions);
         }
         
-        
+        //Retrieves the infos of the first question that'll be asked in the next screen
         String question_chosen =chosen_question.getQuestion();
         String answera_chosen = chosen_question.getAnswerA();
         String answerb_chosen = chosen_question.getAnswerB();

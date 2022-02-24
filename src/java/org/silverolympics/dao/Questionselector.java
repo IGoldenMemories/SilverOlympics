@@ -2,12 +2,7 @@
 package org.silverolympics.dao;
 
 import java.util.ArrayList;
-import static java.util.Arrays.asList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import java.util.Arrays;
 import static java.util.Arrays.asList;
 import java.util.HashMap;
 import java.util.List;
@@ -140,10 +135,10 @@ public class Questionselector {
         filledmap.put(50,q50);
         
         
-        //If no particular theme was chosen (if aleatoire was chosen)
+        
         boolean random = chosenthemes.equals("random");
         boolean noquestfound = true;
-        
+        //If no particular theme was chosen (if aleatoire was chosen)
         if(random){
             //Carries on searching while no unasked question has been found
             while(noquestfound){

@@ -36,10 +36,24 @@
                 //Success scenario 
                 if (content!==null && content === right_answer){
                     document.getElementById("resultquestion").style.display = "block";
-                    document.getElementById('chosenanswer').innerHTML ="Bien joué!";
                     
+                    //chooses randomly one of the success phrases
+                    var citations = [],indexcitation =0;
+                    citations[0] = "  Bien joué ! ";
+                    citations[1] = "  Félicitations ! ";
+                    citations[2] = "  Chapeau ! ";
+                    indexcitation = Math.floor(Math.random() * citations.length);
+                    document.getElementById('chosenanswer').innerHTML = citations[indexcitation];
+                    
+                    //chooses randomly one of the success audio
+                    var audio_src = [],index = 0;
+                    audio_src[0] = "ressources/audio/success_one.mp3";
+                    audio_src[1] = "ressources/audio/success_two.mp3";
+                    audio_src[2] = "ressources/audio/success_three.mp3";
+                    index = Math.floor(Math.random() * audio_src.length);
+
                     //play audio with out html audio tag
-                    var audioSuccess = new Audio('ressources/audio/success_one.mp3');
+                    var audioSuccess = new Audio(audio_src[index]);
                     audioSuccess.play();
                     if(content==="A"){
                         //Changing the color of the "answer"
@@ -81,9 +95,24 @@
                 else{
                     if(content!==null && content!== right_answer){
                         document.getElementById("resultquestion").style.display = "block";
-                        document.getElementById('chosenanswer').innerHTML ="La prochaine sera la bonne!";
+                        //chooses randomly one of the success phrases
+                        var citations = [],indexcitation =0;
+                        citations[0] = "  La prochaine sera la bonne ! ";
+                        citations[1] = "  Bien essayé ! ";
+                        citations[2] = "  Dommage !  ";
+                        indexcitation = Math.floor(Math.random() * citations.length);
+                        document.getElementById('chosenanswer').innerHTML = citations[indexcitation];
+                        
+                        
+                        //chooses randomly one of the success audio
+                        var audio_src = [],index = 0;
+                        audio_src[0] = "ressources/audio/fail_one.mp3";
+                        audio_src[1] = "ressources/audio/fail_two.mp3";
+                        audio_src[2] = "ressources/audio/fail_three.mp3";
+                        index = Math.floor(Math.random() * audio_src.length);
+
                         //play audio with out html audio tag
-                        var audioSuccess = new Audio('ressources/audio/fail_one.mp3');
+                        var audioSuccess = new Audio(audio_src[index]);
                         audioSuccess.play();
                         //Given answer is A
                         if(content==="A"){

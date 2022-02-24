@@ -21,19 +21,34 @@
             var hideVideo = document.getElementsByClassName("webcam_output")[0];
             hideVideo.style.display = "none";
             var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
+            //chooses randomly one of the success audio
+            var audio_src = [],index = 0;
+            audio_src[0] = "ressources/audio/gymno_three.mp3";
+            audio_src[1] = "ressources/audio/arabes_one.mp3";
+           
+            index = Math.floor(Math.random() * audio_src.length);
+
+            //play audio with out html audio tag
+            var audioSuccess = new Audio(audio_src[index]);
+            audioSuccess.play();
+            
+            
             scanner.addListener('scan',function(content){
 		alert(content);
                 
                 
                 if(content!==null && content==="A"){
+                    audioSuccess.pause();
                     document.getElementById("givenanswer").value = "A";
                 }
                 else{
                     if(content!==null && content==="B"){
+                        audioSuccess.pause();
                         document.getElementById("givenanswer").value = "B";
                     }
                     else{
                         if(content!==null && content==="C"){
+                            audioSuccess.pause();
                             document.getElementById("givenanswer").value = "C";
                             //play audio with out html audio tag
                         var audioSuccess = new Audio('ressources/audio/ChoixCendscreen.mp3');
