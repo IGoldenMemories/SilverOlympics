@@ -34,17 +34,37 @@
             
             
             scanner.addListener('scan',function(content){
-		alert(content);
+		//alert(content);
                 
                 
                 if(content!==null && content==="A"){
                     audioSuccess.pause();
                     document.getElementById("givenanswer").value = "A";
+                    var audioSuccess = new Audio('ressources/audio/ChoixAendscreen.mp3');
+                        audioSuccess.play();
+                        
+                        var delayInMilliseconds = 7000; //7 seconds
+
+                        setTimeout(function() {
+                            
+                            document.next_screen_choice.submit();
+                            }, delayInMilliseconds);
+                        }
                 }
                 else{
                     if(content!==null && content==="B"){
                         audioSuccess.pause();
                         document.getElementById("givenanswer").value = "B";
+                        var audioSuccess = new Audio('ressources/audio/ChoixBendscreen.mp3');
+                        audioSuccess.play();
+                        
+                        var delayInMilliseconds = 8000; //7 seconds
+
+                        setTimeout(function() {
+                            
+                            document.next_screen_choice.submit();
+                            }, delayInMilliseconds);
+                        }
                     }
                     else{
                         if(content!==null && content==="C"){
@@ -54,7 +74,7 @@
                         var audioSuccess = new Audio('ressources/audio/ChoixCendscreen.mp3');
                         audioSuccess.play();
                         
-                        var delayInMilliseconds = 7000; //7 seconds
+                        var delayInMilliseconds = 8000; //7 seconds
 
                         setTimeout(function() {
                             
@@ -106,19 +126,19 @@
         <form name="next_screen_choice" action="ecranfinpartie" method="post" >
             Voulez-vous recommencer une partie ?
             <hr>
-            Avec les mêmes options? 
+            <div class="optionredirect"> Avec les mêmes options? </div>
             <div class="imgcontainer">
                 <img src="ressources/img/signA.png">
             </div>
             
             <hr>
-            Ou 
-            Avec des options différentes ?
+            <div class="optionredirect"> Ou </div>
+            <div class="optionredirect"> Avec des options différentes ? </div>
             <div class="imgcontainer">
                 <img src="ressources/img/signB.png">
             </div>
             <hr>
-            Souhaitez vous plutôt revenir au menu principal
+            <div class="optionredirect"> Souhaitez vous plutôt revenir au menu principal </div>
             <div class="imgcontainer">
                 <img src="ressources/img/signC.png">
             </div>

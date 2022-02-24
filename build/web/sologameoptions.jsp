@@ -27,9 +27,7 @@
 		//alert(content);
                 
                 document.getElementById('chosenanswer').innerHTML =content;
-               
-                
-                
+    
                 //History was chosen
                 if (content!==null && content === "history"){
                     document.getElementById('choice').style.display = "block";
@@ -88,7 +86,7 @@
                             var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
                             audioSuccess.play();
                     
-                            var delayInMilliseconds = 8000; //8 seconds
+                            var delayInMilliseconds = 9000; //8 seconds
                     
                             setTimeout(function() {
                                 document.end_of_screen.submit();
@@ -111,7 +109,7 @@
                             var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
                             audioSuccess.play();
                     
-                            var delayInMilliseconds = 7000; //8 seconds
+                            var delayInMilliseconds = 7500; //8 seconds
                     
                             setTimeout(function() {
                                 document.end_of_screen.submit();
@@ -134,7 +132,7 @@
                             var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
                             audioSuccess.play();
                     
-                            var delayInMilliseconds = 7000; //8 seconds
+                            var delayInMilliseconds = 8000; //8 seconds
                     
                             setTimeout(function() {
                                 document.end_of_screen.submit();
@@ -158,7 +156,7 @@
                             var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
                             audioSuccess.play();
                     
-                            var delayInMilliseconds = 7000; //8 seconds
+                            var delayInMilliseconds = 8000; //8 seconds
                     
                             setTimeout(function() {
                                 document.end_of_screen.submit();
@@ -206,19 +204,11 @@
         </script> 
         <div class="options">
             <div class="titreoption" >Options de la partie: </div>
-            <br>
-            
-            <div id="chosenanswer"></div>
-            <form name="end_of_screen" action="jeusolooptions" method="post"  >
-                <input type="hidden" id ="givenanswer" name="result"  />
-            
-            </form>
+           
             <form method="post" action="jeusolooptions">
-                
-                <hr>
-               
                 <div class="titrechoix"> Sélectionnez les thèmes des questions de la partie: </div> 
                 <br>
+                
                 <select name="themes" size=5 multiple>
                     <option class="history" name="history_button" value ="Histoire">Histoire</option>
                     <option class="sport" name="sport_button" value="Sport">Sport</option>
@@ -226,8 +216,6 @@
                     <option class="geo" name="geo_button" value="Geographie">Géographie</option> 
                     <option class="language" name="language_button" value="Litterature">Littérature</option>  
                 </select>
-                <br>
-                <input id="okoption" class="gamelaunchbutton" type="submit" value="Lancer la partie"  />
                 <br>
                 <br>
                 <hr>
@@ -238,7 +226,9 @@
                 <input type="submit" class="random"  name="random_button" value="Aléatoire"> 
 
             </form>
-           
+            <form name="end_of_screen" action="jeusolooptions" method="post"  >
+                <input type="hidden" id ="givenanswer" name="result"  />
+            </form>
         </div>
         
     

@@ -27,7 +27,7 @@ body{
 .scoreblock{
     position: relative;
     float:right;
-    font-size: 29px;
+    font-size: 30px;
     color: #ffccff;
     font-family: "Lucida Console", "Courier New", monospace;
 }
@@ -35,10 +35,11 @@ body{
     color: #ccccff;
     text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
     text-align: center;
-    font-size: 28px;
+    font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left: 20px;
+    margin-left: 25px;
     float: left;
+    
     display: none;
 }
 .question{

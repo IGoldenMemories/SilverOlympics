@@ -17,9 +17,7 @@
         <script type="text/javascript" src="ressources/js/sologamescript.js"></script>  
         <div class="displayansw" id = "resultquestion"> <div  id="chosenanswer"></div></div>
         <div class="scoreblock"> Score: <div id="current_score"> ${score} </div> </div>
-        <!--
-        chosen options://${themeschoice}
-        -->
+        
         <center>
             <video id="preview" class="webcam_output"></video>
         </center>
@@ -54,6 +52,7 @@
 
                     //play audio with out html audio tag
                     var audioSuccess = new Audio(audio_src[index]);
+                    audioSuccess.volume = 0.8;
                     audioSuccess.play();
                     if(content==="A"){
                         //Changing the color of the "answer"
@@ -113,6 +112,7 @@
 
                         //play audio with out html audio tag
                         var audioSuccess = new Audio(audio_src[index]);
+                        audioSuccess.volume = 0.8;
                         audioSuccess.play();
                         //Given answer is A
                         if(content==="A"){

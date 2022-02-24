@@ -17,13 +17,9 @@ body {
     100%{background-position:0% 50%}
 }
 
-#preview{
-    width: 300px;
-    height: 500px;
-}
-
 
 h1{
+    top: 0px;
     color: #ccccff;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     text-align: center;
@@ -34,11 +30,18 @@ h1{
 
 .scoredisplay{
     text-align: center;
-    font-size: 28px;
+    font-size: 36px;
     font-family: Arial, Helvetica, sans-serif;
     
 }
+.optionredirect{
+    text-align: center;
+    font-size: 34px;
+}
 .imgcontainer {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
     width: 200px;
     height: 120px;
 }
