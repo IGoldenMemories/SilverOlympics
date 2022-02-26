@@ -54,14 +54,16 @@ public class SoloGameControllerServlet extends HttpServlet {
         
         String result_prev_quest = (String) request.getParameter("result");
         List<Integer> used_questions = new ArrayList<>();
-        
-       //If the previous question was correctly answered 
+        //Retrieves the number of questions asked during a game (defined in the web descriptor file (web.xml))
+        //If the previous question was correctly answered 
+        int maxnbrquest = Integer.parseInt(getServletContext().getInitParameter("NombreQuestions"));
+
         if ("success".equals(result_prev_quest)){
             //update score
             game_score++;
             
             //Displays the end screen 
-            if(nbr_quest == 5){
+            if(nbr_quest == maxnbrquest+1){
                 //score final passed to end screen
                 //Assert score not null
                 assert game_score >=0:"Game score value issue";

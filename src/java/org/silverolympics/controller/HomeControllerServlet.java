@@ -85,6 +85,11 @@ public class HomeControllerServlet extends HttpServlet {
         }
         //If help page was requested
         else{
+            if ("end".equals(result_prev_quest)){
+            
+            RequestDispatcher rd=request.getRequestDispatcher("/endscreen.jsp");  
+            rd.forward(request, response);  
+        }
             assert ("Help".equals(result_prev_quest)):"Result value issue for post form in index.jsp";
 
             //Displays Help page/document

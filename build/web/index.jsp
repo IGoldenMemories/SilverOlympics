@@ -20,20 +20,8 @@
 
     </head>
     <body>
-        <!-- Display of the header/navigation tab
-        <div class = "header">
-            <a href="${pageContext.request.contextPath}/creercompte" >Créer un compte </a>  
-            <a href="${pageContext.request.contextPath}/connection" >Se connecter</a>
-            <a href="${pageContext.request.contextPath}/classement">Classement</a>
-            <a href="${pageContext.request.contextPath}/aide">Aide</a>
-           
-        </div>
-         -->
-        <div class="title">
-           
-            <h1>Bienvenue sur Silver Olympics </h1>
+        <h1>Bienvenue sur Silver Olympics </h1>
             
-        </div> 
         <video id="preview" class="webcam_output"></video>
         <div class="displayansw" id="choice"> Vous avez sélectionné : <div  id="chosenanswer"></div></div>
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
@@ -42,7 +30,7 @@
             hideVideo.style.display = "none";
             var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
             scanner.addListener('scan',function(content){
-		//alert(content);
+		alert(content);
                 
                 document.getElementById('chosenanswer').innerHTML =content;
                
@@ -75,6 +63,17 @@
                         audioSuccess.play();
                         var delayInMilliseconds = 9000; //8 seconds
 
+                        setTimeout(function() {
+                            document.end_of_screen.submit();
+                            
+                            }, delayInMilliseconds);
+                        
+                    }
+                    if(content!==null && content=== "C"){
+                        document.getElementById("choice").style.display = "block";
+                        document.getElementById('givenanswer').value ="end";
+                        
+                        
                         setTimeout(function() {
                             document.end_of_screen.submit();
                             
@@ -117,23 +116,21 @@
 		//alert(e);
                 });
         </script> 
-        
         <form name="end_of_screen" action="acceuil" method="post"  >
             <input type="hidden" id ="givenanswer" name="result"  />
             
         </form>
-        
         <div class="imagescont">
             <div class="imgcontainer imgA" >
                 <img src="ressources/img/signA.png" alt="signA">   
             </div>
-            <div class="textlegendA">Pour lancer une partie montrer le qr Code A! </div>
+            <div class="textlegendA">  Pour lancer une partie montrer le qr Code A! </div>
         
             <div class="imgcontainer imgB"> 
                 <img src="ressources/img/signB.png" alt="signB">
             </div>
         
-            <div class="textlegendB">Pour accéder à la page d'aide, montrer le qr Code B! </div>
+            <div class="textlegendB">  Pour accéder à la page d'aide, montrer le qr Code B! </div>
         </div>
         <!--<div class="solobutton"><button> 
                 <a href="${pageContext.request.contextPath}/jeusolooptions"> Entraînement </a></button> 

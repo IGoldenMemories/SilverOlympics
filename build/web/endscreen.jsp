@@ -21,16 +21,6 @@
             var hideVideo = document.getElementsByClassName("webcam_output")[0];
             hideVideo.style.display = "none";
             var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
-            //chooses randomly one of the success audio
-            var audio_src = [],index = 0;
-            audio_src[0] = "ressources/audio/gymno_three.mp3";
-            audio_src[1] = "ressources/audio/arabes_one.mp3";
-           
-            index = Math.floor(Math.random() * audio_src.length);
-
-            //play audio with out html audio tag
-            var audioSuccess = new Audio(audio_src[index]);
-            audioSuccess.play();
             
             
             scanner.addListener('scan',function(content){
@@ -124,7 +114,7 @@
         <h1>Félicitation votre score est de :</h1>
         <div class="scoredisplay"> ${score} </div>
         <form name="next_screen_choice" action="ecranfinpartie" method="post" >
-            Voulez-vous recommencer une partie ?
+             <div class="optionredirect"> Voulez-vous recommencer une partie ? </div>
             <hr>
             <div class="optionredirect"> Avec les mêmes options? </div>
             <div class="imgcontainer">

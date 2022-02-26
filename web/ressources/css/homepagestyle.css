@@ -8,55 +8,58 @@ body {
     margin: 0;
     width: auto;
     height: auto;
-    background: linear-gradient(350deg, #4e3b0b, #8e8119, #38457a, #7d2e1c);
+    background: linear-gradient(137deg, #246655, #342f50, #765126, #4b2676);
     background-size: 800% 800%;
 
+    overflow: hidden; 
     animation: AnimationName 31s ease infinite;
 }
 
 @keyframes AnimationName {
-    0%{background-position:77% 0%}
-    50%{background-position:24% 100%}
-    100%{background-position:77% 0%}
-
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
 }
-
 
 h1{
     color: #ccccff;
     text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
     text-align: center;
-    font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-top: 0;
+    font-size: 53px;
+    font-family: Geneva;;
+    top:0px;
 }
 
 .displayansw{
     color: #ccccff;
+    
     text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
     text-align: center;
     font-size: 29px;
     font-weight: lighter;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Geneva;
     padding-top: 0;
     display: none;
 }
-.imagescotn{
-    display: inline-block;
+
+imagescont{
+    top:0;
 }
 .imgcontainer img {
     
     width:  90px;
-    height: 90px;
+    height: 85px;
     object-fit: cover;
     
 }​
 .imgA,.textlegendA{
     float: left;
     color: #ccccff;
-    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,0.4458158263305322) 0%, rgba(78,153,124,0.48783263305322133) 16%, rgba(135,103,34,0.4430147058823529) 100%);
+    font-family: Geneva;
     text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
-    font-size: 27px;
+    font-size: 29px;
     font-weight: bold;
     margin-left: 10px;
 }
@@ -64,9 +67,10 @@ h1{
 .imgB,.textlegendB{
     float: right;
     color: #ccccff;
-    font-family: Arial, Helvetica, sans-serif;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,0.4458158263305322) 0%, rgba(78,153,124,0.48783263305322133) 16%, rgba(135,103,34,0.4430147058823529) 100%);font-family: Geneva;
     text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
-    font-size: 27px;
+    font-size: 29px;
     font-weight: bold;
     margin-right: 10px;
 }
@@ -76,10 +80,16 @@ h1{
     height: 100px;
 }
 
+.imagebackground{
+   border-radius: 25px; 
+   width: 600px;
+   height: 250px;
+}
+
 .center{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 65%;
     
 }
