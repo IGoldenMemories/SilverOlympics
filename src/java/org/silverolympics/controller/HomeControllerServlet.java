@@ -9,9 +9,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 
 
@@ -50,34 +53,49 @@ public class HomeControllerServlet extends HttpServlet {
             List<Integer> used_questions = new ArrayList<>();
             session.setAttribute("used_questions",used_questions);
         }
-        //Retrieves the chosen themes
-        String atheme = getServletContext().getInitParameter("Atheme");
-        String btheme = getServletContext().getInitParameter("Btheme");
-        String ctheme = getServletContext().getInitParameter("Ctheme");
-        String dtheme = getServletContext().getInitParameter("Dtheme");
-        String etheme = getServletContext().getInitParameter("Etheme");
-        String ftheme = getServletContext().getInitParameter("Ftheme");
+        try (InputStream input = new FileInputStream("ressources/config/config.properties")) {
+
+            Properties prop = new Properties();
+
+            // load a properties file
+            prop.load(input);
+
+            // get the possible themes property value 
+            String atheme =prop.getProperty("Atheme");
+            String btheme =prop.getProperty("Btheme");
+            String ctheme =prop.getProperty("Ctheme");
+            String dtheme =prop.getProperty("Dtheme");
+            String etheme =prop.getProperty("Etheme");
+            String ftheme =prop.getProperty("Ftheme");
+            
+            //Setting up the different possible themes (defined in the deployement descriptor (web.xml))
+            if(atheme != null){
+                session.setAttribute("AthemeMapping", atheme);
+            }
+            if(btheme != null){
+                session.setAttribute("BthemeMapping", btheme);
+            }
+            if(ctheme != null){
+                session.setAttribute("CthemeMapping", ctheme);
+            }
+            if(dtheme != null){
+                session.setAttribute("DthemeMapping", dtheme);
+            }
+            if(etheme != null){
+                session.setAttribute("EthemeMapping", etheme);
+            }
+            if(ftheme != null){
+                session.setAttribute("FthemeMapping", ftheme);
+            }
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+            
+        } 
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
         
-        //Setting up the different possible themes (defined in the deployement descriptor (web.xml))
-        if(atheme != null){
-            session.setAttribute("AthemeMapping", atheme);
-        }
-        if(btheme != null){
-            session.setAttribute("BthemeMapping", btheme);
-        }
-        if(ctheme != null){
-            session.setAttribute("CthemeMapping", ctheme);
-        }
-        if(dtheme != null){
-            session.setAttribute("DthemeMapping", dtheme);
-        }
-        if(etheme != null){
-            session.setAttribute("EthemeMapping", etheme);
-        }
-        if(ftheme != null){
-            session.setAttribute("FthemeMapping", ftheme);
-        }
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        
+        
 
        
     }
