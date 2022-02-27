@@ -33,7 +33,6 @@
 		alert(content);
                 
                 document.getElementById('chosenanswer').innerHTML =content;
-               
                 
                 
                 //New game asked

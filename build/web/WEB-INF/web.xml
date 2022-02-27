@@ -3,7 +3,30 @@
     <context-param>
         <param-name>NombreQuestions</param-name>
         <param-value>5</param-value>
-        
+    </context-param>
+    <context-param>
+        <param-name>ATheme</param-name>
+        <param-value>random</param-value>
+    </context-param>
+    <context-param>
+        <param-name>BTheme</param-name>
+        <param-value>history</param-value>
+    </context-param>
+    <context-param>
+        <param-name>CTheme</param-name>
+        <param-value>sciences</param-value>
+    </context-param>
+    <context-param>
+        <param-name>DTheme</param-name>
+        <param-value>geo</param-value>
+    </context-param>
+    <context-param>
+        <param-name>ETheme</param-name>
+        <param-value>sport</param-value>
+    </context-param>
+    <context-param>
+        <param-name>FTheme</param-name>
+        <param-value>language</param-value>
     </context-param>
     <servlet>
         <servlet-name>HomeControllerServlet</servlet-name>

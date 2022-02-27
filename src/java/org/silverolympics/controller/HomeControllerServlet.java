@@ -50,8 +50,33 @@ public class HomeControllerServlet extends HttpServlet {
             List<Integer> used_questions = new ArrayList<>();
             session.setAttribute("used_questions",used_questions);
         }
+        //Retrieves the chosen themes
+        String atheme = getServletContext().getInitParameter("Atheme");
+        String btheme = getServletContext().getInitParameter("Btheme");
+        String ctheme = getServletContext().getInitParameter("Ctheme");
+        String dtheme = getServletContext().getInitParameter("Dtheme");
+        String etheme = getServletContext().getInitParameter("Etheme");
+        String ftheme = getServletContext().getInitParameter("Ftheme");
         
-        
+        //Setting up the different possible themes (defined in the deployement descriptor (web.xml))
+        if(atheme != null){
+            session.setAttribute("AthemeMapping", atheme);
+        }
+        if(btheme != null){
+            session.setAttribute("BthemeMapping", btheme);
+        }
+        if(ctheme != null){
+            session.setAttribute("CthemeMapping", ctheme);
+        }
+        if(dtheme != null){
+            session.setAttribute("DthemeMapping", dtheme);
+        }
+        if(etheme != null){
+            session.setAttribute("EthemeMapping", etheme);
+        }
+        if(ftheme != null){
+            session.setAttribute("FthemeMapping", ftheme);
+        }
         request.getRequestDispatcher("index.jsp").forward(request, response);
 
        

@@ -27,7 +27,8 @@
 		//alert(content);
                 
                 document.getElementById('chosenanswer').innerHTML =content;
-    
+                var atheme = '${AthemeMapping}';
+                
                 //History was chosen
                 if (content!==null && content === "history"){
                     document.getElementById('choice').style.display = "block";
@@ -144,11 +145,12 @@
                     
                 }
                 
-                if(content!==null && content=== "random"){
+                if(atheme!==null && content!==null && content=== "A"){
                     document.getElementById('choice').style.display = "block";
-                    document.getElementById('givenanswer').value ="random";
+                    document.getElementById('givenanswer').value =atheme;
                         
-                    //play audio with out html audio tag
+                    //play audio without html audio tag
+                    //REPLACE THE AUDIO FILE IF YOU DECIDE TO CHANGE THE THEME CORRESPONDING TO THE A QR CODE
                     var audioSuccess = new Audio('ressources/audio/randomtheme.mp3');
                     audioSuccess.play();
                     var delaytolaunchmsg = 4000;//4seconds
