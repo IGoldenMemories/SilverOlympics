@@ -17,7 +17,7 @@
     <body>
         
         <video id="preview" class="webcam_output"></video>
-        <div class="displayansw" id="choice"> Vous avez sélectionné : <div  id="chosenanswer"></div></div>
+        
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
         <script type="text/javascript">
             var hideVideo = document.getElementsByClassName("webcam_output")[0];
@@ -213,41 +213,48 @@
 		//alert(e);
                 });
         </script> 
+        <div class="titreoption" >Options de la partie: </div>
         <div class="options">
-            <div class="titreoption" >Options de la partie: </div>
+            
            
             <form method="post" action="jeusolooptions">
+                
                 <div class="titrechoix"> Sélectionnez les thèmes des questions de la partie: </div> 
                 <br>
                 
-                <select name="themes" size=5 multiple>
-                    <option class="history" name="history_button" value ="Histoire">Histoire</option>
-                    <option class="sport" name="sport_button" value="Sport">Sport</option>
-                    <option class="sciences" name="sciences_button" value ="Nature">Nature</option>  
-                    <option class="geo" name="geo_button" value="Geographie">Géographie</option> 
-                    <option class="language" name="language_button" value="Litterature">Littérature</option>  
-                </select>
-                <br>
-                <br>
+                <div class="img_container">
+                    <img src="ressources/img/signB.png" alt="signB" class="img_item">   
+                    
+                    <img src="ressources/img/signC.png" alt="signC" class="img_item">   
+                    
+                    <img src="ressources/img/signD.png" alt="signD" class="img_item">   
+                    
+                    <img src="ressources/img/signE.png" alt="signE" class="img_item">   
+                    
+                    <img src="ressources/img/signF.png" alt="signF" class="img_item">   
+                    
+                </div>
+                <div class="img_container"> 
+                    <div class="titreopt"> ${BthemeMapping} </div> 
+                    <div class="titreopt"> ${CthemeMapping} </div> 
+                    <div class="titreopt"> ${DthemeMapping} </div> 
+                    <div class="titreopt"> ${EthemeMapping} </div> 
+                    <div class="titreopt"> ${FthemeMapping} </div> 
+                    
+                </div>
                 <hr>
-                <div class="titrechoix">Ou</div> 
-                <hr>
+                <br>
                 <div class="titrechoix">  Choisissez d'avoir des questions de thèmes aléatoires: </div>
-                <br>
                 <div class="random">
                     <img src="ressources/img/signA.png" alt="signA">   
                 </div>
                 <div class="titrechoix"> ${AthemeMapping} </div>
 
             </form>
-            <form name="end_of_screen" action="jeusolooptions" method="post"  >
+            
+        </div>
+                <form name="end_of_screen" action="jeusolooptions" method="post"  >
                 <input type="hidden" id ="givenanswer" name="result"  />
             </form>
-        </div>
-        
-    
-    
-        
-        
-    </body>
+  </body>
 </html>
