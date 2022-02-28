@@ -115,6 +115,7 @@
 		//alert(e);
                 });
         </script> 
+        ${AthemeMapping}
         <form name="end_of_screen" action="acceuil" method="post"  >
             <input type="hidden" id ="givenanswer" name="result"  />
             

@@ -28,7 +28,7 @@ public class Questionselector {
         Question chosen_question = new Question();
         
         List<String> q1 = asList("Qui a dit : « Le sort en est jeté » (Alea jacta est) ?","Vercingétorix","Attila","Auguste","César","D","history");
-        List<String> q2 = asList("À qui doit-on la chanson « I Shot the Sheriff » ?","Bob Marley","Eric Clapton","UB40","Jim Morrison","A","aleatoire");
+        List<String> q2 = asList("À qui doit-on la chanson « I Shot the Sheriff » ?","Bob Marley","Eric Clapton","UB40","Jim Morrison","A","Aleatoire");
         List<String> q3 = asList("Dans quelle ville italienne l’action de la pièce de Shakespeare « Roméo et Juliette » se situe-t-elle ?","Vérone","Venise","Rome","Milan","A","language");
         List<String> q4 = asList("Par quel mot désigne-t-on une belle-mère cruelle ?","Une jocrisse","Une chenapan","Une marâtre","Une godiche","C","language");
         List<String> q5 = asList("Qui était le dieu de la guerre dans la mythologie grecque ?","Hadès","Arès","Hermès","Apollon","B","history");
@@ -41,7 +41,7 @@ public class Questionselector {
         List<String> q12 = asList("Dans quel pays peut-on trouver le mont Elbrouz ?","La Russie","L'Azerbaïdjan","La Géorgie","L'Iran","A","geo");
         List<String> q13 = asList("On écrit des…","choux-fleur","choux-fleurs","chou-fleur","chou-fleurs","B","language");
         List<String> q14 = asList("Quel animal peut être marteau, tigre ou pèlerin ?","La baleine","L'orque","Le moustique","Le requin","D","sciences");
-        List<String> q15 = asList("Parmi les marques de voiture suivantes, laquelle n’est pas allemande ?","Ford","Audi","Volkswagen","Mercedes","A","aleatoire");
+        List<String> q15 = asList("Parmi les marques de voiture suivantes, laquelle n’est pas allemande ?","Ford","Audi","Volkswagen","Mercedes","A","Aleatoire");
         List<String> q16 = asList("Parmi les animaux suivants, lequel est le plus rapide ?","Le faucon pélerin","Le canard colvert","Le moineau","Le pigeon","A","sciences");
         List<String> q17 = asList("Parmi les termes suivants, lequel est féminin ?","Entête","Equivoque","Entracte","Emblème","B","language");
         List<String> q18 = asList("De quel pays Recep Tayyip Erdogan est le dirigeant (depuis 2003)…","de la Turquie","de l'Iran","du Pakistan","de l'Egypte","A","geo");
@@ -56,7 +56,7 @@ public class Questionselector {
         List<String> q27 = asList("Quel est le revêtement d’un terrain de curling ?","De l'herbe", "De la glace", "De l'eau", "Du sable","B","sport");
         List<String> q28 = asList("On dit qu'un cheval...","rugit","hurle","blatère","hennit","D","sciences");
         List<String> q29 = asList("Où se situe l'Oural?","En Ukraine","Au Kazakhstan","En Turquie","En Russie","D","geo");
-        List<String> q30 = asList("Que collectionne un philatéliste?","Des badges", "Des timbres", "Des papillons","Des pièces de monnaie","B","aleatoire");
+        List<String> q30 = asList("Que collectionne un philatéliste?","Des badges", "Des timbres", "Des papillons","Des pièces de monnaie","B","Aleatoire");
         
         List<String> q31 = asList("Quel est le plus petit état du monde?","Monaco","Saint-Martin","Le Vatican","Andorre","C","geo");
         List<String> q32 = asList("Quelle est la femelle du cochon ?","La gorette","La trouille","La cochonne","La truie","D","sciences");
@@ -136,9 +136,9 @@ public class Questionselector {
         
         
         
-        boolean random = chosenthemes.equals("random");
+        boolean random = chosenthemes.equals("Aleatoire");
         boolean noquestfound = true;
-        //If no particular theme was chosen (if aleatoire was chosen)
+        //If no particular theme was chosen (if Aleatoire was chosen)
         if(random){
             //Carries on searching while no unasked question has been found
             while(noquestfound){

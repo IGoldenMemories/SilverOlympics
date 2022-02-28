@@ -27,8 +27,7 @@
 		//alert(content);
                 
                 document.getElementById('chosenanswer').innerHTML =content;
-                var atheme = '${AthemeMapping}';
-                
+                atheme = '${AthemeMapping}';
                 //History was chosen
                 if (content!==null && content === "history"){
                     document.getElementById('choice').style.display = "block";
@@ -124,7 +123,7 @@
                 //Geo was chosen
                 if (content!==null && content === "geo"){
                     document.getElementById('choice').style.display = "block";
-                    document.getElementById('givenanswer').value =content;
+                    document.getElementById('givenanswer').value ='Aleatoire';
                     //play audio with out html audio tag
                     var audioSuccess = new Audio('ressources/audio/geotheme.mp3');
                     audioSuccess.play();
@@ -133,7 +132,7 @@
                             var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
                             audioSuccess.play();
                     
-                            var delayInMilliseconds = 8000; //8 seconds
+                            var delayInMilliseconds = 7000; //8 seconds
                     
                             setTimeout(function() {
                                 document.end_of_screen.submit();
@@ -144,15 +143,16 @@
                     
                     
                 }
-                
+               
                 if(atheme!==null && content!==null && content=== "A"){
                     document.getElementById('choice').style.display = "block";
-                    document.getElementById('givenanswer').value =atheme;
+                    document.getElementById('givenanswer').value ='Aleatoire';
                         
                     //play audio without html audio tag
                     //REPLACE THE AUDIO FILE IF YOU DECIDE TO CHANGE THE THEME CORRESPONDING TO THE A QR CODE
                     var audioSuccess = new Audio('ressources/audio/randomtheme.mp3');
                     audioSuccess.play();
+                    alert(atheme); 
                     var delaytolaunchmsg = 4000;//4seconds
                     setTimeout(function() {
                             var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
@@ -226,6 +226,7 @@
                 <div class="titrechoix">  Choisissez d'avoir des questions de thèmes aléatoires: </div>
                 <br>
                 <input type="submit" class="random"  name="random_button" value="Aléatoire"> 
+                <div class="randomtheme"> ${AthemeMapping} </div>
 
             </form>
             <form name="end_of_screen" action="jeusolooptions" method="post"  >
