@@ -79,6 +79,38 @@ public class Questionselector {
         List<String> q48 = asList("On dit qu'un cheval...","rugit","hurle","blatère","hennit","D","Sciences");
         List<String> q49 = asList("Qui a déclare en 1944 : « Paris outragé, Paris brisé, Paris martyrisé, mais Paris libéré ! » ?","François Mitterrand","Charles de Gaulle","Philippe Leclerc","Winston Churchill","B","Histoire");
         List<String> q50 = asList("Quelle est la capitale du Maroc ?","Rabat", "Marrakech", "Casablanca","Tanger","A","Geo");
+        List<String> q51 = asList("À quelle hauteur se situe les paniers de basket ?","2m95", "3m05", "3m15","3m25","B","Sport");
+        List<String> q52 = asList("Contre qui a combattu Mohamed Ali lors du « combat du siècle » à Kinshasa ?","Michael Moorer", "Henry Cooper", "Joe Frazier","George Foreman","D","Sport");
+        List<String> q53 = asList("Quelle est la différence entre un canoë et un kayak ?","La position du rameur", "La forme de la jupe", "La taille de la pagaie","Le nombre de rameurs","A","Sport");
+        List<String> q54 = asList("À l’origine, en quelle matière étaient faites les balles de golf ?","En bois", "En cuir", "En plâtre","En terre ","B","Sport");
+        List<String> q55 = asList("À quel pays actuel correspond l’Empire ottoman ?","À la Turquie", "À l'Ukraine", "À l'Inde","À l'iran","A","Histoire");
+        List<String> q56 = asList("À quel écrivain doit-on la « Divine Comédie » ?","Petrarque", "Dante", "Umberto eco","Boccace","B","Litterature");
+        List<String> q57 = asList("Quel écrivain britannique a inventé le personnage d’Hercule Poirot ?","Enid Blyton", "Charles Dickens", "Arthur Conan Doyle","Agatha Christie","D","Litterature");
+        List<String> q58 = asList("Que signifie charivari ?","Discours insensé", "Histoire drôle/plaisanterie", "Grand bruit/tumulte","Grand buffet","C","Litterature");
+        List<String> q59 = asList("Quel roi était surnommé le « Roi-Soleil » ?","Louis XIII", "Louis XIV", "Louis XV","Philippe le Bel","B","Histoire");
+        List<String> q60 = asList("Quelle théorie doit-on à Isaac Newton ?","La théorie de la gravitation universelle", "La théorie de l'évolution des espèces", "La théorie atomique","La théorie des cordes","A","Sciences");
+        List<String> q61 = asList("Parmi les villes suivantes, laquelle est à la fois en Asie et en Europe ?","Alexandrie", "Rhodes", "Moscou","Istanbul","D","Geo");
+        List<String> q62 = asList("Avec la laine de quel animal fait-on du cachemire ?","Du mouton", "Du vison", "Du lapin","De la chèvre","D","Sciences");
+        List<String> q63 = asList("Où se situe La Valette ?","À Malte", "En Espagne", "En France","En Toscane","A","Geo");
+        List<String> q64 = asList("Quel a été le premier mammifère cloné ?","Un singe", "Un chat", "Une brebis","Un rat","C","Sciences");
+        List<String> q65 = asList("Quel est le nom usuel des chiroptères ?","Les chauve-souris", "Les araignées", "Les limaces","Les hippopotames","A","Sciences");
+        List<String> q66 = asList("Quel port du sud de la France a été fondé par les Grecs ?","Bordeaux", "Marseille", "Toulon","Sète","B","Histoire");
+        List<String> q67 = asList("Quel animal est issu du croisement d’un tigre et d’une lionne ?","Un lionceau", "Un tigre", "Un liard","Un tigron","D","Sciences");
+        List<String> q68 = asList("Où se trouve l’Etna ?","Au Péloponnèse", "Dans le latium", "En sicile","En calabre","C","Geo");
+        List<String> q69 = asList("En solfège, comment appelle-t-on le silence qui dure un temps ?","Une pause", "Un silence", "Un soupir","Un souffle","C","Aleatoire");
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         Map<Integer,List<String>> filledmap = new HashMap<>();
@@ -133,6 +165,25 @@ public class Questionselector {
         filledmap.put(48,q48);
         filledmap.put(49,q49);
         filledmap.put(50,q50);
+        filledmap.put(51,q51);
+        filledmap.put(52,q52);
+        filledmap.put(53,q53);
+        filledmap.put(54,q54);
+        filledmap.put(55,q55);
+        filledmap.put(56,q56);
+        filledmap.put(57,q57);
+        filledmap.put(58,q58);
+        filledmap.put(59,q59);
+        filledmap.put(60,q60);
+        filledmap.put(61,q61);
+        filledmap.put(62,q62);
+        filledmap.put(63,q63);
+        filledmap.put(64,q64);
+        filledmap.put(65,q65);
+        filledmap.put(66,q66);
+        filledmap.put(67,q67);
+        filledmap.put(68,q68);
+        filledmap.put(69,q69);
         
         
         
@@ -171,24 +222,24 @@ public class Questionselector {
                 }
                 else{
                     List<String> questioncomponent = new ArrayList<>();
-                        questioncomponent = filledmap.get(nbrquest);
+                    questioncomponent = filledmap.get(nbrquest);
                     
-                        chosen_question.setIdQuestion(nbrquest);
-                        String question = questioncomponent.get(0);
-                        chosen_question.setQuestion(question);
-                        String answera = questioncomponent.get(1);
-                        chosen_question.setAnswerA(answera);
-                        String answerb = questioncomponent.get(2);
-                        chosen_question.setAnswerB(answerb);
-                        String answerc = questioncomponent.get(3);
-                        chosen_question.setAnswerC(answerc);
-                        String answerd = questioncomponent.get(4);
-                        chosen_question.setAnswerD(answerd);
-                        String right_answer = questioncomponent.get(5);
-                        chosen_question.setCorrectAnswer(right_answer);
-                        String theme = questioncomponent.get(6);
-                        chosen_question.setTheme(theme);
-                        noquestfound = false;
+                    chosen_question.setIdQuestion(nbrquest);
+                    String question = questioncomponent.get(0);
+                    chosen_question.setQuestion(question);
+                    String answera = questioncomponent.get(1);
+                    chosen_question.setAnswerA(answera);
+                    String answerb = questioncomponent.get(2);
+                    chosen_question.setAnswerB(answerb);
+                    String answerc = questioncomponent.get(3);
+                    chosen_question.setAnswerC(answerc);
+                    String answerd = questioncomponent.get(4);
+                    chosen_question.setAnswerD(answerd);
+                    String right_answer = questioncomponent.get(5);
+                    chosen_question.setCorrectAnswer(right_answer);
+                    String theme = questioncomponent.get(6);
+                    chosen_question.setTheme(theme);
+                    noquestfound = false;
                     
                 }
             
