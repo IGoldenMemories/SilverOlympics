@@ -119,33 +119,14 @@ select option{
     
 }
 
-
+img{
+    display: block;  
+    
+    border-radius: 8px;
+    width: 90px;
+}
 .titrechoix{
     color: #660066;
     font-weight: bold;
     font-size: 27px;
-}
-
-.random{
-    background: url('https://cdn.shopify.com/s/files/1/0890/1750/collections/8cf9685cadc93764fcdb4def394ee54e_870x_99b69cee-2a40-46ff-83ee-fc464c41fc06_450x.png?v=1634157176') no-repeat;
-    background-size: cover;
-    
-    padding: 40px 20px;
-    font-size: 24px;
-    color: #fff3e6;
-    text-shadow: 4px 4px 4px black;
-    font-weight: bold;
-    cursor: pointer;
-    
-}
-
-.gamelaunchbutton{
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer; 
-    bottom: 0px;
 }

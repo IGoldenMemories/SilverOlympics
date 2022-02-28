@@ -19,7 +19,9 @@
         <div class="scoreblock"> Score: <div id="current_score"> ${score} </div> </div>
         
         <center>
-            <video id="preview" class="webcam_output"></video>
+            <div class="webcamcontainer">
+                <video id="preview" class="webcam_output"></video>
+            </div>
         </center>
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
         <script type="text/javascript">

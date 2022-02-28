@@ -19,7 +19,10 @@ body{
     100%{background-position:0% 50%}
 }
 
-
+.webcontainer{
+    border-radius: 25px; 
+    overflow: hidden; 
+}
 .webcam_output{
     width: 45%;
     height:50%;
@@ -27,7 +30,7 @@ body{
 .scoreblock{
     position: relative;
     float:right;
-    font-size: 30px;
+    font-size: 32px;
     color: #ffccff;
     font-family: "Lucida Console", "Courier New", monospace;
 }
@@ -35,7 +38,7 @@ body{
     color: #ccccff;
     text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
     text-align: center;
-    font-size: 30px;
+    font-size: 37px;
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 25px;
     float: left;
@@ -45,7 +48,7 @@ body{
 .question{
     float:left;
     position: absolute;
-    font-size: 28px;
+    font-size: 36px;
     color:#e0e0d1;
     margin-bottom:50px;
     line-height: 30px;
@@ -71,7 +74,7 @@ body{
     top: 0px;
     width: 180px;
     height: 180px;
-    font-size: 19px;
+    font-size: 21px;
     
 }
 .answerB{
@@ -80,7 +83,7 @@ body{
     top: 0px;
     width: 180px;
     height: 180px;
-    font-size: 19px;
+    font-size: 21px;
 }
 .answerC{
     position: absolute;
@@ -88,7 +91,7 @@ body{
     top: 0px;
     width: 180px;
     height: 180px;
-    font-size: 19px;
+    font-size: 21px;
 }
 
 .answerD{
@@ -97,5 +100,5 @@ body{
     top: 0px;
     width: 180px;
     height: 180px;
-    font-size: 19px;
+    font-size: 21px;
 }

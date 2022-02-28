@@ -8,7 +8,26 @@
         <param-name>ATheme</param-name>
         <param-value>Aleatoire</param-value>
     </context-param>
-    
+    <context-param>
+        <param-name>BTheme</param-name>
+        <param-value>Histoire</param-value>
+    </context-param>
+    <context-param>
+        <param-name>CTheme</param-name>
+        <param-value>Sciences</param-value>
+    </context-param>
+    <context-param>
+        <param-name>DTheme</param-name>
+        <param-value>Geo</param-value>
+    </context-param>
+    <context-param>
+        <param-name>ETheme</param-name>
+        <param-value>Sport</param-value>
+    </context-param>
+    <context-param>
+        <param-name>FTheme</param-name>
+        <param-value>Litterature</param-value>
+    </context-param>
     <servlet>
         <servlet-name>HomeControllerServlet</servlet-name>
         <servlet-class>org.silverolympics.controller.HomeControllerServlet</servlet-class>

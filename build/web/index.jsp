@@ -20,8 +20,9 @@
 
     </head>
     <body>
-        <h1>Bienvenue sur Silver Olympics </h1>
-            
+        <div class="title">
+            <h1>Bienvenue sur Silver Olympics </h1>
+        </div>
         <video id="preview" class="webcam_output"></video>
         <div class="displayansw" id="choice"> Vous avez sélectionné : <div  id="chosenanswer"></div></div>
         <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
