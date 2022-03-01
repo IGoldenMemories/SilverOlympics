@@ -73,7 +73,7 @@ public class SoloGameControllerServlet extends HttpServlet {
                 //Assert score not null
                 assert game_score >=0:"Game score value issue";
                 session.setAttribute("score", game_score);
-                RequestDispatcher rd=request.getRequestDispatcher("/endscreen.jsp");  
+                RequestDispatcher rd=request.getRequestDispatcher("/scorescreen.jsp");  
                 rd.forward(request, response);  
             }
             else{
@@ -127,7 +127,7 @@ public class SoloGameControllerServlet extends HttpServlet {
                 //Assert score not negative/null
                 assert game_score >=0:"Game score value issue";
                 session.setAttribute("score", game_score);
-                RequestDispatcher rd=request.getRequestDispatcher("/endscreen.jsp");  
+                RequestDispatcher rd=request.getRequestDispatcher("/scorescreen.jsp");  
                 rd.forward(request, response);  
 
                 }

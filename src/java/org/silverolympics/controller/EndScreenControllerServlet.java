@@ -37,12 +37,7 @@ public class EndScreenControllerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //-currentscore attribute (before the game)
-        //-score attribute(which will be updated and asserted in SoloGameController >= currentscore)
-        //int game_score = (int) request.getAttribute("score");
-        //UserAccount current_user = (UserAccount) request.getAttribute(UserAccount);
-        //int current_score = current_user.getScore();
-        // assert current_score <= current_score + game_score;
+       
         RequestDispatcher dispatcher //
 				= this.getServletContext().getRequestDispatcher("/endscreen.jsp");
         
