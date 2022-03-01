@@ -28,22 +28,21 @@
                 
                 
                 if(content!==null && content==="A"){
-                    audioSuccess.pause();
+                    
                     document.getElementById("givenanswer").value = "A";
                     var audioSuccess = new Audio('ressources/audio/ChoixAendscreen.mp3');
-                        audioSuccess.play();
+                    audioSuccess.play();
                         
-                        var delayInMilliseconds = 7000; //7 seconds
+                    var delayInMilliseconds = 7000; //7 seconds
 
-                        setTimeout(function() {
-                            
-                            document.next_screen_choice.submit();
-                            }, delayInMilliseconds);
-                        }
+                    setTimeout(function() {
+                        document.next_screen_choice.submit();
+                    }, delayInMilliseconds);
                 }
+                
                 else{
                     if(content!==null && content==="B"){
-                        audioSuccess.pause();
+                        
                         document.getElementById("givenanswer").value = "B";
                         var audioSuccess = new Audio('ressources/audio/ChoixBendscreen.mp3');
                         audioSuccess.play();
@@ -53,12 +52,12 @@
                         setTimeout(function() {
                             
                             document.next_screen_choice.submit();
-                            }, delayInMilliseconds);
-                        }
+                        }, delayInMilliseconds);
                     }
-                    else{
-                        if(content!==null && content==="C"){
-                            audioSuccess.pause();
+                    
+                    
+                    if(content!==null && content==="C"){
+                            
                             document.getElementById("givenanswer").value = "C";
                             //play audio with out html audio tag
                         var audioSuccess = new Audio('ressources/audio/ChoixCendscreen.mp3');
@@ -71,7 +70,8 @@
                             document.next_screen_choice.submit();
                             }, delayInMilliseconds);
                         }
-                        else{
+                    else{
+                        if(content!==null){
                             alert("Essayez de montrer le qr code correspondant à A B ou C plutôt");
                         }
                     }
@@ -111,34 +111,37 @@
 		//alert(e);
                 });
         </script> 
-        <h1>Félicitation votre score est de :</h1>
-        <div class="scoredisplay"> ${score} </div>
-        <form name="next_screen_choice" action="ecranfinpartie" method="post" >
-             <div class="optionredirect"> Voulez-vous recommencer une partie ? </div>
-            <hr>
-            <div class="optionredirect"> Avec les mêmes options? </div>
-            <div class="imgcontainer">
-                <img src="ressources/img/signA.png">
-            </div>
+        
+        <div class="options">
             
-            <hr>
-            <div class="optionredirect"> Ou </div>
-            <div class="optionredirect"> Avec des options différentes ? </div>
-            <div class="imgcontainer">
-                <img src="ressources/img/signB.png">
+            <div class="titreoption" >Félicitation votre score est de :</div>
+            <div class="scoredisplay"> ${score} </div>
+            
+            <div class="titreopt"> Voulez-vous recommencer une partie ? </div>
+            <div class="optcont">
+                <div class="img_container">
+                    <div class="titreopt"> Avec les mêmes options?  </div> 
+                    <br>
+                    <img src="ressources/img/signA.png">
+                </div>
+                <div class="img_container">
+                    <div class="titreopt"> Avec des options différentes ?  </div> 
+                    <br>
+                    <img src="ressources/img/signB.png">
+                </div>  
             </div>
             <hr>
-            <div class="optionredirect"> Souhaitez vous plutôt revenir au menu principal </div>
+            
+            <div class="titreopt"> Souhaitez vous plutôt revenir au menu principal </div>
             <div class="imgcontainer">
                 <img src="ressources/img/signC.png">
             </div>
+            
+        </div>
+        <form name="next_screen_choice" action="ecranfinpartie" method="post" >
             <input type="hidden" id ="givenanswer" name="result" />
             
         </form>
-        <div id="chosenotp"> </div>
-        
-        
-        
-        
+ 
     </body>
 </html>

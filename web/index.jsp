@@ -116,22 +116,24 @@
 		//alert(e);
                 });
         </script> 
-        ${AthemeMapping}
+        
         <form name="end_of_screen" action="acceuil" method="post"  >
             <input type="hidden" id ="givenanswer" name="result"  />
             
         </form>
         <div class="imagescont">
-            <div class="imgcontainer imgA" >
+            
+            <div class="imgcont imgA" >
                 <img src="ressources/img/signA.png" alt="signA">   
             </div>
-            <div class="textlegendA">  Pour lancer une partie montrer le qr Code A! </div>
-        
-            <div class="imgcontainer imgB"> 
+            <div class="imgcont imgB"> 
                 <img src="ressources/img/signB.png" alt="signB">
             </div>
-        
-            <div class="textlegendB">  Pour accéder à la page d'aide, montrer le qr Code B! </div>
+            <div class="text">
+                <div class="textlegendA">  Pour lancer une partie montrer le qr Code A! </div>
+                <div class="textlegendB">  Pour accéder à la page d'aide, montrer le qr Code B! </div>
+            </div>
+           
         </div>
         <!--<div class="solobutton"><button> 
                 <a href="${pageContext.request.contextPath}/jeusolooptions"> Entraînement </a></button> 

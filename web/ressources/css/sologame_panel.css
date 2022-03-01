@@ -6,17 +6,23 @@
 
 body {
     text-align: center;
-    background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-    overflow: hidden; 
-}
-.options{
-    text-align: center;
-    display: inline-block;
+    
     background: linear-gradient(270deg, #a2d7ca, #d2b0df, #8567a7);
     animation: optionbackground 30s ease infinite;
     border-radius: 25px;
-    padding: 80px 200px;
+    overflow: hidden;
+    
+}
+.options{
+    padding-top: 10px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    
+    background: radial-gradient(circle, rgba(238,228,233,1) 0%, rgba(209,220,232,1) 100%);
+    width: 80%;
+    padding: 50px;
+    border-radius: 25px;
 }
 
 
@@ -34,42 +40,44 @@ body {
     
 }
 
-.optcontainer{
-    text-align: center;
-    margin-right: auto;
+.titrechoix{
     margin-left: auto;
-    background: rgb(238,228,233);
-    background: radial-gradient(circle, rgba(238,228,233,1) 0%, rgba(209,220,232,1) 100%);
-
+    margin-right: auto;
+    color: #191970;
+    font-size: 30px;
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,0.4290091036414566) 0%, rgba(124,34,34,0.4682247899159664) 50%, rgba(164,111,37,0.4009978991596639) 100%);
+    text-align: center;
+    line-height: inherit;
     border-radius: 25px;
+    font-family: Verdana;
+    font-weight: lighter;
+    text-shadow:
+    -2px -2px 0 #f0d0fb,  
+    2px -2px 0 #f0d0fb,
+    -2px 2px 0 #f0d0fb,
+    2px 2px 0 #f0d0fb;
+}
+
+.img_container{
+    display: inline-block;
+    padding-right: 65px;
     
 }
-
-.titrechoix{
-    display: inline-block;
-    color: #483D8B;
-    font-weight: bold;
-    font-size: 28px;
-    text-align: center;
-    font-family: Verdana;
-    padding-top: 15px;
-    padding-bottom: 30px;
+img{
+    width:120px;
+    height: 110px;
+    border: 5px solid #555;
 }
 .titreopt{
-    float:left;
-    font-size: 28px;
+    font-weight: bold;
+    font-size: 30px;
     color:#191970;
-    padding-top: 0px;
-    padding-left: 31px;
-    padding-right: 90px;
+   
     font-family: Verdana;
 }
-.img_container{
-    display: flex;
-    float: left;
+hr {
+    width: 90%;
+    margin: auto;
 }
-img{
-    width:125px;
-    padding-left: 30px;
-    padding-right:60px;
-}
+

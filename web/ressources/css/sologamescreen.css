@@ -46,31 +46,43 @@ body{
     float:right;
     font-size: 32px;
     color: #ffccff;
-    font-family: "Lucida Console", "Courier New", monospace;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+    font-family: Verdana;
 }
 
 .question{
     float:left;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
     position: absolute;
-    font-size: 36px;
+    font-size: 30px;
     color:#e0e0d1;
-    margin-bottom:50px;
+    padding-bottom: 30px;
     line-height: 30px;
+    font-family: Verdana;
+}
+hr{
+    width: 95%;
+    
 }
 
 /* Clear floats after the columns */
 .answercontainer {
-  position: relative;
-  text-align: center;
+    position: relative;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 2px;
 }
 
 /* Create four equal columns that floats next to each other */
 .answers {
-    background: rgb(236,211,223);
+    background: rgb(250,205,215);
+    background: linear-gradient(174deg, rgba(250,205,215,0.5606617647058824) 0%, rgba(193,241,240,0.5914740896358543) 79%, rgba(233,255,215,0.43461134453781514) 100%);
   
 }
 .answers h2{
     font-size: 30px;
+    
+    
 }
 .answerA{
     position: absolute;
@@ -78,8 +90,8 @@ body{
     top: 0px;
     width: 180px;
     height: 180px;
-    font-size: 21px;
-    
+    font-size: 23px;
+    font-family: Verdana;
 }
 .answerB{
     position: absolute;
@@ -87,7 +99,8 @@ body{
     top: 0px;
     width: 180px;
     height: 180px;
-    font-size: 21px;
+    font-size: 23px;
+    font-family: Verdana;
 }
 .answerC{
     position: absolute;
@@ -95,7 +108,8 @@ body{
     top: 0px;
     width: 180px;
     height: 180px;
-    font-size: 21px;
+    font-size: 23px;
+    font-family: Verdana;
 }
 
 .answerD{
@@ -104,5 +118,6 @@ body{
     top: 0px;
     width: 180px;
     height: 180px;
-    font-size: 21px;
+    font-size: 23px;
+    font-family: Verdana;
 }

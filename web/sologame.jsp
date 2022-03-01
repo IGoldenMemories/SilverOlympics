@@ -262,11 +262,8 @@
             <input type="hidden" id ="givenanswer" name="result"  />
             
         </form>
-         
         
-        <div> correct answer : ${correctAnswer}</div>
-        
-        <div class="question"> Question  ${question_number} : ${question} </div> 
+        <div class="question"> Question  ${question_number} : ${question} <br /></div> 
         <br>
         <hr>
         <div class="answercontainer">

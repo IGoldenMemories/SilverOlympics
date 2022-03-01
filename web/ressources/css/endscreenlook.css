@@ -17,37 +17,59 @@ body {
     100%{background-position:0% 50%}
 }
 
-
-h1{
-    top: 0px;
-    color: #ccccff;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+.options{
+    padding-top: 10px;
     text-align: center;
-    font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    
+    background: radial-gradient(circle, rgba(238,228,233,1) 0%, rgba(209,220,232,1) 100%);
+    width: 70%;
+    padding: 50px;
+    border-radius: 25px;
+}
+.optionredirect{
+    text-align: center;
+    font-size: 28px;
+    font-family: Verdana;
+}
+.titreoption{
+    font-weight: bold;
+    font-size: 36px;
+    color: #0f0f57;
+    padding-top: 0px;
+    font-family: Verdana;
+    
 }
 
 .scoredisplay{
     text-align: center;
     font-size: 36px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana;
+    color: #cccc00;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
     
 }
-.optionredirect{
-    text-align: center;
-    font-size: 34px;
+
+.img_container{
+    display: inline-block;
+    padding-right: 60px;
+    
 }
-.imgcontainer {
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-    width: 200px;
-    height: 120px;
+img{
+    float: left;
+    width:120px;
+    height: 110px;
+    border: 5px solid #555;
+}
+.titreopt{
+    font-weight: bold;
+    font-size: 30px;
+    color:#191970;
+    font-family: Verdana;
+}
+hr {
+    width: 90%;
+    margin: auto;
 }
 
-/* Resize images */
-.imgcontainer img {
-    width: 100%;
-    height: auto;
-}

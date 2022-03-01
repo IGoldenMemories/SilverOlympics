@@ -24,7 +24,7 @@
             hideVideo.style.display = "none";
             var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
             scanner.addListener('scan',function(content){
-		alert(content);
+		//alert(content);
                 
                 
                 atheme = '${AthemeMapping}';
@@ -44,7 +44,7 @@
                     //REPLACE THE AUDIO FILE IF YOU DECIDE TO CHANGE THE THEME CORRESPONDING TO THE A QR CODE
                     var audioSuccess = new Audio('ressources/audio/randomtheme.mp3');
                     audioSuccess.play();
-                    alert(atheme); 
+                    //alert(atheme); 
                     var delaytolaunchmsg = 4000;//4seconds
                     setTimeout(function() {
                             var audioSuccess = new Audio('ressources/audio/Gamelaunch.mp3');
@@ -65,7 +65,7 @@
                 
                 //History was chosen (with current themes settings)
                 if (btheme!==null && content!==null && content === "B"){
-                    document.getElementById('choice').style.display = "block";
+                   
                     document.getElementById('givenanswer').value = btheme;
                     //play audio with out html audio tag
                     var audioSuccess = new Audio('ressources/audio/historytheme.mp3');
@@ -88,7 +88,7 @@
                 }
                 //Sciences was chosen (with current themes settings)
                 if (ctheme!==null && content!==null && content === "C"){
-                    document.getElementById('choice').style.display = "block";
+                    
                     document.getElementById('givenanswer').value =ctheme;
                     //play audio with out html audio tag
                     var audioSuccess = new Audio('ressources/audio/sciencestheme.mp3');
@@ -111,7 +111,7 @@
                 }
                 //Geo was chosen (with current themes settings)
                 if (dtheme!==null && content!==null && content === "D"){
-                    document.getElementById('choice').style.display = "block";
+                    
                     document.getElementById('givenanswer').value =dtheme;
                     //play audio with out html audio tag
                     var audioSuccess = new Audio('ressources/audio/geotheme.mp3');
@@ -134,7 +134,7 @@
                 }
                 //Sport was chosen (with current themes settings)
                 if (etheme!==null && content!==null && content === "E"){
-                    document.getElementById('choice').style.display = "block";
+                    
                     document.getElementById('givenanswer').value =etheme;
                     //play audio with out html audio tag
                     var audioSuccess = new Audio('ressources/audio/sporttheme.mp3');
@@ -157,7 +157,7 @@
                 }
                 //Language was chosen(with current themes settings)
                 if (ftheme!==null && content!==null && content === "F"){
-                    document.getElementById('choice').style.display = "block";
+                    
                     document.getElementById('givenanswer').value =ftheme;
                     //play audio with out html audio tag
                     var audioSuccess = new Audio('ressources/audio/languagetheme.mp3');
@@ -218,43 +218,45 @@
         <div class="titreoption" >Options de la partie: </div>
         <div class="options">
             
-           
-            <div class="optcontainer">
-                
-                <div class="titrechoix"> Sélectionnez les thèmes des questions de la partie: </div> 
-                <br>
-                
+            <div class="titrechoix"> <p> Sélectionnez les thèmes des questions de la partie:</p> </div> 
+            <br>
+            <div class="themecont">
                 <div class="img_container">
                     <img src="ressources/img/signB.png" alt="signB" class="img_item">   
-                    
-                    <img src="ressources/img/signC.png" alt="signC" class="img_item">   
-                    
-                    <img src="ressources/img/signD.png" alt="signD" class="img_item">   
-                    
-                    <img src="ressources/img/signE.png" alt="signE" class="img_item">   
-                    
-                    <img src="ressources/img/signF.png" alt="signF" class="img_item">   
-                    
-                </div>
-                <div class="img_container"> 
+                    <br>
                     <div class="titreopt"> ${BthemeMapping} </div> 
+                </div>
+                <div class="img_container">
+                    <img src="ressources/img/signC.png" alt="signC" class="img_item">
+                    <br>
                     <div class="titreopt"> ${CthemeMapping} </div> 
+                </div>   
+                <div class="img_container">
+                    <img src="ressources/img/signD.png" alt="signD" class="img_item">
+                    <br>
                     <div class="titreopt"> ${DthemeMapping} </div> 
+                </div>  
+                <div class="img_container">
+                    <img src="ressources/img/signE.png" alt="signE" class="img_item">
+                    <br>
                     <div class="titreopt"> ${EthemeMapping} </div> 
+                </div> 
+                <div class="img_container">
+                    <img src="ressources/img/signF.png" alt="signF" class="img_item"> 
+                    <br>
                     <div class="titreopt"> ${FthemeMapping} </div> 
                     
                 </div>
-                <hr>
-                <br>
-                <div class="titrechoix">  Choisissez d'avoir des questions de thèmes aléatoires: </div>
-                <div class="random">
-                    <img src="ressources/img/signA.png" alt="signA">   
-                </div>
-                <div class="titrechoix"> ${AthemeMapping} </div>
-
             </div>
-            
+            <div class="titrechoix"><p>  Choisissez d'avoir des questions de thèmes aléatoires: </p></div>
+            <br>
+            <div class="random">
+                <img src="ressources/img/signA.png" alt="signA">   
+            </div>
+            <div class="titreopt"> ${AthemeMapping} </div>
+
         </div>
+    
        
   </body>
 </html>

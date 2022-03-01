@@ -21,7 +21,9 @@ body {
     100%{background-position:0% 51%}
 }
 .title{
-    background: rgba(0, 151, 19, 0.1);
+    margin: auto;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,0.4458158263305322) 0%, rgba(78,153,124,0.48783263305322133) 16%, rgba(241,183,58,0.4430147058823529) 100%);
 }
 h1{
     color: #ccccff;
@@ -34,11 +36,11 @@ h1{
 
 .displayansw{
     color: #ccccff;
-    
+    display: inline-block;
     text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
     text-align: center;
-    font-size: 29px;
-    font-weight: lighter;
+    font-size: 34px;
+    font-weight: bold;
     font-family: Geneva;
     padding-top: 0;
     display: none;
@@ -47,41 +49,58 @@ h1{
 imagescont{
     top:0;
 }
-.imgcontainer img {
+.text{
+    display: inline-block;
     
-    width:  90px;
-    height: 85px;
-    object-fit: cover;
-    
-}​
-.imgA,.textlegendA{
+}
+.textlegendA{
     float: left;
     color: #ccccff;
     background: rgb(34,193,195);
-background: linear-gradient(0deg, rgba(34,193,195,0.4458158263305322) 0%, rgba(78,153,124,0.48783263305322133) 16%, rgba(135,103,34,0.4430147058823529) 100%);
-    font-family: Geneva;
+    background: linear-gradient(0deg, rgba(34,193,195,0.4458158263305322) 0%, rgba(78,153,124,0.48783263305322133) 16%, rgba(135,103,34,0.4430147058823529) 100%);
+    font-family: Verdana;
     text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
-    font-size: 29px;
-    font-weight: bold;
     margin-left: 10px;
+    padding-right: 20px;
+    font-size: 24px; 
+    
+    font-weight: bold;
 }
-
-.imgB,.textlegendB{
-    float: right;
+.textlegendB{
+    float:right;
     color: #ccccff;
     background: rgb(34,193,195);
-    background: linear-gradient(0deg, rgba(34,193,195,0.4458158263305322) 0%, rgba(78,153,124,0.48783263305322133) 16%, rgba(135,103,34,0.4430147058823529) 100%);font-family: Geneva;
+    background: linear-gradient(0deg, rgba(34,193,195,0.4458158263305322) 0%, rgba(78,153,124,0.48783263305322133) 16%, rgba(135,103,34,0.4430147058823529) 100%);
+    font-family: Verdana;
     text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
-    font-size: 29px;
+    padding-left: 20px;
+    font-size: 24px; 
+    
     font-weight: bold;
+}
+.imgcont img{
+    width: 120px;
+}
+.imgA{
+    float: left;
+    margin-left: 10px;
+    
+    border: 5px solid #555;
+}
+
+.imgB{
+    float: right;
+    margin-left: 10px;
+    
     margin-right: 10px;
+    border: 5px solid #555;
 }
 
 
 .imagebackground{
    margin: 10px;
     width: 115px;
-    height: 115px;
+    height: 90px;
     line-height: 115px;
     text-align: center;
     
