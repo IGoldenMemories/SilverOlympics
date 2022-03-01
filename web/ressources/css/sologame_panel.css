@@ -11,7 +11,7 @@ body {
     overflow: hidden; 
 }
 .options{
-    
+    text-align: center;
     display: inline-block;
     background: linear-gradient(270deg, #a2d7ca, #d2b0df, #8567a7);
     animation: optionbackground 30s ease infinite;
@@ -34,7 +34,7 @@ body {
     
 }
 
-.options form{
+.optcontainer{
     text-align: center;
     margin-right: auto;
     margin-left: auto;

@@ -24,9 +24,9 @@
             hideVideo.style.display = "none";
             var scanner = new Instascan.Scanner({ video: document.getElementById('preview'), scanPeriod: 5, mirror: false });
             scanner.addListener('scan',function(content){
-		//alert(content);
+		alert(content);
                 
-                document.getElementById('chosenanswer').innerHTML =content;
+                
                 atheme = '${AthemeMapping}';
                 btheme = '${BthemeMapping}';
                 ctheme = '${CthemeMapping}';
@@ -38,9 +38,8 @@
                 
                 
                 if(atheme!==null && content!==null && content=== "A"){
-                    document.getElementById('choice').style.display = "block";
-                    document.getElementById('givenanswer').value =atheme;
-                        
+                    
+                    document.getElementById('givenanswer').value =atheme;   
                     //plays audio without html audio tag
                     //REPLACE THE AUDIO FILE IF YOU DECIDE TO CHANGE THE THEME CORRESPONDING TO THE A QR CODE
                     var audioSuccess = new Audio('ressources/audio/randomtheme.mp3');
@@ -213,11 +212,14 @@
 		//alert(e);
                 });
         </script> 
+        <form name="end_of_screen" action="jeusolooptions" method="post"  >
+                <input type="hidden" id ="givenanswer" name="result"  />
+        </form>
         <div class="titreoption" >Options de la partie: </div>
         <div class="options">
             
            
-            <form method="post" action="jeusolooptions">
+            <div class="optcontainer">
                 
                 <div class="titrechoix"> Sélectionnez les thèmes des questions de la partie: </div> 
                 <br>
@@ -250,11 +252,9 @@
                 </div>
                 <div class="titrechoix"> ${AthemeMapping} </div>
 
-            </form>
+            </div>
             
         </div>
-                <form name="end_of_screen" action="jeusolooptions" method="post"  >
-                <input type="hidden" id ="givenanswer" name="result"  />
-            </form>
+       
   </body>
 </html>
