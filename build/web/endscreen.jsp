@@ -114,8 +114,7 @@
         
         <div class="options">
             
-            <div class="titreoption" >Félicitation votre score est de :</div>
-            <div class="scoredisplay"> ${score} </div>
+            <div class="titreoption" >Félicitation votre score est de : ${score} </div>
             
             <div class="titreopt"> Voulez-vous recommencer une partie ? </div>
             <div class="optcont">

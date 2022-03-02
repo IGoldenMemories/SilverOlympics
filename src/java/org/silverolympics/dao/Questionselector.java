@@ -29,7 +29,7 @@ public class Questionselector {
         
         List<String> q1 = asList("Qui a dit : « Le sort en est jeté » (Alea jacta est) ?","Vercingétorix","Attila","Auguste","César","D","Histoire");
         List<String> q2 = asList("À qui doit-on la chanson « I Shot the Sheriff » ?","Bob Marley","Eric Clapton","UB40","Jim Morrison","A","Aleatoire");
-        List<String> q3 = asList("Dans quelle ville italienne l’action de la pièce de Shakespeare « Roméo et Juliette » se situe-t-elle ?","Vérone","Venise","Rome","Milan","A","Litterature");
+        List<String> q3 = asList("Dans quelle ville italienne « Roméo et Juliette » se déroule-t-il ?","Vérone","Venise","Rome","Milan","A","Litterature");
         List<String> q4 = asList("Par quel mot désigne-t-on une belle-mère cruelle ?","Une jocrisse","Une chenapan","Une marâtre","Une godiche","C","Litterature");
         List<String> q5 = asList("Qui était le dieu de la guerre dans la mythologie grecque ?","Hadès","Arès","Hermès","Apollon","B","Histoire");
         List<String> q6 = asList("Quel est l’impératif du verbe feindre à la première personne du pluriel ?","Feignons!","Feins!","Feignez!","Feindez!","A","Litterature");
@@ -65,19 +65,19 @@ public class Questionselector {
         List<String> q35 = asList("Quelle est la spécificité du portrait de Dorian Gray ?","Il veillit","C'est un monochrome","Il parle","Il change chaque jour","A","Litterature");
         List<String> q36 = asList("Quel est le plus grand État du monde ?","La Chine","Les Etats-Unis","La Russie","Le Canada","C","Geo");
         List<String> q37 = asList("Quel animal appelle-t-on aussi le « hérisson des mers » ?","L'étoile de mer", "Le crabe", "L'oursin", "L'huître","C","Sciences");
-        List<String> q38 = asList("On dit qu'un cheval...","rugit","hurle","blatère","hennit","D","Sciences");
-        List<String> q39 = asList("Qui a déclare en 1944 : « Paris outragé, Paris brisé, Paris martyrisé, mais Paris libéré ! » ?","François Mitterrand","Charles de Gaulle","Philippe Leclerc","Winston Churchill","B","Histoire");
+        List<String> q38 = asList("Quelle espèce d'oiseau pond les plus gros oeufs?","L'émeu","L'autruche","L'aigle","L'albatros","B","Sciences");
+        List<String> q39 = asList("Qui a déclare: «Paris outragé, Paris brisé, Paris martyrisé, mais Paris libéré !» ?","François Mitterrand","Charles de Gaulle","Philippe Leclerc","Winston Churchill","B","Histoire");
         List<String> q40 = asList("Quelle est la capitale du Maroc ?","Rabat", "Marrakech", "Casablanca","Tanger","A","Geo");
         
         List<String> q41 = asList("Que fait la mante après l’accouplement avec le mâle ?","Elle migre","Elle le dévore","Elle forme un nid","Elle mange un de ses petits","B","Sciences");
         List<String> q42 = asList("Quel pays surnomme-t-on « Le pays du Soleil levant » ?","La Thaïlande","La Chine","Le Japon","La Corée","C","Geo");
-        List<String> q43 = asList("Quel est l'organe respiratoire des poissons ?","Le tuba","Les poumons","Les branchies","L'estomac","C","Sciences");
+        List<String> q43 = asList("Lequel n'est pas un des 5 sens?","Le toucher","Le goût","La vue","La pensée","D","Sciences");
         List<String> q44 = asList("En quelle année Adolf Hitler accède-t-il au pouvoir en Allemagne ?","1931","1929", "1937","1933","D","Histoire");
         List<String> q45 = asList("Quelle est la spécificité du portrait de Dorian Gray ?","Il veillit","C'est un monochrome","Il parle","Il change chaque jour","A","Litterature");
         List<String> q46 = asList("Quel est le plus grand État du monde ?","La Chine","Les Etats-Unis","La Russie","Le Canada","C","Geo");
-        List<String> q47 = asList("Quel animal appelle-t-on aussi le « hérisson des mers » ?","L'étoile de mer", "Le crabe", "L'oursin", "L'huître","C","Sciences");
-        List<String> q48 = asList("On dit qu'un cheval...","rugit","hurle","blatère","hennit","D","Sciences");
-        List<String> q49 = asList("Qui a déclare en 1944 : « Paris outragé, Paris brisé, Paris martyrisé, mais Paris libéré ! » ?","François Mitterrand","Charles de Gaulle","Philippe Leclerc","Winston Churchill","B","Histoire");
+        List<String> q47 = asList("Que sont les gastropodes que l'ont trouve dans les jardins?","Des Escargots"," Des vers","Des corbeaux"," Des hérissons","A","Sciences");
+        List<String> q48 = asList("Quel élément chimique donne sa couleur rouge à la planète Mars?","Le fer","Le silicone","L'hydrogène","Le cuivre","A","Sciences");
+        List<String> q49 = asList("Quel pays a pour capitale Gaborone ?","La Tanzanie","Le Lesotho","Le Botswana","Le Zimbabwe","C","Geo");
         List<String> q50 = asList("Quelle est la capitale du Maroc ?","Rabat", "Marrakech", "Casablanca","Tanger","A","Geo");
         List<String> q51 = asList("À quelle hauteur se situe les paniers de basket ?","2m95", "3m05", "3m15","3m25","B","Sport");
         List<String> q52 = asList("Contre qui a combattu Mohamed Ali lors du « combat du siècle » à Kinshasa ?","Michael Moorer", "Henry Cooper", "Joe Frazier","George Foreman","D","Sport");

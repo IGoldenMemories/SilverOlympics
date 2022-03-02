@@ -16,7 +16,7 @@
     <body>
         <script type="text/javascript" src="ressources/js/sologamescript.js"></script>  
         <div class="displayansw" id = "resultquestion"> <div  id="chosenanswer"></div></div>
-        <div class="scoreblock"> Score: <div id="current_score"> ${score} </div> </div>
+        <div class="scoreblock"> Score:  ${score} </div>
         
         <center>
             <div class="webcamcontainer">
