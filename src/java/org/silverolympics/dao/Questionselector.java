@@ -72,13 +72,13 @@ public class Questionselector {
         List<String> q41 = asList("Que fait la mante après l’accouplement avec le mâle ?","Elle migre","Elle le dévore","Elle forme un nid","Elle mange un de ses petits","B","Sciences");
         List<String> q42 = asList("Quel pays surnomme-t-on « Le pays du Soleil levant » ?","La Thaïlande","La Chine","Le Japon","La Corée","C","Geo");
         List<String> q43 = asList("Lequel n'est pas un des 5 sens?","Le toucher","Le goût","La vue","La pensée","D","Sciences");
-        List<String> q44 = asList("En quelle année Adolf Hitler accède-t-il au pouvoir en Allemagne ?","1931","1929", "1937","1933","D","Histoire");
-        List<String> q45 = asList("Quelle est la spécificité du portrait de Dorian Gray ?","Il veillit","C'est un monochrome","Il parle","Il change chaque jour","A","Litterature");
-        List<String> q46 = asList("Quel est le plus grand État du monde ?","La Chine","Les Etats-Unis","La Russie","Le Canada","C","Geo");
+        List<String> q44 = asList("Qui est la femme d’Akhénaton?","Hatchepsout","Mérytaton", "Néfertiti","Cléopâtre VII","C","Histoire");
+        List<String> q45 = asList("Que désignent les badigoinces ?","Les lèvres","Les oreilles","Les pieds","Les yeux","A","Litterature");
+        List<String> q46 = asList("Sur quelle chaîne de montagnes l’Everest se situe-t-il ?","L'Oural","Les Alpes","Les Appalaches","L'Himalaya","D","Geo");
         List<String> q47 = asList("Que sont les gastropodes que l'ont trouve dans les jardins?","Des Escargots"," Des vers","Des corbeaux"," Des hérissons","A","Sciences");
         List<String> q48 = asList("Quel élément chimique donne sa couleur rouge à la planète Mars?","Le fer","Le silicone","L'hydrogène","Le cuivre","A","Sciences");
         List<String> q49 = asList("Quel pays a pour capitale Gaborone ?","La Tanzanie","Le Lesotho","Le Botswana","Le Zimbabwe","C","Geo");
-        List<String> q50 = asList("Quelle est la capitale du Maroc ?","Rabat", "Marrakech", "Casablanca","Tanger","A","Geo");
+        List<String> q50 = asList("Dans quel océan la Nouvelle-Zélande se trouve-t-elle ?","Atlantique", "Antarctique", "Indien","Pacifique","D","Geo");
         List<String> q51 = asList("À quelle hauteur se situe les paniers de basket ?","2m95", "3m05", "3m15","3m25","B","Sport");
         List<String> q52 = asList("Contre qui a combattu Mohamed Ali lors du « combat du siècle » à Kinshasa ?","Michael Moorer", "Henry Cooper", "Joe Frazier","George Foreman","D","Sport");
         List<String> q53 = asList("Quelle est la différence entre un canoë et un kayak ?","La position du rameur", "La forme de la jupe", "La taille de la pagaie","Le nombre de rameurs","A","Sport");
