@@ -135,10 +135,7 @@
             </div>
            
         </div>
-        <!--<div class="solobutton"><button> 
-                <a href="${pageContext.request.contextPath}/jeusolooptions"> Entraînement </a></button> 
-        </div>
-        -->
+        
         <br>
         <div class="center imagebackground" id="backimage">
            

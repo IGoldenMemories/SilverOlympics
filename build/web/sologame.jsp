@@ -190,8 +190,8 @@
                         //Given answer is D
                         if(content==="D"){
                             //Changing color of wrong given answer to red 
-                            var square_c = document.getElementById("answerCsquare");
-                            square_c.style.backgroundColor = '#800000';
+                            var square_d = document.getElementById("answerDsquare");
+                            square_d.style.backgroundColor = '#800000';
                             //Changing color of right answer to green
                             if(right_answer==="A"){
                                 var square_a = document.getElementById("answerAsquare");
@@ -211,7 +211,7 @@
                             }
                         }
                         document.getElementById("givenanswer").value = "fail";
-                        var delayInMilliseconds = 5000; //5 seconds
+                        var delayInMilliseconds = 5500; //5 seconds
 
                         setTimeout(function() {
                             document.end_of_screen.submit();

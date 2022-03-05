@@ -49,19 +49,24 @@ public class SoloGameControllerServlet extends HttpServlet {
         
         //Retrieving the current score/question number
         int game_score = (Integer)session.getAttribute("score");
-        int nbr_quest = (Integer)session.getAttribute("question_number");
+        // get the property value 
+        int maxnbrquest =Integer.parseInt(getServletContext().getInitParameter("NombreQuestions"));
+        int nbr_quest; 
         
-        nbr_quest++;
-        
-        session.setAttribute("question_number", nbr_quest);
-        
+        if(session.getAttribute("question_number") == null ){
+            nbr_quest = maxnbrquest+1;
+        }
+        else{
+            nbr_quest = (Integer)session.getAttribute("question_number");
+            nbr_quest++;
+            session.setAttribute("question_number", nbr_quest);
+        }
+
         String result_prev_quest = (String) request.getParameter("result");
         List<Integer> used_questions = new ArrayList<>();
         
         
-        // get the property value 
-        int maxnbrquest =Integer.parseInt(getServletContext().getInitParameter("NombreQuestions"));
-            
+        
         //If the previous question was correctly answered 
         if ("success".equals(result_prev_quest)){
             //update score

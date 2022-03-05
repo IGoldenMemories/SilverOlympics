@@ -63,7 +63,7 @@
                         var audioSuccess = new Audio('ressources/audio/ChoixCendscreen.mp3');
                         audioSuccess.play();
                         
-                        var delayInMilliseconds = 8000; //7 seconds
+                        var delayInMilliseconds = 10000; //7 seconds
 
                         setTimeout(function() {
                             
@@ -113,18 +113,17 @@
         </script> 
         
         <div class="options">
-            
-            <div class="titreoption" >Félicitation votre score est de : ${score} </div>
-            
-            <div class="titreopt"> Voulez-vous recommencer une partie ? </div>
+    <div class="titreoption" >Félicitation votre score est de : ${score} </div>
+    <hr>
+    <div class="titreopt"> Voulez-vous recommencer une partie ? </div>
             <div class="optcont">
                 <div class="img_container">
-                    <div class="titreopt"> Avec les mêmes options?  </div> 
+                    <div class="titreopti"> Avec les mêmes options?  </div> 
                     <br>
                     <img src="ressources/img/signA.png">
                 </div>
                 <div class="img_container">
-                    <div class="titreopt"> Avec des options différentes ?  </div> 
+                    <div class="titreopti"> Avec des options différentes ?  </div> 
                     <br>
                     <img src="ressources/img/signB.png">
                 </div>  

@@ -1,10 +1,10 @@
 
 package org.silverolympics.controller;
 
-import static com.google.gwt.user.client.Window.alert;
+
 import java.io.IOException;
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletContext;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -86,7 +86,7 @@ public class EndScreenControllerServlet extends HttpServlet {
                 else{
                     //If the user wants to go back to the homepage
                     assert choice.equals("C");
-                    RequestDispatcher rd=request.getRequestDispatcher("/homepage.jsp");  
+                    RequestDispatcher rd=request.getRequestDispatcher("/index.jsp");  
                     rd.forward(request, response); 
                     }
                  
