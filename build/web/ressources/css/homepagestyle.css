@@ -21,7 +21,7 @@ body {
     100%{background-position:0% 51%}
 }
 .title{
-    margin: auto;
+   
     background: rgb(34,193,195);
     background: linear-gradient(0deg, rgba(34,193,195,0.4458158263305322) 0%, rgba(78,153,124,0.48783263305322133) 16%, rgba(241,183,58,0.4430147058823529) 100%);
 }
@@ -63,7 +63,7 @@ imagescont{
     margin-left: 10px;
     padding-right: 20px;
     font-size: 24px; 
-    
+    border-radius: 25px;
     font-weight: bold;
 }
 .textlegendB{
@@ -76,6 +76,8 @@ imagescont{
     padding-left: 20px;
     font-size: 24px; 
     
+    border-radius: 25px;
+    
     font-weight: bold;
 }
 .imgcont img{
@@ -85,7 +87,7 @@ imagescont{
     float: left;
     margin-left: 10px;
     
-    border: 5px solid #555;
+    border: 5px solid #8ac8f4;
 }
 
 .imgB{
@@ -93,7 +95,7 @@ imagescont{
     margin-left: 10px;
     
     margin-right: 10px;
-    border: 5px solid #555;
+    border: 5px solid #f9c461;
 }
 
 

@@ -1,12 +1,14 @@
 
 package org.silverolympics.controller;
 
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -45,7 +47,19 @@ public class HelpControllerServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+        RequestDispatcher dispatcher //
+				= this.getServletContext().getRequestDispatcher("/help.jsp");
+        String choice = (String)request.getParameter("result");
+        
+        if(choice != null){
+         
+            //If A is shown, redirects to game options panel (sologameoptions.jsp)
+            
+            assert  "A".equals(choice):"Wrong submitted value for Post form in help.jsp";
+            RequestDispatcher rd=request.getRequestDispatcher("/sologameoptions.jsp");  
+            rd.forward(request, response);      
+            
+        }
     }
 
     /**

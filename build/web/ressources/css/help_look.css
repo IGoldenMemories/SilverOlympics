@@ -1,0 +1,71 @@
+
+/* 
+    Created on : 5 mars 2022, 14:03:09
+    Author     : Manon
+*/
+
+
+body {
+    position: relative;
+    margin: 0;
+    width: auto;
+    height: auto;
+    background: linear-gradient(270deg, #517068, #6f9b56, #4895a7, #a1a748);
+    background-size: 800% 800%;
+    overflow: hidden;
+    animation: AnimationName 30s ease infinite;
+}
+
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.helpredirect{
+    float: left;
+    font-size: 23px;
+    color:#333399;
+    font-weight:bold;
+    font-family: Verdana; 
+    padding-right:950px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    text-shadow: 2px 0 0 #C8C999, 0 -2px 0 #C8C999, 0 2px 0 #C8C999, -2px 0 0 #C8C999;
+    
+}
+
+.imgcont img{
+    width: 120px;
+    
+}
+.imgA{
+    float: left;
+    margin-left: 100px;
+    top: 0px;
+    border: 5px solid #C8C999;
+}
+.title{
+    font-weight:bold;
+    font-size: 42px;
+    color: #C8C999;
+    text-align: center;
+    padding-right: 80px;
+    font-family: Verdana;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+    
+    margin-left:auto;
+    
+}
+.pdfviewer{
+    border-radius: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
+    background: rgb(249,196,97);
+    background: linear-gradient(174deg, rgba(249,196,97,0.5606617647058824) 0%, rgba(138,200,244,0.5914740896358543) 79%, rgba(213,119,249,0.43461134453781514) 100%);
+    overflow: auto;
+    width: 95%;
+    height: 500px;;
+    
+}
