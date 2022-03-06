@@ -71,7 +71,7 @@
                             }, delayInMilliseconds);
                         }
                     else{
-                        if(content!==null){
+                        if(content!==null && content!=="A" && content!=="B" && content!=="C"){
                             alert("Essayez de montrer le qr code correspondant à A B ou C plutôt");
                         }
                     }

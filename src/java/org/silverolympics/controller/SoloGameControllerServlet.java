@@ -54,7 +54,14 @@ public class SoloGameControllerServlet extends HttpServlet {
         int nbr_quest; 
         
         if(session.getAttribute("question_number") == null ){
-            nbr_quest = maxnbrquest+1;
+            if(session.getAttribute("score")== null){
+                nbr_quest = 1;
+                session.setAttribute("question_number", nbr_quest);
+                game_score = 0;
+            }
+            else{
+                nbr_quest = maxnbrquest+1;
+            }
         }
         else{
             nbr_quest = (Integer)session.getAttribute("question_number");
@@ -63,8 +70,9 @@ public class SoloGameControllerServlet extends HttpServlet {
         }
 
         String result_prev_quest = (String) request.getParameter("result");
-        List<Integer> used_questions = new ArrayList<>();
         
+        List<Integer> used_questions = new ArrayList<>();
+        used_questions = (List<Integer>)session.getAttribute("used_questions");
         
         
         //If the previous question was correctly answered 
